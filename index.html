@@ -1,0 +1,1918 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CONTECH AI ACADEMY | Inteligencia Artificial para la Gestión de Proyectos de Construcción</title>
+  <meta name="description" content="Plataforma de alta especialización en Inteligencia Artificial para la Gestión de Proyectos de Construcción e Infraestructura. Adaptada pedagógicamente para profesionales de 20 a 50 años.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Tipografías de Alta Legibilidad: Inter y Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            display: ['Montserrat', 'Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            contech: {
+              navy: '#0B1120',
+              deep: '#0F172A',
+              card: '#1E293B',
+              border: '#334155',
+              orange: '#EA580C',
+              safety: '#F97316',
+              amber: '#F59E0B',
+              emerald: '#10B981',
+              concrete: '#F8FAFC',
+              mist: '#E2E8F0',
+              blue: '#2563EB'
+            }
+          },
+          boxShadow: {
+            'glow-orange': '0 0 25px -5px rgba(234, 88, 12, 0.4)',
+            'glow-blue': '0 0 25px -5px rgba(37, 99, 235, 0.35)',
+            'contech-card': '0 10px 30px -10px rgba(0, 0, 0, 0.5)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Estilos ergonómicos de accesibilidad */
+    html {
+      font-size: 16px;
+      transition: font-size 0.2s ease-in-out;
+    }
+    html.font-size-sm { font-size: 15px; }
+    html.font-size-md { font-size: 16px; }
+    html.font-size-lg { font-size: 18px; }
+    html.font-size-xl { font-size: 20px; }
+
+    /* Modo de Alto Contraste para lectura prolongada */
+    body.high-contrast {
+      background-color: #000000 !important;
+      color: #ffffff !important;
+    }
+    body.high-contrast .bg-slate-900,
+    body.high-contrast .bg-contech-deep,
+    body.high-contrast .bg-contech-card,
+    body.high-contrast .bg-white {
+      background-color: #0a0a0a !important;
+      border-color: #f97316 !important;
+      color: #ffffff !important;
+    }
+    body.high-contrast p, 
+    body.high-contrast span:not(.badge-highlight),
+    body.high-contrast li {
+      color: #f1f5f9 !important;
+    }
+    body.high-contrast input,
+    body.high-contrast select,
+    body.high-contrast textarea {
+      background-color: #121212 !important;
+      border-color: #ea580c !important;
+      color: #ffffff !important;
+    }
+
+    /* Animaciones y utilitarios */
+    .blueprint-grid {
+      background-image: 
+        linear-gradient(to right, rgba(234, 88, 12, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(234, 88, 12, 0.05) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+    .blueprint-dots {
+      background-image: radial-gradient(rgba(249, 115, 22, 0.15) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #ea580c;
+    }
+  </style>
+</head>
+<body class="bg-contech-navy text-slate-100 font-sans antialiased selection:bg-orange-600 selection:text-white">
+
+  <!-- ========================================== -->
+  <!-- BARRA DE ACCESIBILIDAD Y ERGONOMÍA SUPERIOR -->
+  <!-- ========================================== -->
+  <div class="bg-slate-950/90 border-b border-slate-800 text-xs py-1.5 px-4 sm:px-8">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center space-x-3 text-slate-400">
+        <span class="inline-flex items-center text-emerald-400 font-medium">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping mr-1.5"></span>
+          Convocatoria Abierta • Cohorte 2026
+        </span>
+        <span class="hidden md:inline text-slate-600">|</span>
+        <span class="hidden md:inline">Auditoría Técnica Continua • Certificación con Validación QR</span>
+      </div>
+
+      <!-- Controles de Accesibilidad para confort visual (audiencia 20 a 50 años) -->
+      <div class="flex items-center space-x-2 text-slate-300">
+        <span class="text-[11px] text-slate-400 hidden sm:inline">Ergonomía de Lectura:</span>
+        <div class="inline-flex rounded-md bg-slate-900 border border-slate-700 p-0.5">
+          <button onclick="setFontSize('sm')" id="btn-font-sm" class="px-2 py-0.5 rounded text-[11px] font-semibold hover:bg-slate-800 text-slate-400 hover:text-white transition" title="Letra Estándar (15px)">A-</button>
+          <button onclick="setFontSize('md')" id="btn-font-md" class="px-2 py-0.5 rounded text-[11px] font-semibold bg-orange-600 text-white transition" title="Letra Normal (16px)">A</button>
+          <button onclick="setFontSize('lg')" id="btn-font-lg" class="px-2 py-0.5 rounded text-[11px] font-semibold hover:bg-slate-800 text-slate-400 hover:text-white transition" title="Letra Cómoda (18px)">A+</button>
+          <button onclick="setFontSize('xl')" id="btn-font-xl" class="px-2 py-0.5 rounded text-[11px] font-semibold hover:bg-slate-800 text-slate-400 hover:text-white transition" title="Letra Grande (20px)">A++</button>
+        </div>
+        <button onclick="toggleHighContrast()" id="btn-contrast" class="px-2.5 py-1 rounded bg-slate-900 border border-slate-700 text-slate-300 hover:text-orange-400 hover:border-orange-500 transition text-[11px] flex items-center gap-1 font-medium" title="Alternar Modo Alto Contraste">
+          <span id="contrast-icon">🌓</span>
+          <span class="hidden sm:inline" id="contrast-text">Alto Contraste</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- BARRA DE NAVEGACIÓN PRINCIPAL (STICKY) -->
+  <!-- ========================================== -->
+  <header class="sticky top-0 z-40 bg-contech-navy/95 backdrop-blur-md border-b border-slate-800 shadow-xl transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- LOGO Y MARCA -->
+      <a href="#" class="flex items-center space-x-3 group">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-orange-500 to-orange-700 flex items-center justify-center font-bold text-2xl text-white shadow-lg shadow-orange-600/30 group-hover:scale-105 transition-transform">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+          </svg>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xl font-extrabold tracking-tight text-white font-display">CONTECH</span>
+            <span class="text-xl font-extrabold tracking-tight text-orange-500 font-display">AI ACADEMY</span>
+            <span class="text-[10px] bg-orange-600/20 text-orange-400 border border-orange-500/30 px-2 py-0.5 rounded-full font-bold uppercase tracking-wider hidden sm:inline-block">Pro 2026</span>
+          </div>
+          <span class="text-xs text-slate-400 font-medium tracking-wide block">Ingeniería, Construcción & Inteligencia Artificial</span>
+        </div>
+      </a>
+
+      <!-- ENLACES DE ESCRITORIO -->
+      <nav class="hidden lg:flex items-center space-x-7 text-sm font-medium">
+        <a href="#audiencia" class="text-slate-300 hover:text-orange-400 transition-colors py-1">Rutas por Perfil</a>
+        <a href="#modulos" class="text-slate-300 hover:text-orange-400 transition-colors py-1">Malla Curricular</a>
+        <a href="#simulador-suite" class="text-slate-300 hover:text-orange-400 transition-colors py-1 flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+          <span>Simulador en Vivo</span>
+        </a>
+        <a href="#calculadora-roi" class="text-slate-300 hover:text-orange-400 transition-colors py-1">Calculadora ROI</a>
+        <a href="#acreditacion" class="text-slate-300 hover:text-orange-400 transition-colors py-1">Estándares</a>
+      </nav>
+
+      <!-- BOTÓN CTA & MENU MÓVIL -->
+      <div class="flex items-center space-x-3">
+        <button onclick="openModal('Inscripción General')" class="hidden sm:inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white font-bold py-2.5 px-5 rounded-xl shadow-lg shadow-orange-600/25 hover:shadow-orange-600/40 transition-all text-sm group">
+          <span>Inscribirme al Programa</span>
+          <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </button>
+
+        <!-- Botón Hamburguesa Móvil -->
+        <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition" aria-label="Abrir Menú">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- DRAWER DE NAVEGACIÓN MÓVIL -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-slate-900 border-b border-slate-800 px-4 pt-3 pb-6 space-y-3">
+      <a href="#audiencia" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-orange-400 font-medium py-2">Rutas por Perfil (20 a 50 años)</a>
+      <a href="#modulos" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-orange-400 font-medium py-2">Malla Curricular (6 Módulos)</a>
+      <a href="#simulador-suite" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-orange-400 font-medium py-2">Suite de Simulación ConTech</a>
+      <a href="#calculadora-roi" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-orange-400 font-medium py-2">Calculadora de Retorno de Inversión</a>
+      <a href="#acreditacion" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-orange-400 font-medium py-2">Estándares y Avales Técnicos</a>
+      <div class="pt-2">
+        <button onclick="toggleMobileMenu(); openModal('Inscripción Móvil');" class="w-full bg-orange-600 hover:bg-orange-500 text-white font-bold py-3 rounded-xl shadow text-center">
+          Inscribirme al Programa
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- HERO SECTION DE ALTO IMPACTO & CONVERSIÓN -->
+  <!-- ========================================== -->
+  <section class="relative bg-gradient-to-b from-contech-navy via-slate-900 to-contech-deep py-20 lg:py-28 overflow-hidden blueprint-grid border-b border-slate-800">
+    <div class="absolute inset-0 bg-gradient-to-r from-orange-500/5 via-transparent to-blue-500/5 pointer-events-none"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- COLUMNA PRINCIPAL DE TEXTO & LLAMADO A LA ACCIÓN -->
+        <div class="lg:col-span-8 text-center lg:text-left">
+          
+          <!-- Badge de Contexto Superior -->
+          <div class="inline-flex items-center space-x-2 bg-slate-800/90 border border-orange-500/30 rounded-full px-4 py-1.5 mb-6 text-orange-400 text-xs sm:text-sm font-semibold tracking-wide shadow-sm">
+            <span class="w-2.5 h-2.5 rounded-full bg-orange-500 animate-pulse"></span>
+            <span>Especialización Ejecutiva ConTech • Andragogía para 20 a 50 años</span>
+          </div>
+
+          <!-- Título Principal -->
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white font-display leading-[1.15] mb-6">
+            Inteligencia Artificial para la <br class="hidden sm:inline">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500">
+              Gestión de Proyectos de Construcción
+            </span>
+          </h1>
+
+          <!-- Descripción y Propuesta de Valor -->
+          <p class="text-base sm:text-lg lg:text-xl text-slate-300 max-w-3xl leading-relaxed mb-8">
+            Pasa de la teoría a la obra real: automatiza consultas técnicas (RFIs), predice demoras en la ruta crítica con Last Planner System, audita presupuestos APU y blinda contractualmente tu bitácora bajo estándares <strong class="text-white">PMI PMBOK 7ma Ed., Lean Construction, ISO 19650 y FIDIC</strong>.
+          </p>
+
+          <!-- Doble CTA y Garantía -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-10">
+            <button onclick="openModal('Hero Principal')" class="w-full sm:w-auto bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white font-extrabold py-4 px-8 rounded-xl shadow-glow-orange hover:shadow-orange-500/50 transition-all text-base text-center inline-flex items-center justify-center space-x-2 group">
+              <span>Matricularme Ahora</span>
+              <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+              </svg>
+            </button>
+
+            <a href="#simulador-suite" class="w-full sm:w-auto bg-slate-800/90 hover:bg-slate-700 border border-slate-700 hover:border-orange-500 text-slate-200 hover:text-white font-bold py-4 px-8 rounded-xl shadow transition-all text-base text-center inline-flex items-center justify-center space-x-2">
+              <svg class="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <span>Probar Suite en Vivo</span>
+            </a>
+
+            <button onclick="openModal('Descarga Dossier')" class="w-full sm:w-auto text-slate-400 hover:text-white py-3 px-4 text-sm font-medium underline underline-offset-4 decoration-slate-600 hover:decoration-orange-500 transition">
+              Descargar Dossier Completo (PDF)
+            </button>
+          </div>
+
+          <!-- Badges de Estándares Internacionales -->
+          <div class="pt-6 border-t border-slate-800/80">
+            <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-3">Marco Metodológico y Normativo Integrado:</span>
+            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-3 text-xs">
+              <span class="bg-slate-800/80 border border-slate-700 text-slate-200 px-3 py-1.5 rounded-lg font-medium flex items-center gap-1.5">
+                <span class="text-orange-500 font-bold">✓</span> PMI PMBOK® 7ma Ed.
+              </span>
+              <span class="bg-slate-800/80 border border-slate-700 text-slate-200 px-3 py-1.5 rounded-lg font-medium flex items-center gap-1.5">
+                <span class="text-orange-500 font-bold">✓</span> Lean Construction & LPS
+              </span>
+              <span class="bg-slate-800/80 border border-slate-700 text-slate-200 px-3 py-1.5 rounded-lg font-medium flex items-center gap-1.5">
+                <span class="text-orange-500 font-bold">✓</span> ISO 19650 (BIM)
+              </span>
+              <span class="bg-slate-800/80 border border-slate-700 text-slate-200 px-3 py-1.5 rounded-lg font-medium flex items-center gap-1.5">
+                <span class="text-orange-500 font-bold">✓</span> FIDIC / NEC Contracts
+              </span>
+              <span class="bg-slate-800/80 border border-slate-700 text-slate-200 px-3 py-1.5 rounded-lg font-medium flex items-center gap-1.5">
+                <span class="text-orange-500 font-bold">✓</span> OSHA & Seguridad HSE
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TARJETA LATERAL DE IMPACTO & KPI COUNTERS -->
+        <div class="lg:col-span-4">
+          <div class="bg-gradient-to-b from-slate-800/90 to-contech-card rounded-2xl p-6 sm:p-7 border border-slate-700 shadow-2xl relative overflow-hidden backdrop-blur-md">
+            
+            <div class="absolute -top-12 -right-12 w-32 h-32 bg-orange-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+            <div class="flex items-center justify-between border-b border-slate-700 pb-4 mb-6">
+              <div>
+                <span class="text-xs font-bold text-orange-400 uppercase tracking-wider block">Indicadores ConTech</span>
+                <span class="text-sm font-semibold text-white">Impacto Medido en Obra</span>
+              </div>
+              <span class="px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 text-xs font-bold">
+                Auditado 2026
+              </span>
+            </div>
+
+            <!-- Métricas Clave Dinámicas -->
+            <div class="space-y-5">
+              
+              <div class="flex items-center space-x-4 bg-slate-900/60 p-3.5 rounded-xl border border-slate-800">
+                <div class="w-12 h-12 rounded-lg bg-orange-500/20 text-orange-400 flex items-center justify-center font-bold text-xl flex-shrink-0">
+                  ⚡
+                </div>
+                <div>
+                  <div class="text-2xl sm:text-3xl font-extrabold text-white font-display">-65%</div>
+                  <div class="text-xs text-slate-400 font-medium">Tiempo en redacción de RFIs, actas y bitácoras</div>
+                </div>
+              </div>
+
+              <div class="flex items-center space-x-4 bg-slate-900/60 p-3.5 rounded-xl border border-slate-800">
+                <div class="w-12 h-12 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold text-xl flex-shrink-0">
+                  👷
+                </div>
+                <div>
+                  <div class="text-2xl sm:text-3xl font-extrabold text-white font-display">+1,250</div>
+                  <div class="text-xs text-slate-400 font-medium">Ingenieros, arquitectos y directores certificados</div>
+                </div>
+              </div>
+
+              <div class="flex items-center space-x-4 bg-slate-900/60 p-3.5 rounded-xl border border-slate-800">
+                <div class="w-12 h-12 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xl flex-shrink-0">
+                  ⭐
+                </div>
+                <div>
+                  <div class="text-2xl sm:text-3xl font-extrabold text-white font-display">98.4%</div>
+                  <div class="text-xs text-slate-400 font-medium">Satisfacción y aplicación directa en contratos reales</div>
+                </div>
+              </div>
+
+              <div class="flex items-center space-x-4 bg-slate-900/60 p-3.5 rounded-xl border border-slate-800">
+                <div class="w-12 h-12 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-xl flex-shrink-0">
+                  🏢
+                </div>
+                <div>
+                  <div class="text-2xl sm:text-3xl font-extrabold text-white font-display">45+</div>
+                  <div class="text-xs text-slate-400 font-medium">Empresas constructoras y consultoras aliadas</div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Mini Garantía -->
+            <div class="mt-6 pt-4 border-t border-slate-700/80 text-center">
+              <span class="text-xs text-slate-400 flex items-center justify-center gap-1.5">
+                <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span>Acceso de por vida a plantillas y prompts actualizados</span>
+              </span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SELECTOR DINÁMICO DE RUTA SEGÚN EDAD Y ROL (ANDRAGOGÍA) -->
+  <!-- ============================================================ -->
+  <section id="audiencia" class="py-20 bg-slate-900 border-b border-slate-800 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-wider font-bold text-orange-400 bg-orange-950/70 border border-orange-800/60 px-3.5 py-1 rounded-full">
+          Diseño Instruccional Adaptativo
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-display mt-3 mb-4">
+          Un Enfoque Andragógico para Profesionales de 20 a 50 Años
+        </h2>
+        <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+          Un asistente junior no tiene las mismas responsabilidades que un gerente de operaciones. Selecciona tu perfil y descubre cómo se adapta la formación a tu reto diario:
+        </p>
+      </div>
+
+      <!-- BOTONES DE PESTAÑAS INTERACTIVAS -->
+      <div class="flex flex-col sm:flex-row justify-center items-stretch gap-3 mb-10 max-w-4xl mx-auto">
+        
+        <button onclick="selectAgeProfile('junior')" id="tab-junior" class="profile-tab flex-1 py-4 px-5 rounded-xl border-2 border-orange-500 bg-orange-600/10 text-white font-bold text-sm sm:text-base flex items-center justify-center gap-3 transition-all shadow-md">
+          <span class="text-xl">🚀</span>
+          <div class="text-left">
+            <span class="block text-xs uppercase tracking-wider font-semibold text-orange-400">20 - 30 Años</span>
+            <span class="block font-bold">Juniors & Asistentes</span>
+          </div>
+        </button>
+
+        <button onclick="selectAgeProfile('resident')" id="tab-resident" class="profile-tab flex-1 py-4 px-5 rounded-xl border border-slate-700 bg-slate-800/80 text-slate-300 hover:text-white font-bold text-sm sm:text-base flex items-center justify-center gap-3 transition-all">
+          <span class="text-xl">⚡</span>
+          <div class="text-left">
+            <span class="block text-xs uppercase tracking-wider font-semibold text-slate-400">31 - 40 Años</span>
+            <span class="block font-bold">Residentes & Jefes de Obra</span>
+          </div>
+        </button>
+
+        <button onclick="selectAgeProfile('director')" id="tab-director" class="profile-tab flex-1 py-4 px-5 rounded-xl border border-slate-700 bg-slate-800/80 text-slate-300 hover:text-white font-bold text-sm sm:text-base flex items-center justify-center gap-3 transition-all">
+          <span class="text-xl">🏛️</span>
+          <div class="text-left">
+            <span class="block text-xs uppercase tracking-wider font-semibold text-slate-400">41 - 50 Años</span>
+            <span class="block font-bold">Directores & Gerentes</span>
+          </div>
+        </button>
+
+      </div>
+
+      <!-- CONTENIDO DINÁMICO DEL PERFIL -->
+      <div id="profile-content" class="bg-slate-800/90 rounded-2xl border border-slate-700 p-6 sm:p-10 shadow-2xl transition-all">
+        <!-- Renderizado dinámicamente mediante JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- MALLA CURRICULAR MODULAR INTERACTIVA (6 MÓDULOS EN ACORDEÓN) -->
+  <!-- ============================================================ -->
+  <section id="modulos" class="py-20 bg-contech-navy border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div class="max-w-2xl">
+          <span class="text-xs uppercase tracking-wider font-bold text-orange-400 bg-orange-950/70 border border-orange-800/60 px-3 py-1 rounded-full">
+            Estructura Académica Rigurosa
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-display mt-3 mb-2">
+            Malla Curricular Especializada (90 Horas)
+          </h2>
+          <p class="text-slate-300 text-base">
+            6 módulos progresivos con enfoque teórico-práctico, talleres de aplicación real y proyectos de portafolio para cada participante.
+          </p>
+        </div>
+
+        <!-- Acciones rápidas de acordeón -->
+        <div class="mt-4 md:mt-0 flex items-center space-x-3">
+          <button onclick="expandAllModules(true)" class="text-xs font-semibold text-slate-300 hover:text-orange-400 bg-slate-800 border border-slate-700 px-3.5 py-2 rounded-lg transition">
+            Expandir Todos
+          </button>
+          <button onclick="expandAllModules(false)" class="text-xs font-semibold text-slate-300 hover:text-orange-400 bg-slate-800 border border-slate-700 px-3.5 py-2 rounded-lg transition">
+            Colapsar Todos
+          </button>
+        </div>
+      </div>
+
+      <!-- LISTA DE ACORDEONES (6 MÓDULOS) -->
+      <div class="space-y-4" id="curriculum-accordion">
+        
+        <!-- MÓDULO 1 -->
+        <div class="module-card bg-slate-800/90 border border-slate-700 rounded-xl overflow-hidden transition-all duration-300">
+          <button onclick="toggleModule(1)" class="w-full p-6 text-left flex items-center justify-between hover:bg-slate-700/50 transition">
+            <div class="flex items-center space-x-4">
+              <span class="w-10 h-10 rounded-lg bg-orange-600/20 text-orange-400 font-extrabold flex items-center justify-center text-sm border border-orange-500/30">
+                M1
+              </span>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h3 class="text-lg font-bold text-white">Fundamentos de IA, Ecosistema ConTech & Gobernanza de Datos</h3>
+                  <span class="text-xs bg-slate-700 text-slate-300 px-2.5 py-0.5 rounded-full font-medium hidden sm:inline">10 Horas</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-400 mt-0.5">Modelos generativos, privacidad contractual y seguridad de licitaciones.</p>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3">
+              <span class="text-xs font-semibold text-orange-400 bg-orange-950/60 border border-orange-800/50 px-2.5 py-1 rounded hidden md:inline">
+                Taller Práctico
+              </span>
+              <span id="module-icon-1" class="text-slate-400 text-xl font-bold transform transition-transform">▼</span>
+            </div>
+          </button>
+
+          <div id="module-body-1" class="hidden px-6 pb-6 pt-2 border-t border-slate-700/70 bg-slate-900/60">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+              <div class="md:col-span-2 space-y-3">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-orange-400">Temario Detallado:</h4>
+                <ul class="space-y-2 text-sm text-slate-300">
+                  <li class="flex items-start gap-2">
+                    <span class="text-orange-500 font-bold">•</span>
+                    <span><strong>1.1 Anatomía de los Modelos de IA:</strong> LLMs (GPT, Claude, Gemini), modelos de visión (YOLO) y analítica predictiva tabular.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-orange-500 font-bold">•</span>
+                    <span><strong>1.2 Ciberseguridad y NDA en Construcción:</strong> Anonimización de planos, presupuestos confidenciales y protección de secretos comerciales en obras públicas y privadas.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-orange-500 font-bold">•</span>
+                    <span><strong>1.3 Configuración del Stack ConTech:</strong> Implementación de Claude Projects con especificaciones técnicas y NotebookLM para bases de conocimiento del proyecto.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-orange-500 font-bold">•</span>
+                    <span><strong>1.4 Detección de Alucinaciones Técnicas:</strong> Protocolo de verificación obligatoria contra normas ACI, AISC, ASTM y códigos locales.</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="space-y-4 bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+                <div>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1.5">Taller de Aplicación:</h4>
+                  <p class="text-xs text-slate-300 leading-relaxed">
+                    Construcción de un asistente RAG alimentado con las especificaciones técnicas completas de un hospital de 15,000 m² para consultas instantáneas sin filtración de datos.
+                  </p>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-blue-400 mb-1.5">Herramientas:</h4>
+                  <div class="flex flex-wrap gap-1.5 text-xs">
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Claude Projects</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">NotebookLM</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Gemini Advanced</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MÓDULO 2 -->
+        <div class="module-card bg-slate-800/90 border border-slate-700 rounded-xl overflow-hidden transition-all duration-300">
+          <button onclick="toggleModule(2)" class="w-full p-6 text-left flex items-center justify-between hover:bg-slate-700/50 transition">
+            <div class="flex items-center space-x-4">
+              <span class="w-10 h-10 rounded-lg bg-orange-600/20 text-orange-400 font-extrabold flex items-center justify-center text-sm border border-orange-500/30">
+                M2
+              </span>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h3 class="text-lg font-bold text-white">Automatización de RFIs, Cuadernos de Obra y Minutas Contractuales</h3>
+                  <span class="text-xs bg-slate-700 text-slate-300 px-2.5 py-0.5 rounded-full font-medium hidden sm:inline">15 Horas</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-400 mt-0.5">Redacción de consultas técnicas blindadas, actas de comité y asientos con validez legal.</p>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3">
+              <span class="text-xs font-semibold text-orange-400 bg-orange-950/60 border border-orange-800/50 px-2.5 py-1 rounded hidden md:inline">
+                Taller Práctico
+              </span>
+              <span id="module-icon-2" class="text-slate-400 text-xl font-bold transform transition-transform">▼</span>
+            </div>
+          </button>
+
+          <div id="module-body-2" class="hidden px-6 pb-6 pt-2 border-t border-slate-700/70 bg-slate-900/60">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+              <div class="md:col-span-2 space-y-3">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-orange-400">Temario Detallado:</h4>
+                <ul class="space-y-2 text-sm text-slate-300">
+                  <li class="flex items-start gap-2">
+                    <span class="text-orange-500 font-bold">•</span>
+                    <span><strong>2.1 Formulación de RFIs Inexpugnables:</strong> Matriz de constructibilidad con 2 alternativas de solución, impacto económico y cuantificación de plazo en ruta crítica.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-orange-500 font-bold">•</span>
+                    <span><strong>2.2 Asientos de Bitácora / Cuaderno de Obra Legal:</strong> Documentación inatacable para causales de ampliación de plazo por lluvia, huelga o falta de planos.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-orange-500 font-bold">•</span>
+                    <span><strong>2.3 Procesamiento de Minutas de Coordinación:</strong> Transcripción de comités de obra con asignación automática de responsables y fechas límite bajo Last Planner.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-orange-500 font-bold">•</span>
+                    <span><strong>2.4 Gestión de Reclamos (Claims) FIDIC / NEC:</strong> Generación estructurada de notificaciones formales de advertencia temprana (Early Warning Notices).</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="space-y-4 bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+                <div>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1.5">Taller de Aplicación:</h4>
+                  <p class="text-xs text-slate-300 leading-relaxed">
+                    Simulación de resolución de 5 conflictos reales en obra: generación en 10 minutos de los 5 RFIs y el asiento legal de bitácora para sustentar una ampliación de 14 días.
+                  </p>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-blue-400 mb-1.5">Herramientas:</h4>
+                  <div class="flex flex-wrap gap-1.5 text-xs">
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Plantillas RFI ConTech</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Whisper AI</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Generador Legal FIDIC</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MÓDULO 3 -->
+        <div class="module-card bg-slate-800/90 border border-slate-700 rounded-xl overflow-hidden transition-all duration-300">
+          <button onclick="toggleModule(3)" class="w-full p-6 text-left flex items-center justify-between hover:bg-slate-700/50 transition">
+            <div class="flex items-center space-x-4">
+              <span class="w-10 h-10 rounded-lg bg-orange-600/20 text-orange-400 font-extrabold flex items-center justify-center text-sm border border-orange-500/30">
+                M3
+              </span>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h3 class="text-lg font-bold text-white">Planificación Predictiva, Ruta Crítica & Last Planner System Asistido</h3>
+                  <span class="text-xs bg-slate-700 text-slate-300 px-2.5 py-0.5 rounded-full font-medium hidden sm:inline">15 Horas</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-400 mt-0.5">Detección de inconsistencias lógicas en Primavera/MS Project y análisis de causas de no cumplimiento.</p>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3">
+              <span class="text-xs font-semibold text-orange-400 bg-orange-950/60 border border-orange-800/50 px-2.5 py-1 rounded hidden md:inline">
+                Taller Práctico
+              </span>
+              <span id="module-icon-3" class="text-slate-400 text-xl font-bold transform transition-transform">▼</span>
+            </div>
+          </button>
+
+          <div id="module-body-3" class="hidden px-6 pb-6 pt-2 border-t border-slate-700/70 bg-slate-900/60">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+              <div class="md:col-span-2 space-y-3">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-orange-400">Temario Detallado:</h4>
+                <ul class="space-y-2 text-sm text-slate-300">
+                  <li class="flex items-start gap-2">
+                    <span class="text-orange-500 font-bold">•</span>
+                    <span><strong>3.1 Auditoría Automatizada de Cronogramas:</strong> Detección de vínculos abiertos, holguras irreales y restricciones duras que falsean la ruta crítica.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-orange-500 font-bold">•</span>
+                    <span><strong>3.2 Last Planner System (LPS) Asistido por IA:</strong> Análisis semántico de causas raíz de no cumplimiento (CNC) y plan de contingencia semanal para elevar el PPC por encima del 85%.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-orange-500 font-bold">•</span>
+                    <span><strong>3.3 Simulación de Escenarios What-If:</strong> Modelado del impacto de atrasos de suministro crítico (acero, grúa torre, concreto) y balanceo de cuadrillas.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-orange-500 font-bold">•</span>
+                    <span><strong>3.4 Integración Primavera P6 / MS Project con Modelos LLM:</strong> Exportación de tablas XER/MPP y generación de reportes ejecutivos para el directorio.</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="space-y-4 bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+                <div>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1.5">Taller de Aplicación:</h4>
+                  <p class="text-xs text-slate-300 leading-relaxed">
+                    Auditoría de un cronograma de 650 actividades en Primavera P6: detección de 12 cuellos de botella ocultos y replanificación acelerada de sectores de vaciado.
+                  </p>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-blue-400 mb-1.5">Herramientas:</h4>
+                  <div class="flex flex-wrap gap-1.5 text-xs">
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Primavera P6</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">MS Project</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Python para Cronogramas</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MÓDULO 4 -->
+        <div class="module-card bg-slate-800/90 border border-slate-700 rounded-xl overflow-hidden transition-all duration-300">
+          <button onclick="toggleModule(4)" class="w-full p-6 text-left flex items-center justify-between hover:bg-slate-700/50 transition">
+            <div class="flex items-center space-x-4">
+              <span class="w-10 h-10 rounded-lg bg-orange-600/20 text-orange-400 font-extrabold flex items-center justify-center text-sm border border-orange-500/30">
+                M4
+              </span>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h3 class="text-lg font-bold text-white">Control de Costos, Valor Ganado (EVM) y Precios Unitarios (APU)</h3>
+                  <span class="text-xs bg-slate-700 text-slate-300 px-2.5 py-0.5 rounded-full font-medium hidden sm:inline">20 Horas</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-400 mt-0.5">Predicción de sobrecostos, variaciones de insumos y automatización analítica de índices CPI/SPI.</p>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3">
+              <span class="text-xs font-semibold text-orange-400 bg-orange-950/60 border border-orange-800/50 px-2.5 py-1 rounded hidden md:inline">
+                Taller Práctico
+              </span>
+              <span id="module-icon-4" class="text-slate-400 text-xl font-bold transform transition-transform">▼</span>
+            </div>
+          </button>
+
+          <div id="module-body-4" class="hidden px-6 pb-6 pt-2 border-t border-slate-700/70 bg-slate-900/60">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+              <div class="md:col-span-2 space-y-3">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-orange-400">Temario Detallado:</h4>
+                <ul class="space-y-2 text-sm text-slate-300">
+                  <li class="flex items-start gap-2">
+                    <span class="text-orange-500 font-bold">•</span>
+                    <span><strong>4.1 Optimización y Revisión de APU:</strong> Validación de cuadrillas de rendimiento, consumos teóricos y factores de merma y desperdicio en concreto y acero.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-orange-500 font-bold">•</span>
+                    <span><strong>4.2 Earned Value Management (EVM) Predictivo:</strong> Cálculo automático de PV, EV, AC, CPI, SPI, EAC y proyección de costo final a la conclusión con alertas semafóricas.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-orange-500 font-bold">•</span>
+                    <span><strong>4.3 Extracción de Metrados con IA Multimodal:</strong> Procesamiento de memorias descriptivas y tablas PDF para consolidación de presupuestos preliminares.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-orange-500 font-bold">•</span>
+                    <span><strong>4.4 Análisis de Inflación y Fórmulas Polinómicas:</strong> Anticipación del encarecimiento de insumos clave para renegociación con proveedores.</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="space-y-4 bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+                <div>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1.5">Taller de Aplicación:</h4>
+                  <p class="text-xs text-slate-300 leading-relaxed">
+                    Construcción de un tablero automatizado en Python/Excel que recalcula el EAC de un proyecto de $8.5 millones y formula el informe ejecutivo para el comité de gerencia.
+                  </p>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-blue-400 mb-1.5">Herramientas:</h4>
+                  <div class="flex flex-wrap gap-1.5 text-xs">
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Plantillas EVM PMI</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Excel Avanzado ConTech</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Claude Artifacts</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MÓDULO 5 -->
+        <div class="module-card bg-slate-800/90 border border-slate-700 rounded-xl overflow-hidden transition-all duration-300">
+          <button onclick="toggleModule(5)" class="w-full p-6 text-left flex items-center justify-between hover:bg-slate-700/50 transition">
+            <div class="flex items-center space-x-4">
+              <span class="w-10 h-10 rounded-lg bg-orange-600/20 text-orange-400 font-extrabold flex items-center justify-center text-sm border border-orange-500/30">
+                M5
+              </span>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h3 class="text-lg font-bold text-white">Visión Artificial, Seguridad en Obra (HSE/OSHA) y Seguimiento con Drones/360°</h3>
+                  <span class="text-xs bg-slate-700 text-slate-300 px-2.5 py-0.5 rounded-full font-medium hidden sm:inline">15 Horas</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-400 mt-0.5">Detección de riesgos en tiempo real, control de EPPs y reportes fotográficos automatizados.</p>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3">
+              <span class="text-xs font-semibold text-orange-400 bg-orange-950/60 border border-orange-800/50 px-2.5 py-1 rounded hidden md:inline">
+                Taller Práctico
+              </span>
+              <span id="module-icon-5" class="text-slate-400 text-xl font-bold transform transition-transform">▼</span>
+            </div>
+          </button>
+
+          <div id="module-body-5" class="hidden px-6 pb-6 pt-2 border-t border-slate-700/70 bg-slate-900/60">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+              <div class="md:col-span-2 space-y-3">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-orange-400">Temario Detallado:</h4>
+                <ul class="space-y-2 text-sm text-slate-300">
+                  <li class="flex items-start gap-2">
+                    <span class="text-orange-500 font-bold">•</span>
+                    <span><strong>5.1 Visión Artificial Aplicada a Seguridad (OSHA):</strong> Detección automática en video y fotos de uso de cascos, arneses en trabajos en altura y barandillas perimetrales.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-orange-500 font-bold">•</span>
+                    <span><strong>5.2 Mapeo Fotográfico 360° en Obra:</strong> Flujos de inspección con cámaras 360 y drones para contrastar el avance físico contra el cronograma contractual.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-orange-500 font-bold">•</span>
+                    <span><strong>5.3 Generación Automatizada de Punch Lists:</strong> Clasificación de no conformidades con severidad, foto de evidencia y notificación automática al subcontratista.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-orange-500 font-bold">•</span>
+                    <span><strong>5.4 Matrices IPERC Dinámicas:</strong> Creación de charlas de 5 minutos y permisos de trabajo de alto riesgo (PTAR) generados según la actividad del día.</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="space-y-4 bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+                <div>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1.5">Taller de Aplicación:</h4>
+                  <p class="text-xs text-slate-300 leading-relaxed">
+                    Auditoría de un set de 20 fotografías de campo: detección automática de 8 infracciones de seguridad y generación del reporte formal de paralización preventiva.
+                  </p>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-blue-400 mb-1.5">Herramientas:</h4>
+                  <div class="flex flex-wrap gap-1.5 text-xs">
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Modelos YOLOv8</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">OpenSpace / HoloBuilder</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Matriz IPERC IA</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MÓDULO 6 -->
+        <div class="module-card bg-slate-800/90 border border-slate-700 rounded-xl overflow-hidden transition-all duration-300">
+          <button onclick="toggleModule(6)" class="w-full p-6 text-left flex items-center justify-between hover:bg-slate-700/50 transition">
+            <div class="flex items-center space-x-4">
+              <span class="w-10 h-10 rounded-lg bg-orange-600/20 text-orange-400 font-extrabold flex items-center justify-center text-sm border border-orange-500/30">
+                M6
+              </span>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h3 class="text-lg font-bold text-white">Smart BIM, Modelos IFC/Revit y Gemelos Digitales para Toma de Decisiones</h3>
+                  <span class="text-xs bg-slate-700 text-slate-300 px-2.5 py-0.5 rounded-full font-medium hidden sm:inline">15 Horas</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-400 mt-0.5">Consultas en lenguaje natural sobre modelos BIM, Dynamo/Python asistido y analítica de ciclo de vida.</p>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3">
+              <span class="text-xs font-semibold text-orange-400 bg-orange-950/60 border border-orange-800/50 px-2.5 py-1 rounded hidden md:inline">
+                Taller Práctico
+              </span>
+              <span id="module-icon-6" class="text-slate-400 text-xl font-bold transform transition-transform">▼</span>
+            </div>
+          </button>
+
+          <div id="module-body-6" class="hidden px-6 pb-6 pt-2 border-t border-slate-700/70 bg-slate-900/60">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+              <div class="md:col-span-2 space-y-3">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-orange-400">Temario Detallado:</h4>
+                <ul class="space-y-2 text-sm text-slate-300">
+                  <li class="flex items-start gap-2">
+                    <span class="text-orange-500 font-bold">•</span>
+                    <span><strong>6.1 Consultas Semánticas en Modelos IFC:</strong> Extracción de parámetros, volúmenes de concreto y cuantías de acero mediante prompts en lenguaje natural.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-orange-500 font-bold">•</span>
+                    <span><strong>6.2 Detección Inteligente de Interferencias (Clash Detection):</strong> Filtrado y agrupación automática de colisiones geométricas según criticidad real de montaje en obra.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-orange-500 font-bold">•</span>
+                    <span><strong>6.3 Automatización con Dynamo & Python:</strong> Generación y depuración de scripts asistidos por IA para renombrado masivo, etiquetado y parámetros compartidos.</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-orange-500 font-bold">•</span>
+                    <span><strong>6.4 Gemelos Digitales e IoT (Fase O&M):</strong> Puente entre el modelo BIM de obra terminada y sensores de mantenimiento predictivo bajo estándar ISO 19650.</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="space-y-4 bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+                <div>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1.5">Taller de Aplicación:</h4>
+                  <p class="text-xs text-slate-300 leading-relaxed">
+                    Extracción automatizada de interferencias críticas en un modelo IFC multidisciplinario de 8 niveles y generación del informe de constructibilidad para el proyectista.
+                  </p>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-blue-400 mb-1.5">Herramientas:</h4>
+                  <div class="flex flex-wrap gap-1.5 text-xs">
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Revit / IFC</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">IfcOpenShell / Python</span>
+                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Dynamo BIM</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Banner de Certificación Final -->
+      <div class="mt-12 bg-gradient-to-r from-slate-900 via-contech-card to-slate-900 border border-slate-700 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
+        <div class="flex items-center space-x-4">
+          <div class="w-14 h-14 rounded-2xl bg-orange-600/20 text-orange-400 border border-orange-500/40 flex items-center justify-center text-3xl flex-shrink-0">
+            🎓
+          </div>
+          <div>
+            <h4 class="text-lg font-bold text-white font-display">Certificación Profesional en ConTech & IA Aplicada</h4>
+            <p class="text-sm text-slate-300">Acreditación con código de verificación QR, horas lectivas y aval de cumplimiento de estándares internacionales.</p>
+          </div>
+        </div>
+        <button onclick="openModal('Certificación')" class="whitespace-nowrap bg-orange-600 hover:bg-orange-500 text-white font-bold py-3 px-6 rounded-xl shadow transition text-sm">
+          Consultar Proceso de Certificación
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SUITE DE SIMULACIÓN CONTECH EN VIVO (DEMOSTRADOR MULTIUSO) -->
+  <!-- ============================================================ -->
+  <section id="simulador-suite" class="py-20 bg-slate-900 border-b border-slate-800 relative">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-wider font-bold text-orange-400 bg-orange-950/70 border border-orange-800/60 px-3.5 py-1 rounded-full">
+          Entorno Interactivo en Vivo
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-display mt-3 mb-4">
+          Suite de Simulación ConTech en Tiempo Real
+        </h2>
+        <p class="text-slate-300 text-base sm:text-lg">
+          Experimenta cómo funcionan los modelos y prompts de alta ingeniería que aprenderás en el curso. Selecciona una herramienta y ejecuta el caso:
+        </p>
+      </div>
+
+      <!-- CONTENEDOR DE LA SUITE -->
+      <div class="bg-contech-navy rounded-2xl border border-slate-700 shadow-2xl overflow-hidden">
+        
+        <!-- Pestañas de la Suite -->
+        <div class="bg-slate-950 border-b border-slate-800 flex flex-wrap">
+          <button onclick="switchSimTab('rfi')" id="sim-tab-rfi" class="sim-tab flex-1 min-w-[200px] py-4 px-6 text-sm font-bold text-orange-400 border-b-2 border-orange-500 bg-slate-900/70 flex items-center justify-center gap-2 transition">
+            <span>📑</span>
+            <span>1. Asistente de RFIs Blindados</span>
+          </button>
+          <button onclick="switchSimTab('bitacora')" id="sim-tab-bitacora" class="sim-tab flex-1 min-w-[200px] py-4 px-6 text-sm font-bold text-slate-400 hover:text-white border-b-2 border-transparent hover:bg-slate-900/40 flex items-center justify-center gap-2 transition">
+            <span>📝</span>
+            <span>2. Asiento de Bitácora Legal</span>
+          </button>
+          <button onclick="switchSimTab('evm')" id="sim-tab-evm" class="sim-tab flex-1 min-w-[200px] py-4 px-6 text-sm font-bold text-slate-400 hover:text-white border-b-2 border-transparent hover:bg-slate-900/40 flex items-center justify-center gap-2 transition">
+            <span>📊</span>
+            <span>3. Predictor de Valor Ganado (EVM)</span>
+          </button>
+        </div>
+
+        <!-- PANEL 1: ASISTENTE DE RFI -->
+        <div id="sim-panel-rfi" class="p-6 sm:p-8 space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                Selecciona Caso Crítico de Obra:
+              </label>
+              <select id="rfi-case" class="w-full bg-slate-800 border border-slate-700 text-white rounded-xl p-3.5 text-sm focus:border-orange-500 focus:outline-none">
+                <option value="interferencia">Interferencia: Tubería sanitaria Ø4" atraviesa Columna C-4 (Piso 3) [Conflicto ACI 318]</option>
+                <option value="aditivo">Especificación: Aditivo acelerante descontinuado en mercado local [Riesgo de Fraguado]</option>
+                <option value="zapata">Topografía: Nivel de desplante de zapata Z-08 hallado 45 cm más profundo que en plano E-02</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                Urgencia Contractual y Ruta Crítica:
+              </label>
+              <select id="rfi-urgency" class="w-full bg-slate-800 border border-slate-700 text-white rounded-xl p-3.5 text-sm focus:border-orange-500 focus:outline-none">
+                <option value="alta">Muy Alta: Afecta vaciado programado en las próximas 48 hrs (Ruta Crítica)</option>
+                <option value="media">Media: Ventana de holgura de 5 días hábiles</option>
+                <option value="baja">Baja: Consulta para partida de acabados (fase posterior)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between pt-2">
+            <button onclick="executeRfiSimulation()" class="bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition flex items-center space-x-2 text-sm">
+              <span id="rfi-btn-spinner" class="hidden animate-spin">⏳</span>
+              <span>⚡ Generar RFI Técnico-Contractual Blindado</span>
+            </button>
+
+            <button onclick="copyToClipboard('rfi-output')" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white px-3.5 py-2 rounded-lg border border-slate-700 transition flex items-center gap-1.5">
+              <span>📋</span>
+              <span id="rfi-copy-text">Copiar al Portapapeles</span>
+            </button>
+          </div>
+
+          <!-- SALIDA DEL SIMULADOR RFI -->
+          <div class="relative bg-slate-950 rounded-xl p-5 border border-slate-800 font-mono text-xs sm:text-sm text-slate-300 max-h-96 overflow-y-auto leading-relaxed custom-scrollbar shadow-inner">
+            <pre id="rfi-output" class="whitespace-pre-wrap font-mono">// Selecciona un caso de obra y presiona el botón 'Generar RFI' para visualizar la formulación inatacable generada por el agente ConTech...</pre>
+          </div>
+        </div>
+
+        <!-- PANEL 2: ASIENTO DE BITÁCORA LEGAL -->
+        <div id="sim-panel-bitacora" class="hidden p-6 sm:p-8 space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                Evento Contractual a Documentar:
+              </label>
+              <select id="bitacora-event" class="w-full bg-slate-800 border border-slate-700 text-white rounded-xl p-3.5 text-sm focus:border-orange-500 focus:outline-none">
+                <option value="lluvia">Lluvia torrencial no prevista: Suspensión de vaciado de losa (Fuerza Mayor / FIDIC 8.4)</option>
+                <option value="subcontrata">Atraso injustificado de subcontratista de instalaciones: Apercibimiento legal</option>
+                <option value="hallazgo">Hallazgo de roca no clasificada o tubería matriz matriz no catastrada en zanja</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                Afectación Registrada en Cuadrilla:
+              </label>
+              <input type="text" id="bitacora-impact" value="48 obreros paralizados, 4 camiones mixer desviados, 380 HH perdidas" class="w-full bg-slate-800 border border-slate-700 text-white rounded-xl p-3.5 text-sm focus:border-orange-500 focus:outline-none">
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between pt-2">
+            <button onclick="executeBitacoraSimulation()" class="bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition flex items-center space-x-2 text-sm">
+              <span id="bitacora-btn-spinner" class="hidden animate-spin">⏳</span>
+              <span>📝 Redactar Asiento Inatacable de Cuaderno de Obra</span>
+            </button>
+
+            <button onclick="copyToClipboard('bitacora-output')" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white px-3.5 py-2 rounded-lg border border-slate-700 transition flex items-center gap-1.5">
+              <span>📋</span>
+              <span id="bitacora-copy-text">Copiar Asiento</span>
+            </button>
+          </div>
+
+          <div class="relative bg-slate-950 rounded-xl p-5 border border-slate-800 font-mono text-xs sm:text-sm text-slate-300 max-h-96 overflow-y-auto leading-relaxed custom-scrollbar shadow-inner">
+            <pre id="bitacora-output" class="whitespace-pre-wrap font-mono">// Selecciona un evento para generar el asiento formal con sustento técnico, normativa aplicable y salvaguarda contra penalidades contractuales...</pre>
+          </div>
+        </div>
+
+        <!-- PANEL 3: PREDICTOR DE VALOR GANADO (EVM) -->
+        <div id="sim-panel-evm" class="hidden p-6 sm:p-8 space-y-6">
+          <p class="text-sm text-slate-300">
+            Ingresa las variables financieras actuales de tu proyecto para obtener el diagnóstico predictivo instantáneo con cálculo de índices <strong class="text-orange-400">CPI</strong>, <strong class="text-blue-400">SPI</strong> y estimación a la conclusión (<strong class="text-emerald-400">EAC</strong>):
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5">Presupuesto Base (BAC $):</label>
+              <input type="number" id="evm-bac" value="5000000" class="w-full bg-slate-800 border border-slate-700 text-white rounded-xl p-3 text-sm focus:border-orange-500 focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5">Valor Planificado (PV $):</label>
+              <input type="number" id="evm-pv" value="2500000" class="w-full bg-slate-800 border border-slate-700 text-white rounded-xl p-3 text-sm focus:border-orange-500 focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5">Valor Ganado Real (EV $):</label>
+              <input type="number" id="evm-ev" value="2250000" class="w-full bg-slate-800 border border-slate-700 text-white rounded-xl p-3 text-sm focus:border-orange-500 focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5">Costo Real Incurrido (AC $):</label>
+              <input type="number" id="evm-ac" value="2600000" class="w-full bg-slate-800 border border-slate-700 text-white rounded-xl p-3 text-sm focus:border-orange-500 focus:outline-none">
+            </div>
+          </div>
+
+          <button onclick="calculateEVMDiagnostic()" class="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg transition flex items-center justify-center space-x-2 text-sm">
+            <span>📊 Ejecutar Diagnóstico Predictivo EVM con IA</span>
+          </button>
+
+          <!-- Resultados del Análisis EVM -->
+          <div id="evm-results-box" class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+              <span class="text-xs text-slate-400 uppercase font-bold block mb-1">Índice Costo (CPI)</span>
+              <span id="evm-cpi" class="text-2xl font-extrabold text-amber-400 font-display">0.865</span>
+              <span id="evm-cpi-status" class="text-[11px] block mt-1 text-amber-400">Sobrecosto</span>
+            </div>
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+              <span class="text-xs text-slate-400 uppercase font-bold block mb-1">Índice Plazo (SPI)</span>
+              <span id="evm-spi" class="text-2xl font-extrabold text-red-400 font-display">0.900</span>
+              <span id="evm-spi-status" class="text-[11px] block mt-1 text-red-400">Con Retraso</span>
+            </div>
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+              <span class="text-xs text-slate-400 uppercase font-bold block mb-1">Costo Proyectado (EAC)</span>
+              <span id="evm-eac" class="text-2xl font-extrabold text-orange-400 font-display">$5,777,778</span>
+              <span class="text-[11px] block mt-1 text-slate-400">USD al cierre</span>
+            </div>
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+              <span class="text-xs text-slate-400 uppercase font-bold block mb-1">Variación Final (VAC)</span>
+              <span id="evm-vac" class="text-2xl font-extrabold text-red-400 font-display">-$777,778</span>
+              <span class="text-[11px] block mt-1 text-red-400">Déficit estimado</span>
+            </div>
+          </div>
+
+          <div id="evm-ai-narrative" class="bg-slate-950 p-5 rounded-xl border border-slate-800 text-xs sm:text-sm text-slate-300 leading-relaxed font-mono">
+            // Diagnóstico interpretativo generado automáticamente por la lógica de analítica ConTech...
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- CALCULADORA AVANZADA DE RETORNO DE INVERSIÓN (ROI DE OBRA) -->
+  <!-- ============================================================ -->
+  <section id="calculadora-roi" class="py-20 bg-contech-navy border-b border-slate-800 relative">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-xs uppercase tracking-wider font-bold text-emerald-400 bg-emerald-950/70 border border-emerald-800/60 px-3.5 py-1 rounded-full">
+          Impacto Financiero Tangible
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-display mt-3 mb-4">
+          Calculadora de Retorno de Inversión (ROI) en tu Obra
+        </h2>
+        <p class="text-slate-300 text-base sm:text-lg">
+          La ineficiencia administrativa y la burocracia de oficina técnica consumen hasta el 40% del tiempo de los ingenieros. Ajusta las variables de tu equipo y calcula el ahorro directo mensual:
+        </p>
+      </div>
+
+      <div class="bg-slate-800/90 rounded-2xl p-6 sm:p-10 border border-slate-700 shadow-2xl backdrop-blur-md">
+        
+        <!-- SLIDERS INTERACTIVOS -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+          
+          <!-- Slider 1: Ingenieros -->
+          <div class="space-y-3">
+            <div class="flex justify-between items-center">
+              <label class="text-xs font-bold text-slate-300 uppercase tracking-wider">Ingenieros / Asistentes:</label>
+              <span id="val-engineers" class="text-lg font-extrabold text-orange-400 font-display">4</span>
+            </div>
+            <input type="range" id="slider-engineers" min="1" max="30" value="4" oninput="updateROICalculation()" class="w-full h-2 bg-slate-900 rounded-lg appearance-none cursor-pointer accent-orange-500">
+            <span class="text-[11px] text-slate-400 block">Personal en oficina técnica y coordinación</span>
+          </div>
+
+          <!-- Slider 2: Horas Semanales -->
+          <div class="space-y-3">
+            <div class="flex justify-between items-center">
+              <label class="text-xs font-bold text-slate-300 uppercase tracking-wider">Horas Admin. / Semana:</label>
+              <span id="val-hours" class="text-lg font-extrabold text-orange-400 font-display">14 hrs</span>
+            </div>
+            <input type="range" id="slider-hours" min="5" max="35" value="14" oninput="updateROICalculation()" class="w-full h-2 bg-slate-900 rounded-lg appearance-none cursor-pointer accent-orange-500">
+            <span class="text-[11px] text-slate-400 block">Horas por persona en reportes, RFIs y minutas</span>
+          </div>
+
+          <!-- Slider 3: Costo Hora -->
+          <div class="space-y-3">
+            <div class="flex justify-between items-center">
+              <label class="text-xs font-bold text-slate-300 uppercase tracking-wider">Costo Promedio Hora:</label>
+              <span id="val-rate" class="text-lg font-extrabold text-orange-400 font-display">$25 USD</span>
+            </div>
+            <input type="range" id="slider-rate" min="15" max="80" value="25" step="5" oninput="updateROICalculation()" class="w-full h-2 bg-slate-900 rounded-lg appearance-none cursor-pointer accent-orange-500">
+            <span class="text-[11px] text-slate-400 block">Costo empresa por hora hombre técnica</span>
+          </div>
+
+        </div>
+
+        <!-- TARJETAS DE RESULTADOS ECONÓMICOS -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 bg-slate-950 p-6 rounded-xl border border-slate-800 text-center mb-8">
+          
+          <div>
+            <span class="text-xs text-slate-400 uppercase font-bold tracking-wider block mb-1">Horas Ahorradas al Mes</span>
+            <div id="roi-hours-saved" class="text-3xl sm:text-4xl font-extrabold text-orange-400 font-display">157 hrs</div>
+            <span class="text-[11px] text-slate-500 block mt-1">65% de reducción garantizada</span>
+          </div>
+
+          <div>
+            <span class="text-xs text-slate-400 uppercase font-bold tracking-wider block mb-1">Ahorro Financiero Mensual</span>
+            <div id="roi-money-saved" class="text-3xl sm:text-4xl font-extrabold text-emerald-400 font-display">$3,925 USD</div>
+            <span id="roi-annual-saved" class="text-[11px] text-emerald-500 block mt-1">~$47,100 USD al año</span>
+          </div>
+
+          <div>
+            <span class="text-xs text-slate-400 uppercase font-bold tracking-wider block mb-1">Recuperación de Inversión</span>
+            <div id="roi-payback-weeks" class="text-3xl sm:text-4xl font-extrabold text-blue-400 font-display">2.8 semanas</div>
+            <span class="text-[11px] text-slate-500 block mt-1">Retorno de matrícula (Payback)</span>
+          </div>
+
+        </div>
+
+        <!-- GRÁFICO VISUAL COMPARATIVO ANTES VS CON IA -->
+        <div class="space-y-4">
+          <div class="flex justify-between text-xs font-semibold text-slate-300">
+            <span>Distribución de Tiempo en Oficina Técnica:</span>
+            <span class="text-orange-400">Eficiencia ConTech: +240% de velocidad operativa</span>
+          </div>
+
+          <div>
+            <div class="flex justify-between text-xs text-slate-400 mb-1">
+              <span>Método Tradicional (Burocracia Manual):</span>
+              <span id="bar-label-traditional" class="font-bold text-slate-300">241 hrs / mes</span>
+            </div>
+            <div class="w-full bg-slate-900 rounded-full h-4 overflow-hidden p-0.5 border border-slate-700">
+              <div class="bg-gradient-to-r from-red-600 to-amber-600 h-full rounded-full w-full"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between text-xs text-slate-400 mb-1">
+              <span>Con Inteligencia Artificial ConTech:</span>
+              <span id="bar-label-ai" class="font-bold text-emerald-400">84 hrs / mes (-65%)</span>
+            </div>
+            <div class="w-full bg-slate-900 rounded-full h-4 overflow-hidden p-0.5 border border-slate-700">
+              <div id="bar-ai-progress" class="bg-gradient-to-r from-emerald-500 to-teal-400 h-full rounded-full transition-all duration-500" style="width: 35%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Directo de la Calculadora -->
+        <div class="mt-8 pt-6 border-t border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <span class="text-xs sm:text-sm text-slate-300">
+            ¿Deseas capacitar a tu equipo completo con tarifas corporativas in-company?
+          </span>
+          <button onclick="openModal('Plan Corporativo')" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 px-6 rounded-xl transition text-sm">
+            Solicitar Propuesta para Empresas
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- ESTÁNDARES INTERNACIONALES Y AVALES TÉCNICOS -->
+  <!-- ============================================================ -->
+  <section id="acreditacion" class="py-20 bg-slate-900 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-xs uppercase tracking-wider font-bold text-orange-400 bg-orange-950/70 border border-orange-800/60 px-3.5 py-1 rounded-full">
+          Rigor de la Industria
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-display mt-3 mb-4">
+          Alineado con los Máximos Estándares de la Construcción
+        </h2>
+        <p class="text-slate-300 text-base">
+          No enseñamos trucos genéricos. Toda la metodología está estructurada para respetar las normativas que gobiernan la ingeniería civil moderna:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="bg-contech-navy p-6 rounded-xl border border-slate-800 hover:border-orange-500/50 transition">
+          <div class="text-orange-500 text-2xl font-bold mb-2">PMI PMBOK®</div>
+          <h3 class="text-base font-bold text-white mb-2">7ma Edición & EVM</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Gestión del desempeño basada en valor ganado, control predictivo de riesgos, gobernanza de proyectos complejos e interoperabilidad de interesados.
+          </p>
+        </div>
+
+        <div class="bg-contech-navy p-6 rounded-xl border border-slate-800 hover:border-orange-500/50 transition">
+          <div class="text-orange-500 text-2xl font-bold mb-2">Lean Construction</div>
+          <h3 class="text-base font-bold text-white mb-2">Last Planner System</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Estabilización del flujo de trabajo en obra, análisis semántico de causas de no cumplimiento (CNC) y erradicación de desperdicios en campo.
+          </p>
+        </div>
+
+        <div class="bg-contech-navy p-6 rounded-xl border border-slate-800 hover:border-orange-500/50 transition">
+          <div class="text-orange-500 text-2xl font-bold mb-2">ISO 19650</div>
+          <h3 class="text-base font-bold text-white mb-2">Smart BIM & Data</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Gestión de la información durante el ciclo de vida del activo con modelos IFC abiertos, CDE (Entorno Común de Datos) y gemelos digitales con IA.
+          </p>
+        </div>
+
+        <div class="bg-contech-navy p-6 rounded-xl border border-slate-800 hover:border-orange-500/50 transition">
+          <div class="text-orange-500 text-2xl font-bold mb-2">FIDIC / NEC / OSHA</div>
+          <h3 class="text-base font-bold text-white mb-2">Contratos y Seguridad</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Prevención de controversias contractuales, blindaje de reclamaciones y protocolos de visión artificial para seguridad industrial en faena.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- MODAL INTERACTIVO DE MATRÍCULA Y DESCARGA DE DOSSIER -->
+  <!-- ============================================================ -->
+  <div id="enrollment-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="relative bg-slate-900 border border-slate-700 rounded-2xl max-w-xl w-full p-6 sm:p-8 shadow-2xl text-left">
+      
+      <!-- Botón de Cerrar -->
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2 rounded-lg bg-slate-800 hover:bg-slate-700 transition" aria-label="Cerrar ventana">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <!-- Encabezado del Modal -->
+      <div class="mb-6">
+        <span id="modal-tag" class="text-xs uppercase tracking-wider font-bold text-orange-400 bg-orange-950/70 border border-orange-800/60 px-3 py-1 rounded-full">
+          Inscripción ConTech 2026
+        </span>
+        <h3 id="modal-title" class="text-2xl font-bold text-white font-display mt-2">
+          Matrícula Oficial y Acceso al Programa
+        </h3>
+        <p class="text-xs sm:text-sm text-slate-400 mt-1">
+          Completa tus datos profesionales para recibir el calendario académico, plan de becas y acceso a la plataforma:
+        </p>
+      </div>
+
+      <!-- Formulario -->
+      <form id="enrollment-form" onsubmit="submitEnrollmentForm(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Nombre Completo:</label>
+          <input type="text" id="form-name" required placeholder="Ing. Carlos Mendoza" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-orange-500">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Correo Electrónico:</label>
+            <input type="email" id="form-email" required placeholder="carlos@constructora.com" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-orange-500">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Teléfono / WhatsApp:</label>
+            <input type="tel" id="form-phone" required placeholder="+51 987 654 321" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-orange-500">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Rango de Edad / Perfil:</label>
+            <select id="form-profile" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-orange-500">
+              <option value="junior">20 - 30 Años (Junior / Modelador BIM / Asistente)</option>
+              <option value="resident" selected>31 - 40 Años (Residente / Jefe de Obra / Planificador)</option>
+              <option value="director">41 - 50 Años (Director / Gerente / Contratista)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Modalidad Preferida:</label>
+            <select id="form-modality" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-orange-500">
+              <option value="live">Online En Vivo con Mentorías</option>
+              <option value="selfpaced">Asincrónico Autoguiado 24/7</option>
+              <option value="corporate">Capacitación Corporativa In-Company</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <button type="submit" id="btn-submit-form" class="w-full bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg transition text-base">
+            Confirmar Solicitud y Recibir Dossier
+          </button>
+        </div>
+      </form>
+
+      <!-- Confirmación de Éxito (Oculta al inicio) -->
+      <div id="modal-success" class="hidden text-center py-8 space-y-4">
+        <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center text-3xl border border-emerald-500/40">
+          ✓
+        </div>
+        <h4 class="text-xl font-bold text-white font-display">¡Solicitud Procesada Exitosamente!</h4>
+        <p class="text-sm text-slate-300 max-w-md mx-auto">
+          Hemos enviado a tu correo el <strong class="text-white">Dossier Académico Completo</strong>, la muestra de plantillas de prompts y el enlace directo para agendar tu entrevista de admisión.
+        </p>
+        <button onclick="closeModal()" class="bg-slate-800 hover:bg-slate-700 text-white px-6 py-2.5 rounded-xl border border-slate-700 text-sm font-semibold transition">
+          Cerrar
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- FOOTER INSTITUCIONAL -->
+  <!-- ============================================================ -->
+  <footer class="bg-slate-950 text-slate-400 py-16 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+        
+        <!-- Columna 1: Marca y Propósito -->
+        <div class="md:col-span-2 space-y-4">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-xl bg-orange-600 flex items-center justify-center font-bold text-xl text-white">
+              🏗️
+            </div>
+            <div>
+              <span class="text-xl font-extrabold text-white font-display">CONTECH <span class="text-orange-500">AI ACADEMY</span></span>
+              <span class="text-xs text-slate-400 block font-medium">Liderazgo Digital en Construcción e Infraestructura</span>
+            </div>
+          </div>
+          <p class="text-sm text-slate-400 max-w-lg leading-relaxed">
+            Plataforma formativa de vanguardia diseñada para cerrar la brecha tecnológica entre el trabajo intelectual de oficina técnica y la ejecución tangible en obra, aplicando modelos de IA con rigor normativo de ingeniería.
+          </p>
+          <div class="flex items-center space-x-3 text-xs text-slate-500">
+            <span>ISO 19650</span> • <span>PMI PMBOK</span> • <span>Lean Construction</span> • <span>OSHA Standard</span>
+          </div>
+        </div>
+
+        <!-- Columna 2: Navegación Rápida -->
+        <div>
+          <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Navegación</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="#audiencia" class="hover:text-orange-400 transition">Rutas 20 - 50 Años</a></li>
+            <li><a href="#modulos" class="hover:text-orange-400 transition">Malla Curricular (6 Módulos)</a></li>
+            <li><a href="#simulador-suite" class="hover:text-orange-400 transition">Suite de Simulación ConTech</a></li>
+            <li><a href="#calculadora-roi" class="hover:text-orange-400 transition">Calculadora de ROI</a></li>
+            <li><a href="#acreditacion" class="hover:text-orange-400 transition">Avales y Estándares</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna 3: Admisión y Soporte -->
+        <div>
+          <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Admisión y Contacto</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li class="flex items-center gap-2">
+              <span class="text-orange-500">✉</span>
+              <span>contacto@contech-ai.academy</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-emerald-500">📱</span>
+              <span>WhatsApp Técnico: +1 (555) 342-CONTECH</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="text-blue-500">📍</span>
+              <span>Hub Regional: Lima • Bogotá • CDMX • Santiago</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Barra Inferior de Derechos -->
+      <div class="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div>
+          &copy; 2026 CONTECH AI ACADEMY. Todos los derechos reservados. Desarrollado con el ecosistema de agentes ConTech.
+        </div>
+        <div class="flex items-center space-x-4">
+          <a href="#" class="hover:text-slate-400 transition">Privacidad de Datos de Obra</a>
+          <a href="#" class="hover:text-slate-400 transition">Términos de Servicio</a>
+          <a href="#" class="hover:text-slate-400 transition">Código de Ética Profesional</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ============================================================ -->
+  <!-- JAVASCRIPT MODULAR Y ROBUSTO (INTERACTIVIDAD COMPLETA) -->
+  <!-- ============================================================ -->
+  <script>
+    // --- ESTADO GLOBAL Y PERFILES ANDRAGÓGICOS ---
+    const profilesData = {
+      junior: {
+        title: "Perfil: 20 a 30 Años — Asistentes Técnicos, Modeladores BIM y Bachilleres",
+        subtitle: "Objetivo Principal: Acelerar tu curva de aprendizaje, multiplicar tu empleabilidad y automatizar tareas repetitivas de oficina técnica.",
+        badge: "Aceleración Profesional & Empleabilidad",
+        badgeColor: "bg-blue-600/20 text-blue-400 border-blue-500/30",
+        quote: "«En mi primera obra como asistente, automatizar los metrados y los borradores de RFIs con los prompts del curso me ahorró 15 horas semanales. Mi jefe de obra quedó impresionado.»",
+        author: "Ing. Junior Matías Rojas • Asistente de Oficina Técnica",
+        objectives: [
+          "Dominio rápido de prompts estructurados para redacción de consultas técnicas y resúmenes de planos.",
+          "Extracción preliminar de metrados y conteo asistido sobre memorias descriptivas.",
+          "Creación de scripts sencillos con Python y Dynamo para automatizar tareas repetitivas en Revit.",
+          "Elaboración de un Portafolio ConTech con 4 proyectos aplicados para destacar en procesos de selección."
+        ],
+        tools: ["Gemini Advanced", "Claude Projects", "Dynamo BIM", "Python Básico", "NotebookLM"],
+        deliverable: "Portafolio digital con 5 casos prácticos automatizados (RFIs, memorias y extracción de metrados)."
+      },
+      resident: {
+        title: "Perfil: 31 a 40 Años — Residentes de Obra, Jefes de Oficina Técnica y Planificadores",
+        subtitle: "Objetivo Principal: Eliminar las horas extras nocturnas, controlar la ruta crítica y mantener los costos y adicionales bajo control.",
+        badge: "Eficiencia Operativa & Control de Obra",
+        badgeColor: "bg-orange-600/20 text-orange-400 border-orange-500/30",
+        quote: "«El módulo de Last Planner y análisis predictivo de Valor Ganado nos permitió anticipar un desfase en el vaciado de losas y recuperar 12 días en la ruta crítica antes de caer en penalidades.»",
+        author: "Ing. Andrea Salazar • Residente de Obra Edificación Multifamiliar",
+        objectives: [
+          "Detección temprana de incompatibilidades y generación de RFIs inexpugnables con impacto en plazo.",
+          "Auditoría automatizada de cronogramas en Primavera P6 y Last Planner System asistido por IA.",
+          "Control analítico de Valor Ganado (CPI / SPI / EAC) para reportes transparentes a la gerencia.",
+          "Gestión blindada del Cuaderno de Obra para salvaguardar ampliaciones de plazo justificadas."
+        ],
+        tools: ["Primavera P6", "MS Project", "Claude Artifacts", "Asistente RAG de Obra", "OpenSpace"],
+        deliverable: "Tablero de control de proyecto con pronóstico de Valor Ganado y matriz de RFIs de constructibilidad."
+      },
+      director: {
+        title: "Perfil: 41 a 50 Años — Directores de Proyecto, Gerentes de Operaciones y Contratistas",
+        subtitle: "Objetivo Principal: Liderar la transformación digital de la empresa, maximizar el margen de rentabilidad y blindar contratos.",
+        badge: "Gobernanza Estratégica, ROI & Blindaje Legal",
+        badgeColor: "bg-emerald-600/20 text-emerald-400 border-emerald-500/30",
+        quote: "«A mis 46 años buscaba una formación sin jerga innecesaria. La claridad en gobernanza de datos y blindaje contractual bajo FIDIC nos ahorró más de $60,000 USD en controversias en solo 4 meses.»",
+        author: "Ing. Fernando Morales • Gerente General de Constructora de Infraestructura",
+        objectives: [
+          "Supervisión ejecutiva de proyectos mediante tableros de control predictivos impulsados por IA.",
+          "Blindaje contractual y formulación estructurada de reclamos (Claims) bajo marcos FIDIC / NEC.",
+          "Gobernanza corporativa, confidencialidad estricta y protección de secretos comerciales en licitaciones.",
+          "Cálculo y auditoría del Retorno de Inversión (ROI) tangible de la digitalización corporativa."
+        ],
+        tools: ["Tableros Ejecutivos", "Generador Contractual FIDIC/NEC", "Gobernanza IA", "Calculadora ROI"],
+        deliverable: "Plan Director de Adopción de IA para la empresa constructora y protocolo de mitigación de controversias."
+      }
+    };
+
+    // --- ACCESIBILIDAD Y TAMAÑO DE FUENTE ---
+    function setFontSize(size) {
+      const root = document.documentElement;
+      root.classList.remove('font-size-sm', 'font-size-md', 'font-size-lg', 'font-size-xl');
+      
+      document.querySelectorAll('#btn-font-sm, #btn-font-md, #btn-font-lg, #btn-font-xl').forEach(btn => {
+        btn.classList.remove('bg-orange-600', 'text-white');
+        btn.classList.add('text-slate-400');
+      });
+
+      const activeBtn = document.getElementById('btn-font-' + size);
+      if (activeBtn) {
+        activeBtn.classList.add('bg-orange-600', 'text-white');
+        activeBtn.classList.remove('text-slate-400');
+      }
+
+      root.classList.add('font-size-' + size);
+      localStorage.setItem('contech-font-size', size);
+    }
+
+    function toggleHighContrast() {
+      document.body.classList.toggle('high-contrast');
+      const isHc = document.body.classList.contains('high-contrast');
+      document.getElementById('contrast-icon').innerText = isHc ? '☀️' : '🌓';
+      document.getElementById('contrast-text').innerText = isHc ? 'Modo Normal' : 'Alto Contraste';
+      localStorage.setItem('contech-high-contrast', isHc ? 'true' : 'false');
+    }
+
+    // --- NAVEGACIÓN MÓVIL ---
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    // --- SELECTOR DE PERFILES POR EDAD ---
+    function selectAgeProfile(profileKey) {
+      const data = profilesData[profileKey];
+      if (!data) return;
+
+      // Actualizar pestañas activas
+      const tabs = ['junior', 'resident', 'director'];
+      tabs.forEach(tab => {
+        const btn = document.getElementById('tab-' + tab);
+        if (tab === profileKey) {
+          btn.className = 'profile-tab flex-1 py-4 px-5 rounded-xl border-2 border-orange-500 bg-orange-600/10 text-white font-bold text-sm sm:text-base flex items-center justify-center gap-3 transition-all shadow-md';
+        } else {
+          btn.className = 'profile-tab flex-1 py-4 px-5 rounded-xl border border-slate-700 bg-slate-800/80 text-slate-300 hover:text-white font-bold text-sm sm:text-base flex items-center justify-center gap-3 transition-all';
+        }
+      });
+
+      // Renderizar el contenido
+      const container = document.getElementById('profile-content');
+      container.innerHTML = `
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div class="lg:col-span-8 space-y-6">
+            <div class="flex flex-wrap items-center gap-3">
+              <span class="text-xs uppercase font-bold tracking-wider px-3 py-1 rounded-full border ${data.badgeColor}">
+                ${data.badge}
+              </span>
+            </div>
+            
+            <div>
+              <h3 class="text-xl sm:text-2xl font-bold text-white font-display mb-2">${data.title}</h3>
+              <p class="text-sm sm:text-base text-slate-300 font-normal leading-relaxed">${data.subtitle}</p>
+            </div>
+
+            <div>
+              <h4 class="text-xs font-bold uppercase tracking-wider text-orange-400 mb-3">Objetivos Clave de Aprendizaje:</h4>
+              <ul class="space-y-2.5 text-sm text-slate-200">
+                ${data.objectives.map(obj => `
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-orange-500 font-bold text-base leading-none">✓</span>
+                    <span>${obj}</span>
+                  </li>
+                `).join('')}
+              </ul>
+            </div>
+
+            <div class="pt-2">
+              <h4 class="text-xs font-bold uppercase tracking-wider text-blue-400 mb-2">Herramientas & Entornos ConTech:</h4>
+              <div class="flex flex-wrap gap-2 text-xs">
+                ${data.tools.map(tool => `
+                  <span class="bg-slate-900 border border-slate-700 text-slate-300 px-3 py-1 rounded-lg font-medium">${tool}</span>
+                `).join('')}
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-4 bg-slate-900/90 rounded-xl p-6 border border-slate-700/80 space-y-5">
+            <div>
+              <span class="text-xs uppercase font-bold tracking-wider text-emerald-400 block mb-1">Entregable de Portafolio:</span>
+              <p class="text-xs text-slate-300 leading-relaxed font-medium">
+                ${data.deliverable}
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-slate-800">
+              <span class="text-xs text-slate-400 uppercase tracking-wider font-semibold block mb-2">Testimonio de Graduado:</span>
+              <p class="text-xs text-slate-300 italic leading-relaxed mb-3">
+                ${data.quote}
+              </p>
+              <div class="text-[11px] text-orange-400 font-semibold">
+                ${data.author}
+              </div>
+            </div>
+
+            <button onclick="openModal('Itinerario: ${data.badge}')" class="w-full bg-orange-600 hover:bg-orange-500 text-white font-bold py-2.5 rounded-lg text-xs uppercase tracking-wider transition shadow">
+              Solicitar Plan de Estudios
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    // --- ACORDEÓN DE MÓDULOS ---
+    function toggleModule(modNum) {
+      const body = document.getElementById('module-body-' + modNum);
+      const icon = document.getElementById('module-icon-' + modNum);
+      
+      if (body.classList.contains('hidden')) {
+        body.classList.remove('hidden');
+        icon.innerText = '▲';
+        icon.classList.add('text-orange-400');
+      } else {
+        body.classList.add('hidden');
+        icon.innerText = '▼';
+        icon.classList.remove('text-orange-400');
+      }
+    }
+
+    function expandAllModules(expand) {
+      for (let i = 1; i <= 6; i++) {
+        const body = document.getElementById('module-body-' + i);
+        const icon = document.getElementById('module-icon-' + i);
+        if (expand) {
+          body.classList.remove('hidden');
+          icon.innerText = '▲';
+          icon.classList.add('text-orange-400');
+        } else {
+          body.classList.add('hidden');
+          icon.innerText = '▼';
+          icon.classList.remove('text-orange-400');
+        }
+      }
+    }
+
+    // --- PESTAÑAS DE LA SUITE DE SIMULACIÓN ---
+    function switchSimTab(tabKey) {
+      const tabs = ['rfi', 'bitacora', 'evm'];
+      tabs.forEach(t => {
+        const btn = document.getElementById('sim-tab-' + t);
+        const panel = document.getElementById('sim-panel-' + t);
+        if (t === tabKey) {
+          btn.className = 'sim-tab flex-1 min-w-[200px] py-4 px-6 text-sm font-bold text-orange-400 border-b-2 border-orange-500 bg-slate-900/70 flex items-center justify-center gap-2 transition';
+          panel.classList.remove('hidden');
+        } else {
+          btn.className = 'sim-tab flex-1 min-w-[200px] py-4 px-6 text-sm font-bold text-slate-400 hover:text-white border-b-2 border-transparent hover:bg-slate-900/40 flex items-center justify-center gap-2 transition';
+          panel.classList.add('hidden');
+        }
+      });
+    }
+
+    // --- EJECUTOR SIMULADOR RFI ---
+    function executeRfiSimulation() {
+      const caseVal = document.getElementById('rfi-case').value;
+      const urgency = document.getElementById('rfi-urgency').value;
+      const output = document.getElementById('rfi-output');
+      const spinner = document.getElementById('rfi-btn-spinner');
+
+      spinner.classList.remove('hidden');
+      output.innerText = '// Analizando conflicto de constructibilidad contra normas técnicas y planos...';
+
+      setTimeout(() => {
+        spinner.classList.add('hidden');
+        
+        if (caseVal === 'interferencia') {
+          output.innerText = `[RFI TÉCNICO FORMAL Nº RFI-042-2026]
+PROYECTO: Complejo Hospitalario Metropolitano - Etapa 2
+DIRIGIDO A: Proyectista Estructural (Ing. Residente de Estructuras) & Supervisión de Obra
+FECHA: 12 de Noviembre de 2026 | NIVEL DE PRIORIDAD: ALTA (Ruta Crítica)
+ASUNTO: Incompatibilidad Crítica entre Montante Sanitaria Ø4" y Columna Confinada C-4 (Piso 3, Eje 3-B)
+
+1. ANTECEDENTES Y DESCRIPCIÓN DEL CONFLICTO:
+Durante el proceso de verificación previa al armado del encofrado del Sector 3 (Nivel +8.40m), se constata que el plano de instalaciones sanitarias IS-04 indica que la montante de desagüe de Ø4" (PVC pesado) atraviesa verticalmente el núcleo de confinamiento de la columna estructural C-4 (sección 50x50 cm, f'c=280 kg/cm²).
+Por su parte, el plano de estructuras E-03 (Nota General 7) y la norma ACI 318-19 (Sección 25.8) prohíben taxativamente embeber tuberías de desagüe de diámetros mayores a 2" dentro de columnas estructurales sin recálculo de camisa de confinamiento y verificación de cortante.
+
+2. PROPUESTAS DE CONSTRUCTIBILIDAD (CONTRATISTA):
+• ALTERNATIVA A (Recomendada por Constructibilidad): Desviar la montante sanitaria hacia el ducto de ventilación adyacente del baño secundario mediante dos codos de 45° a nivel del falso cielo raso del Piso 2.
+  - Impacto en Costo: $0.00 USD (absorbido por replanteo de instalaciones).
+  - Impacto en Plazo: 0 días adicionales.
+• ALTERNATIVA B: Cálculo de encamisado de refuerzo estructural en la sección de la columna C-4 con estribaje complementario.
+  - Impacto en Costo: Requiere Adicional de Obra por mayor cuantía de acero.
+  - Impacto en Plazo: Estimado en 4 días de cálculo y aprobación.
+
+3. IMPACTO EN EL CRONOGRAMA MAESTRO (RUTA CRÍTICA):
+El vaciado de concreto de la columna C-4 y la losa del Sector 3 está programado para el día 15 de Noviembre. Se requiere respuesta y orden de proceder antes de 48 horas (14 de Noviembre, 14:00 hrs) a fin de no paralizar el frente de encofrado ni generar sobrecostos por cuadrilla parada.`;
+        } else if (caseVal === 'aditivo') {
+          output.innerText = `[RFI TÉCNICO FORMAL Nº RFI-043-2026]
+PROYECTO: Torre Corporativa Panorama (30 Pisos)
+DIRIGIDO A: Proyectista de Estructuras y Especialista de Tecnología del Concreto
+FECHA: 12 de Noviembre de 2026 | PRIORIDAD: ALTA
+ASUNTO: Sustitución de Aditivo Superplastificante Acelerante por Desabastecimiento Local
+
+1. ANTECEDENTES:
+La Especificación Técnica ETE-08 estipula el uso del aditivo plastificante 'Plastocrete-Plus' para el vaciado de núcleos de ascensores con resistencia inicial requerida a las 18 hrs (f'c >= 140 kg/cm²) para desencofrado rápido. El proveedor oficial informa rotura de stock nacional por huelga aduanera por un lapso estimado de 20 días.
+
+2. PROPUESTA TÉCNICA DEL CONTRATISTA:
+Se propone la sustitución por el aditivo equivalente 'MasterRheobuild 1000' (Norma ASTM C494 Tipo F), adjuntando en el anexo técnico las pruebas de laboratorio de compresión a 18h, 3d, 7d y 28d, demostrando compatibilidad química total con el cemento Portland Tipo I utilizado.
+
+3. SOLICITUD DE APROBACIÓN:
+Se solicita autorización inmediata para la batch plant de concreto premezclado a fin de no interrumpir el ciclo diario de encofrado trepante en ruta crítica.`;
+        } else {
+          output.innerText = `[RFI TÉCNICO FORMAL Nº RFI-044-2026]
+PROYECTO: Edificio Multifamiliar Alto Horizonte
+DIRIGIDO A: Proyectista Geotécnico / Ingeniero Estructural
+FECHA: 12 de Noviembre de 2026 | PRIORIDAD: MEDIA
+ASUNTO: Discrepancia de Nivel de Desplante en Zapata Aislada Z-08 (Eje 4-C)
+
+1. HALLAZGO EN CAMPO:
+Durante la excavación masiva se alcanzó la cota -3.20m según plano E-02. Sin embargo, a dicha cota se constata estrato de arcilla expansiva de baja capacidad portante (inferior a 0.8 kg/cm²), contraviniendo el Estudio de Mecánica de Suelos (EMS) que preveía grava arenosa densa (q_adm = 2.5 kg/cm²). El nivel de estrato firme se localiza a -3.65m (45 cm más profundo).
+
+2. ALTERNATIVAS DE SOLUCIÓN:
+• Alternativa 1: Profundización de excavación en 45 cm y vaciado de sub-zapata de concreto ciclópeo f'c=100 kg/cm² hasta alcanzar el estrato competente.
+• Alternativa 2: Ampliación de las dimensiones geométricas de la zapata Z-08 de 2.20x2.20m a 2.80x2.80m manteniendo la cota proyectada.
+
+3. REQUERIMIENTO:
+Confirmar solución geotécnica para proceder con la colocación de solados y habilitación de acero de zapata.`;
+        }
+      }, 250);
+    }
+
+    // --- EJECUTOR SIMULADOR BITÁCORA ---
+    function executeBitacoraSimulation() {
+      const eventType = document.getElementById('bitacora-event').value;
+      const impact = document.getElementById('bitacora-impact').value;
+      const output = document.getElementById('bitacora-output');
+      const spinner = document.getElementById('bitacora-btn-spinner');
+
+      spinner.classList.remove('hidden');
+      output.innerText = '// Formulando asiento formal de cuaderno de obra con blindaje legal...';
+
+      setTimeout(() => {
+        spinner.classList.add('hidden');
+        
+        if (eventType === 'lluvia') {
+          output.innerText = `[ASIENTO Nº 184 DEL CUADERNO DE OBRA DIGITAL / BITÁCORA OFICIAL]
+PROYECTO: Puente Vehicular & Acceso Vial Sur
+FECHA: 12 de Noviembre de 2026 | HORA DE APERTURA: 09:45 hrs
+SUSCRITO POR: Ing. Residente de Obra (Colegiatura CIP Nº 184920)
+
+ASUNTO: PARALIZACIÓN DE ACTIVIDAD CRÍTICA POR FUERZA MAYOR / PRECIPITACIÓN PLUVIAL EXTRAORDINARIA
+
+1. CONSTANCIA DE LOS HECHOS:
+A las 09:30 horas se desató en la zona de emplazamiento de la obra una precipitación pluvial torrencial imprevista de 28 mm/h (registrada por estación meteorológica de campo), fenómeno de carácter extraordinario e imprevisible no consignado en las alertas climáticas oficiales. 
+
+2. MEDIDAS TÉCNICAS ADOPTADAS:
+Por estricto resguardo de la calidad estructural, control de la relación agua/cemento y cumplimiento de la Norma ACI 301, se procedió a suspender de forma inmediata el vaciado de 120 m³ de concreto f'c=280 kg/cm² en losa de tablero del estribo Nº 1, en presencia y con la conformidad expresa del Supervisor de Obra. Se cancelaron 4 camiones mixer en tránsito y se procedió a la protección con mantas geotextiles de la junta de construcción fría previamente tratada.
+
+3. AFECTACIÓN CUANTIFICADA DE RECURSOS:
+${impact}. El personal obrero fue replegado a talleres cubiertos realizando labores de habilitación de acero y seguridad.
+
+4. RESERVA DE DERECHOS CONTRACTUALES:
+El presente asiento constituye la NOTIFICACIÓN FORMAL Y OPORTUNA de ocurrencia de evento de FUERZA MAYOR / CASO FORTUITO, conforme a la Cláusula 8.4 del Contrato FIDIC (Red Book) y la Ley de Contrataciones del Estado, dejando a salvo el derecho de la Contratista a solicitar la debida AMPLIACIÓN DE PLAZO y el reconocimiento de mayores gastos generales debidamente acreditados.`;
+        } else if (eventType === 'subcontrata') {
+          output.innerText = `[ASIENTO Nº 185 DEL CUADERNO DE OBRA DIGITAL / BITÁCORA OFICIAL]
+PROYECTO: Torre Residencial Sol Naciente
+FECHA: 12 de Noviembre de 2026 | HORA: 17:30 hrs
+SUSCRITO POR: Ing. Residente de Obra
+
+ASUNTO: NOTIFICACIÓN DE INCUMPLIMIENTO Y APERCIBIMIENTO FORMAL A SUBCONTRATISTA DE INSTALACIONES
+
+1. HECHOS REGISTRADOS:
+Se deja constancia en la bitácora que, habiendo vencido el plazo formal concedido en la minuta de coordinación Nº 24 para la entrega de los pases de tuberías de climatización (HVAC) en los pisos 10 al 14, la empresa subcontratista no ha completado las actividades programadas, contando únicamente con 3 técnicos en campo de los 14 comprometidos en su plan semanal Last Planner.
+
+2. IMPACTO EN EL TREN DE ACTIVIDADES:
+Dicho retraso no imputable a la Contratista Principal impide el inicio del enchapado de tabiquería de drywall, afectando la ruta crítica del sector B en 3 días de atraso acumulado.
+
+3. APERCIBIMIENTO:
+Se otorga un plazo perentorio de 24 horas para que el subcontratista triplique su cuadrilla de instaladores. En caso contrario, la Contratista Principal procederá a intervenir la partida con personal propio con cargo a las valorizaciones pendientes del subcontratista, conforme a la Cláusula 14 del respectivo subcontrato.`;
+        } else {
+          output.innerText = `[ASIENTO Nº 186 DEL CUADERNO DE OBRA DIGITAL / BITÁCORA OFICIAL]
+PROYECTO: Colector Sanitario Troncal Norte
+FECHA: 12 de Noviembre de 2026 | HORA: 11:15 hrs
+SUSCRITO POR: Ing. Residente de Obra
+
+ASUNTO: HALLAZGO DE INTERFERENCIA NO CATASTRADA / CONDICIÓN FÍSICA DIFERENTE DEL SITIO
+
+1. DESCRIPCIÓN DEL HALLAZGO:
+Durante los trabajos de excavación de zanja para la tubería de DN 800 mm en la progresiva km 2+450, se detectó una red subterránea de fibra óptica blindada de alta tensión no consignada en los planos del Expediente Técnico ni en los catastros entregados por las empresas de servicios públicos.
+
+2. MEDIDAS DE SEGURIDAD PREVENTIVAS:
+Se ordenó la detención inmediata de la retroexcavadora Caterpillar 320D para evitar un incidente de seguridad y daños patrimoniales a terceros. Se delimitó el área con cinta perimétrica y vigías.
+
+3. ACCIONES CONTRACTUALES:
+Se solicita la presencia urgente de la Supervisión de Obra y la entidad operadora de telecomunicaciones para levantar el acta de verificación in situ, solicitando de inmediato la emisión del plano de replanteo con la correspondiente reprogramación de la partida.`;
+        }
+      }, 250);
+    }
+
+    // --- CALCULADORA DE DIAGNÓSTICO EVM ---
+    function calculateEVMDiagnostic() {
+      const bac = parseFloat(document.getElementById('evm-bac').value) || 1;
+      const pv = parseFloat(document.getElementById('evm-pv').value) || 1;
+      const ev = parseFloat(document.getElementById('evm-ev').value) || 1;
+      const ac = parseFloat(document.getElementById('evm-ac').value) || 1;
+
+      const cpi = (ev / ac);
+      const spi = (ev / pv);
+      const eac = (bac / cpi);
+      const vac = bac - eac;
+
+      document.getElementById('evm-cpi').innerText = cpi.toFixed(3);
+      document.getElementById('evm-spi').innerText = spi.toFixed(3);
+      document.getElementById('evm-eac').innerText = '$' + Math.round(eac).toLocaleString() + ' USD';
+      document.getElementById('evm-vac').innerText = (vac >= 0 ? '+$' : '-$') + Math.abs(Math.round(vac)).toLocaleString();
+
+      // Colores y etiquetas
+      const cpiElem = document.getElementById('evm-cpi-status');
+      if (cpi >= 1.0) {
+        cpiElem.innerText = 'Bajo Presupuesto (Eficiente)';
+        cpiElem.className = 'text-[11px] block mt-1 text-emerald-400';
+      } else {
+        cpiElem.innerText = 'Sobrecosto Operativo';
+        cpiElem.className = 'text-[11px] block mt-1 text-red-400';
+      }
+
+      const spiElem = document.getElementById('evm-spi-status');
+      if (spi >= 1.0) {
+        spiElem.innerText = 'Adelantado a Cronograma';
+        spiElem.className = 'text-[11px] block mt-1 text-emerald-400';
+      } else {
+        spiElem.innerText = 'Retraso en Cronograma';
+        spiElem.className = 'text-[11px] block mt-1 text-red-400';
+      }
+
+      // Narrativa de IA
+      const narrative = document.getElementById('evm-ai-narrative');
+      let statusDiagnosis = "";
+      if (cpi < 1 && spi < 1) {
+        statusDiagnosis = `⚠️ ALERTA CRÍTICA DE GESTIÓN: El proyecto experimenta retraso (SPI = ${spi.toFixed(2)}) y sobrecosto simultáneo (CPI = ${cpi.toFixed(2)}). Por cada dólar invertido solo se están generando $${cpi.toFixed(2)} de valor ganado. Si la tendencia continúa, el costo final será de $${Math.round(eac).toLocaleString()} USD, superando el presupuesto contractual en $${Math.abs(Math.round(vac)).toLocaleString()} USD.\n\n` +
+        `PLAN DE CHOQUE RECOMENDADO POR IA:\n` +
+        `1. Replanificación inmediata mediante Last Planner System desacoplando sectores para avanzar frentes no críticos.\n` +
+        `2. Negociación urgente de precios unitarios por volumen en concreto y acero para mitigar el EAC.\n` +
+        `3. Revisión de rendimiento de subcontratistas en ruta crítica para evitar mayores penalidades contractuales.`;
+      } else if (cpi >= 1 && spi >= 1) {
+        statusDiagnosis = `🟢 PROYECTO SALUDABLE Y EFICIENTE: El proyecto se encuentra dentro del plazo (SPI = ${spi.toFixed(2)}) y con ahorro financiero (CPI = ${cpi.toFixed(2)}). El margen proyectado a la conclusión genera un superávit de $${Math.round(vac).toLocaleString()} USD. Continuar monitoreando la estabilidad del tren de actividades.`;
+      } else if (cpi >= 1 && spi < 1) {
+        statusDiagnosis = `🟡 PROYECTO CON RETRASO PERO CON AHORRO: El proyecto tiene un desvío en tiempo (SPI = ${spi.toFixed(2)}), pero se ejecuta con costo eficiente (CPI = ${cpi.toFixed(2)}). Se recomienda autorizar horas extras o habilitar una cuadrilla adicional en la partida de ruta crítica para recuperar plazo sin comprometer el margen presupuestal.`;
+      } else {
+        statusDiagnosis = `🟡 PROYECTO ADELANTADO PERO CON SOBRECOSTO: Se está avanzando más rápido de lo previsto (SPI = ${spi.toFixed(2)}), pero a expensas de un mayor gasto por unidad (CPI = ${cpi.toFixed(2)}). Auditar rendimientos de equipos y mermas de materiales.`;
+      }
+      narrative.innerText = statusDiagnosis;
+    }
+
+    // --- COPIAR AL PORTAPAPELES ---
+    function copyToClipboard(elementId) {
+      const text = document.getElementById(elementId).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const copyBtnText = document.getElementById(elementId.includes('rfi') ? 'rfi-copy-text' : 'bitacora-copy-text');
+        const orig = copyBtnText.innerText;
+        copyBtnText.innerText = '¡Copiado con Éxito!';
+        setTimeout(() => {
+          copyBtnText.innerText = orig;
+        }, 2000);
+      });
+    }
+
+    // --- CALCULADORA DE ROI AVANZADA ---
+    function updateROICalculation() {
+      const engineers = parseInt(document.getElementById('slider-engineers').value) || 1;
+      const hours = parseInt(document.getElementById('slider-hours').value) || 1;
+      const rate = parseInt(document.getElementById('slider-rate').value) || 25;
+
+      document.getElementById('val-engineers').innerText = engineers;
+      document.getElementById('val-hours').innerText = hours + ' hrs';
+      document.getElementById('val-rate').innerText = '$' + rate + ' USD';
+
+      // Semanas por mes promedio: 4.33
+      const totalAdminHoursMonth = engineers * hours * 4.33;
+      // Reducción estimada con IA ConTech: 65%
+      const hoursSavedMonth = Math.round(totalAdminHoursMonth * 0.65);
+      const hoursRemainingMonth = Math.round(totalAdminHoursMonth - hoursSavedMonth);
+      const moneySavedMonth = Math.round(hoursSavedMonth * rate);
+      const moneySavedYear = Math.round(moneySavedMonth * 12);
+
+      // Costo de matrícula estimada por profesional = $690 USD
+      const totalInvestment = engineers * 690;
+      const paybackWeeks = ((totalInvestment / (moneySavedMonth / 4.33))).toFixed(1);
+
+      document.getElementById('roi-hours-saved').innerText = hoursSavedMonth + ' hrs';
+      document.getElementById('roi-money-saved').innerText = '$' + moneySavedMonth.toLocaleString() + ' USD';
+      document.getElementById('roi-annual-saved').innerText = '~$' + moneySavedYear.toLocaleString() + ' USD al año';
+      document.getElementById('roi-payback-weeks').innerText = paybackWeeks + ' semanas';
+
+      // Barras comparativas
+      document.getElementById('bar-label-traditional').innerText = Math.round(totalAdminHoursMonth) + ' hrs / mes';
+      document.getElementById('bar-label-ai').innerText = hoursRemainingMonth + ' hrs / mes (-65%)';
+      document.getElementById('bar-ai-progress').style.width = '35%';
+    }
+
+    // --- MODAL DE MATRÍCULA Y DOSSIER ---
+    function openModal(triggerContext) {
+      const modal = document.getElementById('enrollment-modal');
+      const title = document.getElementById('modal-title');
+      const tag = document.getElementById('modal-tag');
+      const form = document.getElementById('enrollment-form');
+      const success = document.getElementById('modal-success');
+
+      form.classList.remove('hidden');
+      success.classList.add('hidden');
+
+      if (triggerContext.includes('Dossier')) {
+        title.innerText = 'Descarga Inmediata del Dossier Académico';
+        tag.innerText = 'Material Informativo & Sílabo';
+      } else if (triggerContext.includes('Corporativo')) {
+        title.innerText = 'Solicitud de Capacitación Corporativa In-Company';
+        tag.innerText = 'Planes para Constructoras & Contratistas';
+      } else {
+        title.innerText = 'Matrícula Oficial y Acceso al Programa';
+        tag.innerText = 'Admisión ConTech 2026';
+      }
+
+      modal.classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('enrollment-modal').classList.add('hidden');
+    }
+
+    function submitEnrollmentForm(e) {
+      e.preventDefault();
+      const btn = document.getElementById('btn-submit-form');
+      btn.innerText = 'Procesando solicitud...';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        btn.innerText = 'Confirmar Solicitud y Recibir Dossier';
+        btn.disabled = false;
+        document.getElementById('enrollment-form').classList.add('hidden');
+        document.getElementById('modal-success').classList.remove('hidden');
+      }, 700);
+    }
+
+    // --- INICIALIZACIÓN AL CARGAR LA PÁGINA ---
+    document.addEventListener('DOMContentLoaded', () => {
+      // Cargar tamaño de fuente previo si existe
+      const savedFont = localStorage.getItem('contech-font-size') || 'md';
+      setFontSize(savedFont);
+
+      // Cargar modo de contraste previo
+      if (localStorage.getItem('contech-high-contrast') === 'true') {
+        toggleHighContrast();
+      }
+
+      // Cargar perfil por defecto (Residentes 31-40 años)
+      selectAgeProfile('resident');
+
+      // Calcular EVM inicial
+      calculateEVMDiagnostic();
+
+      // Calcular ROI inicial
+      updateROICalculation();
+    });
+  </script>
+</body>
+</html>
