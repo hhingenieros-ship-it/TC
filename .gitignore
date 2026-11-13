@@ -1,0 +1,4 @@
+node_modules/
+dist/
+.netlify/
+netlify/functions/chat-content.generated.json
