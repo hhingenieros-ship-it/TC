@@ -26,22 +26,26 @@
           },
           colors: {
             contech: {
-              navy: '#0B1120',
-              deep: '#0F172A',
-              card: '#1E293B',
-              border: '#334155',
-              orange: '#EA580C',
-              safety: '#F97316',
-              amber: '#F59E0B',
-              emerald: '#10B981',
-              concrete: '#F8FAFC',
-              mist: '#E2E8F0',
-              blue: '#2563EB'
-            }
+              navy: '#111111',
+              deep: '#181818',
+              card: '#232323',
+            },
+            brand: {
+              300: '#FFE57A',
+              400: '#FFD94A',
+              500: '#FFCD00',
+              600: '#EAB800',
+              700: '#D5A400',
+              800: '#785E12',
+              950: '#29220E',
+            },
+            neutral: {
+              500: '#9A9A9A',
+              600: '#737373',
+            },
           },
           boxShadow: {
-            'glow-orange': '0 0 25px -5px rgba(234, 88, 12, 0.4)',
-            'glow-blue': '0 0 25px -5px rgba(37, 99, 235, 0.35)',
+            'glow-brand': '0 0 25px -5px rgba(255, 205, 0, 0.35)',
             'contech-card': '0 10px 30px -10px rgba(0, 0, 0, 0.5)',
           }
         }
@@ -65,36 +69,36 @@
       background-color: #000000 !important;
       color: #ffffff !important;
     }
-    body.high-contrast .bg-slate-900,
+    body.high-contrast .bg-neutral-900,
     body.high-contrast .bg-contech-deep,
     body.high-contrast .bg-contech-card,
     body.high-contrast .bg-white {
       background-color: #0a0a0a !important;
-      border-color: #f97316 !important;
+      border-color: #ffcd00 !important;
       color: #ffffff !important;
     }
     body.high-contrast p, 
     body.high-contrast span:not(.badge-highlight),
     body.high-contrast li {
-      color: #f1f5f9 !important;
+      color: #f5f5f5 !important;
     }
     body.high-contrast input,
     body.high-contrast select,
     body.high-contrast textarea {
       background-color: #121212 !important;
-      border-color: #ea580c !important;
+      border-color: #ffcd00 !important;
       color: #ffffff !important;
     }
 
     /* Animaciones y utilitarios */
     .blueprint-grid {
       background-image: 
-        linear-gradient(to right, rgba(234, 88, 12, 0.05) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(234, 88, 12, 0.05) 1px, transparent 1px);
+        linear-gradient(to right, rgba(255, 205, 0, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 205, 0, 0.05) 1px, transparent 1px);
       background-size: 32px 32px;
     }
     .blueprint-dots {
-      background-image: radial-gradient(rgba(249, 115, 22, 0.15) 1px, transparent 1px);
+      background-image: radial-gradient(rgba(255, 205, 0, 0.15) 1px, transparent 1px);
       background-size: 24px 24px;
     }
     .custom-scrollbar::-webkit-scrollbar {
@@ -102,43 +106,43 @@
       height: 6px;
     }
     .custom-scrollbar::-webkit-scrollbar-track {
-      background: #0f172a;
+      background: #181818;
     }
     .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: #334155;
+      background: #404040;
       border-radius: 4px;
     }
     .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-      background: #ea580c;
+      background: #ffcd00;
     }
   </style>
 </head>
-<body class="bg-contech-navy text-slate-100 font-sans antialiased selection:bg-orange-600 selection:text-white">
+<body class="bg-contech-navy text-neutral-100 font-sans antialiased selection:bg-brand-600 selection:text-neutral-950">
 
   <!-- ========================================== -->
   <!-- BARRA DE ACCESIBILIDAD Y ERGONOMÍA SUPERIOR -->
   <!-- ========================================== -->
-  <div class="bg-slate-950/90 border-b border-slate-800 text-xs py-1.5 px-4 sm:px-8">
+  <div class="bg-neutral-950/90 border-b border-neutral-800 text-xs py-1.5 px-4 sm:px-8">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-      <div class="flex items-center space-x-3 text-slate-400">
+      <div class="flex items-center space-x-3 text-neutral-400">
         <span class="inline-flex items-center text-emerald-400 font-medium">
           <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping mr-1.5"></span>
           Convocatoria Abierta • Cohorte 2026
         </span>
-        <span class="hidden md:inline text-slate-600">|</span>
+        <span class="hidden md:inline text-neutral-600">|</span>
         <span class="hidden md:inline">Auditoría Técnica Continua • Certificación con Validación QR</span>
       </div>
 
       <!-- Controles de Accesibilidad para confort visual (audiencia 20 a 50 años) -->
-      <div class="flex items-center space-x-2 text-slate-300">
-        <span class="text-[11px] text-slate-400 hidden sm:inline">Ergonomía de Lectura:</span>
-        <div class="inline-flex rounded-md bg-slate-900 border border-slate-700 p-0.5">
-          <button onclick="setFontSize('sm')" id="btn-font-sm" class="px-2 py-0.5 rounded text-[11px] font-semibold hover:bg-slate-800 text-slate-400 hover:text-white transition" title="Letra Estándar (15px)">A-</button>
-          <button onclick="setFontSize('md')" id="btn-font-md" class="px-2 py-0.5 rounded text-[11px] font-semibold bg-orange-600 text-white transition" title="Letra Normal (16px)">A</button>
-          <button onclick="setFontSize('lg')" id="btn-font-lg" class="px-2 py-0.5 rounded text-[11px] font-semibold hover:bg-slate-800 text-slate-400 hover:text-white transition" title="Letra Cómoda (18px)">A+</button>
-          <button onclick="setFontSize('xl')" id="btn-font-xl" class="px-2 py-0.5 rounded text-[11px] font-semibold hover:bg-slate-800 text-slate-400 hover:text-white transition" title="Letra Grande (20px)">A++</button>
+      <div class="flex items-center space-x-2 text-neutral-300">
+        <span class="text-[11px] text-neutral-400 hidden sm:inline">Ergonomía de Lectura:</span>
+        <div class="inline-flex rounded-md bg-neutral-900 border border-neutral-700 p-0.5">
+          <button onclick="setFontSize('sm')" id="btn-font-sm" class="px-2 py-0.5 rounded text-[11px] font-semibold hover:bg-neutral-800 text-neutral-400 hover:text-white transition" title="Letra Estándar (15px)">A-</button>
+          <button onclick="setFontSize('md')" id="btn-font-md" class="px-2 py-0.5 rounded text-[11px] font-semibold bg-brand-600 text-neutral-950 transition" title="Letra Normal (16px)">A</button>
+          <button onclick="setFontSize('lg')" id="btn-font-lg" class="px-2 py-0.5 rounded text-[11px] font-semibold hover:bg-neutral-800 text-neutral-400 hover:text-white transition" title="Letra Cómoda (18px)">A+</button>
+          <button onclick="setFontSize('xl')" id="btn-font-xl" class="px-2 py-0.5 rounded text-[11px] font-semibold hover:bg-neutral-800 text-neutral-400 hover:text-white transition" title="Letra Grande (20px)">A++</button>
         </div>
-        <button onclick="toggleHighContrast()" id="btn-contrast" class="px-2.5 py-1 rounded bg-slate-900 border border-slate-700 text-slate-300 hover:text-orange-400 hover:border-orange-500 transition text-[11px] flex items-center gap-1 font-medium" title="Alternar Modo Alto Contraste">
+        <button onclick="toggleHighContrast()" id="btn-contrast" class="px-2.5 py-1 rounded bg-neutral-900 border border-neutral-700 text-neutral-300 hover:text-brand-400 hover:border-brand-500 transition text-[11px] flex items-center gap-1 font-medium" title="Alternar Modo Alto Contraste">
           <span id="contrast-icon">🌓</span>
           <span class="hidden sm:inline" id="contrast-text">Alto Contraste</span>
         </button>
@@ -149,41 +153,41 @@
   <!-- ========================================== -->
   <!-- BARRA DE NAVEGACIÓN PRINCIPAL (STICKY) -->
   <!-- ========================================== -->
-  <header class="sticky top-0 z-40 bg-contech-navy/95 backdrop-blur-md border-b border-slate-800 shadow-xl transition-all">
+  <header class="sticky top-0 z-40 bg-contech-navy/95 backdrop-blur-md border-b border-neutral-800 shadow-xl transition-all">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
       <!-- LOGO Y MARCA -->
       <a href="#" class="flex items-center space-x-3 group">
-        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-orange-500 to-orange-700 flex items-center justify-center font-bold text-2xl text-white shadow-lg shadow-orange-600/30 group-hover:scale-105 transition-transform">
-          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center font-bold text-2xl text-neutral-950 shadow-lg shadow-brand-600/30 group-hover:scale-105 transition-transform">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
           </svg>
         </div>
         <div>
           <div class="flex items-center gap-2">
             <span class="text-xl font-extrabold tracking-tight text-white font-display">CONTECH</span>
-            <span class="text-xl font-extrabold tracking-tight text-orange-500 font-display">AI ACADEMY</span>
-            <span class="text-[10px] bg-orange-600/20 text-orange-400 border border-orange-500/30 px-2 py-0.5 rounded-full font-bold uppercase tracking-wider hidden sm:inline-block">Pro 2026</span>
+            <span class="text-xl font-extrabold tracking-tight text-brand-500 font-display">AI ACADEMY</span>
+            <span class="text-[10px] bg-brand-600/20 text-brand-400 border border-brand-500/30 px-2 py-0.5 rounded-full font-bold uppercase tracking-wider hidden sm:inline-block">Pro 2026</span>
           </div>
-          <span class="text-xs text-slate-400 font-medium tracking-wide block">Ingeniería, Construcción & Inteligencia Artificial</span>
+          <span class="text-xs text-neutral-400 font-medium tracking-wide block">Ingeniería, Construcción & Inteligencia Artificial</span>
         </div>
       </a>
 
       <!-- ENLACES DE ESCRITORIO -->
       <nav class="hidden lg:flex items-center space-x-7 text-sm font-medium">
-        <a href="#audiencia" class="text-slate-300 hover:text-orange-400 transition-colors py-1">Rutas por Perfil</a>
-        <a href="#modulos" class="text-slate-300 hover:text-orange-400 transition-colors py-1">Malla Curricular</a>
-        <a href="#simulador-suite" class="text-slate-300 hover:text-orange-400 transition-colors py-1 flex items-center gap-1.5">
-          <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+        <a href="#audiencia" class="text-neutral-300 hover:text-brand-400 transition-colors py-1">Rutas por Perfil</a>
+        <a href="#modulos" class="text-neutral-300 hover:text-brand-400 transition-colors py-1">Malla Curricular</a>
+        <a href="#simulador-suite" class="text-neutral-300 hover:text-brand-400 transition-colors py-1 flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-brand-500"></span>
           <span>Simulador en Vivo</span>
         </a>
-        <a href="#calculadora-roi" class="text-slate-300 hover:text-orange-400 transition-colors py-1">Calculadora ROI</a>
-        <a href="#acreditacion" class="text-slate-300 hover:text-orange-400 transition-colors py-1">Estándares</a>
+        <a href="#calculadora-roi" class="text-neutral-300 hover:text-brand-400 transition-colors py-1">Calculadora ROI</a>
+        <a href="#acreditacion" class="text-neutral-300 hover:text-brand-400 transition-colors py-1">Estándares</a>
       </nav>
 
       <!-- BOTÓN CTA & MENU MÓVIL -->
       <div class="flex items-center space-x-3">
-        <button onclick="openModal('Inscripción General')" class="hidden sm:inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white font-bold py-2.5 px-5 rounded-xl shadow-lg shadow-orange-600/25 hover:shadow-orange-600/40 transition-all text-sm group">
+        <button onclick="openModal('Inscripción General')" class="hidden sm:inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-600 text-neutral-950 font-bold py-2.5 px-5 rounded-xl shadow-lg shadow-brand-600/25 hover:shadow-brand-600/40 transition-all text-sm group">
           <span>Inscribirme al Programa</span>
           <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
@@ -191,7 +195,7 @@
         </button>
 
         <!-- Botón Hamburguesa Móvil -->
-        <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition" aria-label="Abrir Menú">
+        <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg bg-neutral-800 text-neutral-300 hover:text-white hover:bg-neutral-700 transition" aria-label="Abrir Menú">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
           </svg>
@@ -200,14 +204,14 @@
     </div>
 
     <!-- DRAWER DE NAVEGACIÓN MÓVIL -->
-    <div id="mobile-menu" class="hidden lg:hidden bg-slate-900 border-b border-slate-800 px-4 pt-3 pb-6 space-y-3">
-      <a href="#audiencia" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-orange-400 font-medium py-2">Rutas por Perfil (20 a 50 años)</a>
-      <a href="#modulos" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-orange-400 font-medium py-2">Malla Curricular (6 Módulos)</a>
-      <a href="#simulador-suite" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-orange-400 font-medium py-2">Suite de Simulación ConTech</a>
-      <a href="#calculadora-roi" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-orange-400 font-medium py-2">Calculadora de Retorno de Inversión</a>
-      <a href="#acreditacion" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-orange-400 font-medium py-2">Estándares y Avales Técnicos</a>
+    <div id="mobile-menu" class="hidden lg:hidden bg-neutral-900 border-b border-neutral-800 px-4 pt-3 pb-6 space-y-3">
+      <a href="#audiencia" onclick="toggleMobileMenu()" class="block text-neutral-300 hover:text-brand-400 font-medium py-2">Rutas por Perfil (20 a 50 años)</a>
+      <a href="#modulos" onclick="toggleMobileMenu()" class="block text-neutral-300 hover:text-brand-400 font-medium py-2">Malla Curricular (6 Módulos)</a>
+      <a href="#simulador-suite" onclick="toggleMobileMenu()" class="block text-neutral-300 hover:text-brand-400 font-medium py-2">Suite de Simulación ConTech</a>
+      <a href="#calculadora-roi" onclick="toggleMobileMenu()" class="block text-neutral-300 hover:text-brand-400 font-medium py-2">Calculadora de Retorno de Inversión</a>
+      <a href="#acreditacion" onclick="toggleMobileMenu()" class="block text-neutral-300 hover:text-brand-400 font-medium py-2">Estándares y Avales Técnicos</a>
       <div class="pt-2">
-        <button onclick="toggleMobileMenu(); openModal('Inscripción Móvil');" class="w-full bg-orange-600 hover:bg-orange-500 text-white font-bold py-3 rounded-xl shadow text-center">
+        <button onclick="toggleMobileMenu(); openModal('Inscripción Móvil');" class="w-full bg-brand-600 hover:bg-brand-500 text-neutral-950 font-bold py-3 rounded-xl shadow text-center">
           Inscribirme al Programa
         </button>
       </div>
@@ -217,8 +221,8 @@
   <!-- ========================================== -->
   <!-- HERO SECTION DE ALTO IMPACTO & CONVERSIÓN -->
   <!-- ========================================== -->
-  <section class="relative bg-gradient-to-b from-contech-navy via-slate-900 to-contech-deep py-20 lg:py-28 overflow-hidden blueprint-grid border-b border-slate-800">
-    <div class="absolute inset-0 bg-gradient-to-r from-orange-500/5 via-transparent to-blue-500/5 pointer-events-none"></div>
+  <section class="relative bg-gradient-to-b from-contech-navy via-neutral-900 to-contech-deep py-20 lg:py-28 overflow-hidden blueprint-grid border-b border-neutral-800">
+    <div class="absolute inset-0 bg-gradient-to-r from-brand-500/5 via-transparent to-brand-500/5 pointer-events-none"></div>
     
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -227,78 +231,82 @@
         <div class="lg:col-span-8 text-center lg:text-left">
           
           <!-- Badge de Contexto Superior -->
-          <div class="inline-flex items-center space-x-2 bg-slate-800/90 border border-orange-500/30 rounded-full px-4 py-1.5 mb-6 text-orange-400 text-xs sm:text-sm font-semibold tracking-wide shadow-sm">
-            <span class="w-2.5 h-2.5 rounded-full bg-orange-500 animate-pulse"></span>
+          <div class="inline-flex items-center space-x-2 bg-neutral-800/90 border border-brand-500/30 rounded-full px-4 py-1.5 mb-6 text-brand-400 text-xs sm:text-sm font-semibold tracking-wide shadow-sm">
+            <span class="w-2.5 h-2.5 rounded-full bg-brand-500 animate-pulse"></span>
             <span>Especialización Ejecutiva ConTech • Andragogía para 20 a 50 años</span>
           </div>
 
           <!-- Título Principal -->
           <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white font-display leading-[1.15] mb-6">
             Inteligencia Artificial para la <br class="hidden sm:inline">
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-brand-300 to-brand-500">
               Gestión de Proyectos de Construcción
             </span>
           </h1>
 
           <!-- Descripción y Propuesta de Valor -->
-          <p class="text-base sm:text-lg lg:text-xl text-slate-300 max-w-3xl leading-relaxed mb-8">
+          <p class="text-base sm:text-lg lg:text-xl text-neutral-300 max-w-3xl leading-relaxed mb-8">
             Pasa de la teoría a la obra real: automatiza consultas técnicas (RFIs), predice demoras en la ruta crítica con Last Planner System, audita presupuestos APU y blinda contractualmente tu bitácora bajo estándares <strong class="text-white">PMI PMBOK 7ma Ed., Lean Construction, ISO 19650 y FIDIC</strong>.
           </p>
 
           <!-- Doble CTA y Garantía -->
           <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-10">
-            <button onclick="openModal('Hero Principal')" class="w-full sm:w-auto bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white font-extrabold py-4 px-8 rounded-xl shadow-glow-orange hover:shadow-orange-500/50 transition-all text-base text-center inline-flex items-center justify-center space-x-2 group">
+            <button onclick="openModal('Hero Principal')" class="w-full sm:w-auto bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-600 text-neutral-950 font-extrabold py-4 px-8 rounded-xl shadow-glow-brand hover:shadow-brand-500/50 transition-all text-base text-center inline-flex items-center justify-center space-x-2 group">
               <span>Matricularme Ahora</span>
               <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
               </svg>
             </button>
 
-            <a href="#simulador-suite" class="w-full sm:w-auto bg-slate-800/90 hover:bg-slate-700 border border-slate-700 hover:border-orange-500 text-slate-200 hover:text-white font-bold py-4 px-8 rounded-xl shadow transition-all text-base text-center inline-flex items-center justify-center space-x-2">
-              <svg class="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <a href="#simulador-suite" class="w-full sm:w-auto bg-neutral-800/90 hover:bg-neutral-700 border border-neutral-700 hover:border-brand-500 text-neutral-200 hover:text-white font-bold py-4 px-8 rounded-xl shadow transition-all text-base text-center inline-flex items-center justify-center space-x-2">
+              <svg class="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
               </svg>
               <span>Probar Suite en Vivo</span>
             </a>
 
-            <button onclick="openModal('Descarga Dossier')" class="w-full sm:w-auto text-slate-400 hover:text-white py-3 px-4 text-sm font-medium underline underline-offset-4 decoration-slate-600 hover:decoration-orange-500 transition">
+            <button onclick="openModal('Descarga Dossier')" class="w-full sm:w-auto text-neutral-400 hover:text-white py-3 px-4 text-sm font-medium underline underline-offset-4 decoration-neutral-600 hover:decoration-brand-500 transition">
               Descargar Dossier Completo (PDF)
             </button>
           </div>
 
           <!-- Badges de Estándares Internacionales -->
-          <div class="pt-6 border-t border-slate-800/80">
-            <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-3">Marco Metodológico y Normativo Integrado:</span>
+          <div class="pt-6 border-t border-neutral-800/80">
+            <span class="text-xs font-semibold text-neutral-400 uppercase tracking-wider block mb-3">Marco Metodológico y Normativo Integrado:</span>
             <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-3 text-xs">
-              <span class="bg-slate-800/80 border border-slate-700 text-slate-200 px-3 py-1.5 rounded-lg font-medium flex items-center gap-1.5">
-                <span class="text-orange-500 font-bold">✓</span> PMI PMBOK® 7ma Ed.
+              <span class="bg-neutral-800/80 border border-neutral-700 text-neutral-200 px-3 py-1.5 rounded-lg font-medium flex items-center gap-1.5">
+                <span class="text-brand-500 font-bold">✓</span> PMI PMBOK® 7ma Ed.
               </span>
-              <span class="bg-slate-800/80 border border-slate-700 text-slate-200 px-3 py-1.5 rounded-lg font-medium flex items-center gap-1.5">
-                <span class="text-orange-500 font-bold">✓</span> Lean Construction & LPS
+              <span class="bg-neutral-800/80 border border-neutral-700 text-neutral-200 px-3 py-1.5 rounded-lg font-medium flex items-center gap-1.5">
+                <span class="text-brand-500 font-bold">✓</span> Lean Construction & LPS
               </span>
-              <span class="bg-slate-800/80 border border-slate-700 text-slate-200 px-3 py-1.5 rounded-lg font-medium flex items-center gap-1.5">
-                <span class="text-orange-500 font-bold">✓</span> ISO 19650 (BIM)
+              <span class="bg-neutral-800/80 border border-neutral-700 text-neutral-200 px-3 py-1.5 rounded-lg font-medium flex items-center gap-1.5">
+                <span class="text-brand-500 font-bold">✓</span> ISO 19650 (BIM)
               </span>
-              <span class="bg-slate-800/80 border border-slate-700 text-slate-200 px-3 py-1.5 rounded-lg font-medium flex items-center gap-1.5">
-                <span class="text-orange-500 font-bold">✓</span> FIDIC / NEC Contracts
+              <span class="bg-neutral-800/80 border border-neutral-700 text-neutral-200 px-3 py-1.5 rounded-lg font-medium flex items-center gap-1.5">
+                <span class="text-brand-500 font-bold">✓</span> FIDIC / NEC Contracts
               </span>
-              <span class="bg-slate-800/80 border border-slate-700 text-slate-200 px-3 py-1.5 rounded-lg font-medium flex items-center gap-1.5">
-                <span class="text-orange-500 font-bold">✓</span> OSHA & Seguridad HSE
+              <span class="bg-neutral-800/80 border border-neutral-700 text-neutral-200 px-3 py-1.5 rounded-lg font-medium flex items-center gap-1.5">
+                <span class="text-brand-500 font-bold">✓</span> OSHA & Seguridad HSE
               </span>
             </div>
           </div>
         </div>
 
-        <!-- TARJETA LATERAL DE IMPACTO & KPI COUNTERS -->
-        <div class="lg:col-span-4">
-          <div class="bg-gradient-to-b from-slate-800/90 to-contech-card rounded-2xl p-6 sm:p-7 border border-slate-700 shadow-2xl relative overflow-hidden backdrop-blur-md">
+        <!-- FOTOGRAFÍA DE OBRA E INDICADORES -->
+        <div class="lg:col-span-4 space-y-5">
+          <!-- Fotografía de Mikael Blomkvist, Pexels 8961070. -->
+          <img src="assets/ingenieros-en-obra.webp" width="1200" height="800" fetchpriority="high"
+            class="w-full h-56 sm:h-64 lg:h-56 object-cover object-center rounded-2xl border border-neutral-700"
+            alt="Dos ingenieros con casco conversan en una obra en construcción">
+          <div class="bg-gradient-to-b from-neutral-800/90 to-contech-card rounded-2xl p-6 sm:p-7 border border-neutral-700 shadow-2xl relative overflow-hidden backdrop-blur-md">
             
-            <div class="absolute -top-12 -right-12 w-32 h-32 bg-orange-500/10 rounded-full blur-2xl pointer-events-none"></div>
+            <div class="absolute -top-12 -right-12 w-32 h-32 bg-brand-500/10 rounded-full blur-2xl pointer-events-none"></div>
 
-            <div class="flex items-center justify-between border-b border-slate-700 pb-4 mb-6">
+            <div class="flex items-center justify-between border-b border-neutral-700 pb-4 mb-6">
               <div>
-                <span class="text-xs font-bold text-orange-400 uppercase tracking-wider block">Indicadores ConTech</span>
+                <span class="text-xs font-bold text-brand-400 uppercase tracking-wider block">Indicadores ConTech</span>
                 <span class="text-sm font-semibold text-white">Impacto Medido en Obra</span>
               </div>
               <span class="px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 text-xs font-bold">
@@ -309,51 +317,51 @@
             <!-- Métricas Clave Dinámicas -->
             <div class="space-y-5">
               
-              <div class="flex items-center space-x-4 bg-slate-900/60 p-3.5 rounded-xl border border-slate-800">
-                <div class="w-12 h-12 rounded-lg bg-orange-500/20 text-orange-400 flex items-center justify-center font-bold text-xl flex-shrink-0">
+              <div class="flex items-center space-x-4 bg-neutral-900/60 p-3.5 rounded-xl border border-neutral-800">
+                <div class="w-12 h-12 rounded-lg bg-brand-500/20 text-brand-400 flex items-center justify-center font-bold text-xl flex-shrink-0">
                   ⚡
                 </div>
                 <div>
                   <div class="text-2xl sm:text-3xl font-extrabold text-white font-display">-65%</div>
-                  <div class="text-xs text-slate-400 font-medium">Tiempo en redacción de RFIs, actas y bitácoras</div>
+                  <div class="text-xs text-neutral-400 font-medium">Tiempo en redacción de RFIs, actas y bitácoras</div>
                 </div>
               </div>
 
-              <div class="flex items-center space-x-4 bg-slate-900/60 p-3.5 rounded-xl border border-slate-800">
-                <div class="w-12 h-12 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold text-xl flex-shrink-0">
+              <div class="flex items-center space-x-4 bg-neutral-900/60 p-3.5 rounded-xl border border-neutral-800">
+                <div class="w-12 h-12 rounded-lg bg-brand-500/20 text-brand-400 flex items-center justify-center font-bold text-xl flex-shrink-0">
                   👷
                 </div>
                 <div>
                   <div class="text-2xl sm:text-3xl font-extrabold text-white font-display">+1,250</div>
-                  <div class="text-xs text-slate-400 font-medium">Ingenieros, arquitectos y directores certificados</div>
+                  <div class="text-xs text-neutral-400 font-medium">Ingenieros, arquitectos y directores certificados</div>
                 </div>
               </div>
 
-              <div class="flex items-center space-x-4 bg-slate-900/60 p-3.5 rounded-xl border border-slate-800">
+              <div class="flex items-center space-x-4 bg-neutral-900/60 p-3.5 rounded-xl border border-neutral-800">
                 <div class="w-12 h-12 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xl flex-shrink-0">
                   ⭐
                 </div>
                 <div>
                   <div class="text-2xl sm:text-3xl font-extrabold text-white font-display">98.4%</div>
-                  <div class="text-xs text-slate-400 font-medium">Satisfacción y aplicación directa en contratos reales</div>
+                  <div class="text-xs text-neutral-400 font-medium">Satisfacción y aplicación directa en contratos reales</div>
                 </div>
               </div>
 
-              <div class="flex items-center space-x-4 bg-slate-900/60 p-3.5 rounded-xl border border-slate-800">
-                <div class="w-12 h-12 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-xl flex-shrink-0">
+              <div class="flex items-center space-x-4 bg-neutral-900/60 p-3.5 rounded-xl border border-neutral-800">
+                <div class="w-12 h-12 rounded-lg bg-brand-500/20 text-brand-400 flex items-center justify-center font-bold text-xl flex-shrink-0">
                   🏢
                 </div>
                 <div>
                   <div class="text-2xl sm:text-3xl font-extrabold text-white font-display">45+</div>
-                  <div class="text-xs text-slate-400 font-medium">Empresas constructoras y consultoras aliadas</div>
+                  <div class="text-xs text-neutral-400 font-medium">Empresas constructoras y consultoras aliadas</div>
                 </div>
               </div>
 
             </div>
 
             <!-- Mini Garantía -->
-            <div class="mt-6 pt-4 border-t border-slate-700/80 text-center">
-              <span class="text-xs text-slate-400 flex items-center justify-center gap-1.5">
+            <div class="mt-6 pt-4 border-t border-neutral-700/80 text-center">
+              <span class="text-xs text-neutral-400 flex items-center justify-center gap-1.5">
                 <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
@@ -371,17 +379,17 @@
   <!-- ============================================================ -->
   <!-- SELECTOR DINÁMICO DE RUTA SEGÚN EDAD Y ROL (ANDRAGOGÍA) -->
   <!-- ============================================================ -->
-  <section id="audiencia" class="py-20 bg-slate-900 border-b border-slate-800 relative">
+  <section id="audiencia" class="py-20 bg-neutral-900 border-b border-neutral-800 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-12">
-        <span class="text-xs uppercase tracking-wider font-bold text-orange-400 bg-orange-950/70 border border-orange-800/60 px-3.5 py-1 rounded-full">
+        <span class="text-xs uppercase tracking-wider font-bold text-brand-400 bg-brand-950/70 border border-brand-800/60 px-3.5 py-1 rounded-full">
           Diseño Instruccional Adaptativo
         </span>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-display mt-3 mb-4">
           Un Enfoque Andragógico para Profesionales de 20 a 50 Años
         </h2>
-        <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+        <p class="text-neutral-300 text-base sm:text-lg leading-relaxed">
           Un asistente junior no tiene las mismas responsabilidades que un gerente de operaciones. Selecciona tu perfil y descubre cómo se adapta la formación a tu reto diario:
         </p>
       </div>
@@ -389,26 +397,26 @@
       <!-- BOTONES DE PESTAÑAS INTERACTIVAS -->
       <div class="flex flex-col sm:flex-row justify-center items-stretch gap-3 mb-10 max-w-4xl mx-auto">
         
-        <button onclick="selectAgeProfile('junior')" id="tab-junior" class="profile-tab flex-1 py-4 px-5 rounded-xl border-2 border-orange-500 bg-orange-600/10 text-white font-bold text-sm sm:text-base flex items-center justify-center gap-3 transition-all shadow-md">
+        <button onclick="selectAgeProfile('junior')" id="tab-junior" class="profile-tab flex-1 py-4 px-5 rounded-xl border-2 border-brand-500 bg-brand-600/10 text-white font-bold text-sm sm:text-base flex items-center justify-center gap-3 transition-all shadow-md">
           <span class="text-xl">🚀</span>
           <div class="text-left">
-            <span class="block text-xs uppercase tracking-wider font-semibold text-orange-400">20 - 30 Años</span>
+            <span class="block text-xs uppercase tracking-wider font-semibold text-brand-400">20 - 30 Años</span>
             <span class="block font-bold">Juniors & Asistentes</span>
           </div>
         </button>
 
-        <button onclick="selectAgeProfile('resident')" id="tab-resident" class="profile-tab flex-1 py-4 px-5 rounded-xl border border-slate-700 bg-slate-800/80 text-slate-300 hover:text-white font-bold text-sm sm:text-base flex items-center justify-center gap-3 transition-all">
+        <button onclick="selectAgeProfile('resident')" id="tab-resident" class="profile-tab flex-1 py-4 px-5 rounded-xl border border-neutral-700 bg-neutral-800/80 text-neutral-300 hover:text-white font-bold text-sm sm:text-base flex items-center justify-center gap-3 transition-all">
           <span class="text-xl">⚡</span>
           <div class="text-left">
-            <span class="block text-xs uppercase tracking-wider font-semibold text-slate-400">31 - 40 Años</span>
+            <span class="block text-xs uppercase tracking-wider font-semibold text-neutral-400">31 - 40 Años</span>
             <span class="block font-bold">Residentes & Jefes de Obra</span>
           </div>
         </button>
 
-        <button onclick="selectAgeProfile('director')" id="tab-director" class="profile-tab flex-1 py-4 px-5 rounded-xl border border-slate-700 bg-slate-800/80 text-slate-300 hover:text-white font-bold text-sm sm:text-base flex items-center justify-center gap-3 transition-all">
+        <button onclick="selectAgeProfile('director')" id="tab-director" class="profile-tab flex-1 py-4 px-5 rounded-xl border border-neutral-700 bg-neutral-800/80 text-neutral-300 hover:text-white font-bold text-sm sm:text-base flex items-center justify-center gap-3 transition-all">
           <span class="text-xl">🏛️</span>
           <div class="text-left">
-            <span class="block text-xs uppercase tracking-wider font-semibold text-slate-400">41 - 50 Años</span>
+            <span class="block text-xs uppercase tracking-wider font-semibold text-neutral-400">41 - 50 Años</span>
             <span class="block font-bold">Directores & Gerentes</span>
           </div>
         </button>
@@ -416,7 +424,7 @@
       </div>
 
       <!-- CONTENIDO DINÁMICO DEL PERFIL -->
-      <div id="profile-content" class="bg-slate-800/90 rounded-2xl border border-slate-700 p-6 sm:p-10 shadow-2xl transition-all">
+      <div id="profile-content" class="bg-neutral-800/90 rounded-2xl border border-neutral-700 p-6 sm:p-10 shadow-2xl transition-all">
         <!-- Renderizado dinámicamente mediante JS -->
       </div>
 
@@ -426,28 +434,28 @@
   <!-- ============================================================ -->
   <!-- MALLA CURRICULAR MODULAR INTERACTIVA (6 MÓDULOS EN ACORDEÓN) -->
   <!-- ============================================================ -->
-  <section id="modulos" class="py-20 bg-contech-navy border-b border-slate-800">
+  <section id="modulos" class="py-20 bg-contech-navy border-b border-neutral-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
         <div class="max-w-2xl">
-          <span class="text-xs uppercase tracking-wider font-bold text-orange-400 bg-orange-950/70 border border-orange-800/60 px-3 py-1 rounded-full">
+          <span class="text-xs uppercase tracking-wider font-bold text-brand-400 bg-brand-950/70 border border-brand-800/60 px-3 py-1 rounded-full">
             Estructura Académica Rigurosa
           </span>
           <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-display mt-3 mb-2">
             Malla Curricular Especializada (90 Horas)
           </h2>
-          <p class="text-slate-300 text-base">
+          <p class="text-neutral-300 text-base">
             6 módulos progresivos con enfoque teórico-práctico, talleres de aplicación real y proyectos de portafolio para cada participante.
           </p>
         </div>
 
         <!-- Acciones rápidas de acordeón -->
         <div class="mt-4 md:mt-0 flex items-center space-x-3">
-          <button onclick="expandAllModules(true)" class="text-xs font-semibold text-slate-300 hover:text-orange-400 bg-slate-800 border border-slate-700 px-3.5 py-2 rounded-lg transition">
+          <button onclick="expandAllModules(true)" class="text-xs font-semibold text-neutral-300 hover:text-brand-400 bg-neutral-800 border border-neutral-700 px-3.5 py-2 rounded-lg transition">
             Expandir Todos
           </button>
-          <button onclick="expandAllModules(false)" class="text-xs font-semibold text-slate-300 hover:text-orange-400 bg-slate-800 border border-slate-700 px-3.5 py-2 rounded-lg transition">
+          <button onclick="expandAllModules(false)" class="text-xs font-semibold text-neutral-300 hover:text-brand-400 bg-neutral-800 border border-neutral-700 px-3.5 py-2 rounded-lg transition">
             Colapsar Todos
           </button>
         </div>
@@ -457,64 +465,64 @@
       <div class="space-y-4" id="curriculum-accordion">
         
         <!-- MÓDULO 1 -->
-        <div class="module-card bg-slate-800/90 border border-slate-700 rounded-xl overflow-hidden transition-all duration-300">
-          <button onclick="toggleModule(1)" class="w-full p-6 text-left flex items-center justify-between hover:bg-slate-700/50 transition">
+        <div class="module-card bg-neutral-800/90 border border-neutral-700 rounded-xl overflow-hidden transition-all duration-300">
+          <button onclick="toggleModule(1)" class="w-full p-6 text-left flex items-center justify-between hover:bg-neutral-700/50 transition">
             <div class="flex items-center space-x-4">
-              <span class="w-10 h-10 rounded-lg bg-orange-600/20 text-orange-400 font-extrabold flex items-center justify-center text-sm border border-orange-500/30">
+              <span class="w-10 h-10 rounded-lg bg-brand-600/20 text-brand-400 font-extrabold flex items-center justify-center text-sm border border-brand-500/30">
                 M1
               </span>
               <div>
                 <div class="flex items-center gap-2">
                   <h3 class="text-lg font-bold text-white">Fundamentos de IA, Ecosistema ConTech & Gobernanza de Datos</h3>
-                  <span class="text-xs bg-slate-700 text-slate-300 px-2.5 py-0.5 rounded-full font-medium hidden sm:inline">10 Horas</span>
+                  <span class="text-xs bg-neutral-700 text-neutral-300 px-2.5 py-0.5 rounded-full font-medium hidden sm:inline">10 Horas</span>
                 </div>
-                <p class="text-xs sm:text-sm text-slate-400 mt-0.5">Modelos generativos, privacidad contractual y seguridad de licitaciones.</p>
+                <p class="text-xs sm:text-sm text-neutral-400 mt-0.5">Modelos generativos, privacidad contractual y seguridad de licitaciones.</p>
               </div>
             </div>
             <div class="flex items-center space-x-3">
-              <span class="text-xs font-semibold text-orange-400 bg-orange-950/60 border border-orange-800/50 px-2.5 py-1 rounded hidden md:inline">
+              <span class="text-xs font-semibold text-brand-400 bg-brand-950/60 border border-brand-800/50 px-2.5 py-1 rounded hidden md:inline">
                 Taller Práctico
               </span>
-              <span id="module-icon-1" class="text-slate-400 text-xl font-bold transform transition-transform">▼</span>
+              <span id="module-icon-1" class="text-neutral-400 text-xl font-bold transform transition-transform">▼</span>
             </div>
           </button>
 
-          <div id="module-body-1" class="hidden px-6 pb-6 pt-2 border-t border-slate-700/70 bg-slate-900/60">
+          <div id="module-body-1" class="hidden px-6 pb-6 pt-2 border-t border-neutral-700/70 bg-neutral-900/60">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
               <div class="md:col-span-2 space-y-3">
-                <h4 class="text-xs font-bold uppercase tracking-wider text-orange-400">Temario Detallado:</h4>
-                <ul class="space-y-2 text-sm text-slate-300">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-brand-400">Temario Detallado:</h4>
+                <ul class="space-y-2 text-sm text-neutral-300">
                   <li class="flex items-start gap-2">
-                    <span class="text-orange-500 font-bold">•</span>
+                    <span class="text-brand-500 font-bold">•</span>
                     <span><strong>1.1 Anatomía de los Modelos de IA:</strong> LLMs (GPT, Claude, Gemini), modelos de visión (YOLO) y analítica predictiva tabular.</span>
                   </li>
                   <li class="flex items-start gap-2">
-                    <span class="text-orange-500 font-bold">•</span>
+                    <span class="text-brand-500 font-bold">•</span>
                     <span><strong>1.2 Ciberseguridad y NDA en Construcción:</strong> Anonimización de planos, presupuestos confidenciales y protección de secretos comerciales en obras públicas y privadas.</span>
                   </li>
                   <li class="flex items-start gap-2">
-                    <span class="text-orange-500 font-bold">•</span>
+                    <span class="text-brand-500 font-bold">•</span>
                     <span><strong>1.3 Configuración del Stack ConTech:</strong> Implementación de Claude Projects con especificaciones técnicas y NotebookLM para bases de conocimiento del proyecto.</span>
                   </li>
                   <li class="flex items-start gap-2">
-                    <span class="text-orange-500 font-bold">•</span>
+                    <span class="text-brand-500 font-bold">•</span>
                     <span><strong>1.4 Detección de Alucinaciones Técnicas:</strong> Protocolo de verificación obligatoria contra normas ACI, AISC, ASTM y códigos locales.</span>
                   </li>
                 </ul>
               </div>
-              <div class="space-y-4 bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+              <div class="space-y-4 bg-neutral-800/80 p-4 rounded-xl border border-neutral-700">
                 <div>
                   <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1.5">Taller de Aplicación:</h4>
-                  <p class="text-xs text-slate-300 leading-relaxed">
+                  <p class="text-xs text-neutral-300 leading-relaxed">
                     Construcción de un asistente RAG alimentado con las especificaciones técnicas completas de un hospital de 15,000 m² para consultas instantáneas sin filtración de datos.
                   </p>
                 </div>
                 <div>
-                  <h4 class="text-xs font-bold uppercase tracking-wider text-blue-400 mb-1.5">Herramientas:</h4>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-brand-400 mb-1.5">Herramientas:</h4>
                   <div class="flex flex-wrap gap-1.5 text-xs">
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Claude Projects</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">NotebookLM</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Gemini Advanced</span>
+                    <span class="bg-neutral-700 text-neutral-200 px-2 py-0.5 rounded">Claude Projects</span>
+                    <span class="bg-neutral-700 text-neutral-200 px-2 py-0.5 rounded">NotebookLM</span>
+                    <span class="bg-neutral-700 text-neutral-200 px-2 py-0.5 rounded">Gemini Advanced</span>
                   </div>
                 </div>
               </div>
@@ -523,64 +531,64 @@
         </div>
 
         <!-- MÓDULO 2 -->
-        <div class="module-card bg-slate-800/90 border border-slate-700 rounded-xl overflow-hidden transition-all duration-300">
-          <button onclick="toggleModule(2)" class="w-full p-6 text-left flex items-center justify-between hover:bg-slate-700/50 transition">
+        <div class="module-card bg-neutral-800/90 border border-neutral-700 rounded-xl overflow-hidden transition-all duration-300">
+          <button onclick="toggleModule(2)" class="w-full p-6 text-left flex items-center justify-between hover:bg-neutral-700/50 transition">
             <div class="flex items-center space-x-4">
-              <span class="w-10 h-10 rounded-lg bg-orange-600/20 text-orange-400 font-extrabold flex items-center justify-center text-sm border border-orange-500/30">
+              <span class="w-10 h-10 rounded-lg bg-brand-600/20 text-brand-400 font-extrabold flex items-center justify-center text-sm border border-brand-500/30">
                 M2
               </span>
               <div>
                 <div class="flex items-center gap-2">
                   <h3 class="text-lg font-bold text-white">Automatización de RFIs, Cuadernos de Obra y Minutas Contractuales</h3>
-                  <span class="text-xs bg-slate-700 text-slate-300 px-2.5 py-0.5 rounded-full font-medium hidden sm:inline">15 Horas</span>
+                  <span class="text-xs bg-neutral-700 text-neutral-300 px-2.5 py-0.5 rounded-full font-medium hidden sm:inline">15 Horas</span>
                 </div>
-                <p class="text-xs sm:text-sm text-slate-400 mt-0.5">Redacción de consultas técnicas blindadas, actas de comité y asientos con validez legal.</p>
+                <p class="text-xs sm:text-sm text-neutral-400 mt-0.5">Redacción de consultas técnicas blindadas, actas de comité y asientos con validez legal.</p>
               </div>
             </div>
             <div class="flex items-center space-x-3">
-              <span class="text-xs font-semibold text-orange-400 bg-orange-950/60 border border-orange-800/50 px-2.5 py-1 rounded hidden md:inline">
+              <span class="text-xs font-semibold text-brand-400 bg-brand-950/60 border border-brand-800/50 px-2.5 py-1 rounded hidden md:inline">
                 Taller Práctico
               </span>
-              <span id="module-icon-2" class="text-slate-400 text-xl font-bold transform transition-transform">▼</span>
+              <span id="module-icon-2" class="text-neutral-400 text-xl font-bold transform transition-transform">▼</span>
             </div>
           </button>
 
-          <div id="module-body-2" class="hidden px-6 pb-6 pt-2 border-t border-slate-700/70 bg-slate-900/60">
+          <div id="module-body-2" class="hidden px-6 pb-6 pt-2 border-t border-neutral-700/70 bg-neutral-900/60">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
               <div class="md:col-span-2 space-y-3">
-                <h4 class="text-xs font-bold uppercase tracking-wider text-orange-400">Temario Detallado:</h4>
-                <ul class="space-y-2 text-sm text-slate-300">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-brand-400">Temario Detallado:</h4>
+                <ul class="space-y-2 text-sm text-neutral-300">
                   <li class="flex items-start gap-2">
-                    <span class="text-orange-500 font-bold">•</span>
+                    <span class="text-brand-500 font-bold">•</span>
                     <span><strong>2.1 Formulación de RFIs Inexpugnables:</strong> Matriz de constructibilidad con 2 alternativas de solución, impacto económico y cuantificación de plazo en ruta crítica.</span>
                   </li>
                   <li class="flex items-start gap-2">
-                    <span class="text-orange-500 font-bold">•</span>
+                    <span class="text-brand-500 font-bold">•</span>
                     <span><strong>2.2 Asientos de Bitácora / Cuaderno de Obra Legal:</strong> Documentación inatacable para causales de ampliación de plazo por lluvia, huelga o falta de planos.</span>
                   </li>
                   <li class="flex items-start gap-2">
-                    <span class="text-orange-500 font-bold">•</span>
+                    <span class="text-brand-500 font-bold">•</span>
                     <span><strong>2.3 Procesamiento de Minutas de Coordinación:</strong> Transcripción de comités de obra con asignación automática de responsables y fechas límite bajo Last Planner.</span>
                   </li>
                   <li class="flex items-start gap-2">
-                    <span class="text-orange-500 font-bold">•</span>
+                    <span class="text-brand-500 font-bold">•</span>
                     <span><strong>2.4 Gestión de Reclamos (Claims) FIDIC / NEC:</strong> Generación estructurada de notificaciones formales de advertencia temprana (Early Warning Notices).</span>
                   </li>
                 </ul>
               </div>
-              <div class="space-y-4 bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+              <div class="space-y-4 bg-neutral-800/80 p-4 rounded-xl border border-neutral-700">
                 <div>
                   <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1.5">Taller de Aplicación:</h4>
-                  <p class="text-xs text-slate-300 leading-relaxed">
+                  <p class="text-xs text-neutral-300 leading-relaxed">
                     Simulación de resolución de 5 conflictos reales en obra: generación en 10 minutos de los 5 RFIs y el asiento legal de bitácora para sustentar una ampliación de 14 días.
                   </p>
                 </div>
                 <div>
-                  <h4 class="text-xs font-bold uppercase tracking-wider text-blue-400 mb-1.5">Herramientas:</h4>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-brand-400 mb-1.5">Herramientas:</h4>
                   <div class="flex flex-wrap gap-1.5 text-xs">
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Plantillas RFI ConTech</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Whisper AI</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Generador Legal FIDIC</span>
+                    <span class="bg-neutral-700 text-neutral-200 px-2 py-0.5 rounded">Plantillas RFI ConTech</span>
+                    <span class="bg-neutral-700 text-neutral-200 px-2 py-0.5 rounded">Whisper AI</span>
+                    <span class="bg-neutral-700 text-neutral-200 px-2 py-0.5 rounded">Generador Legal FIDIC</span>
                   </div>
                 </div>
               </div>
@@ -589,64 +597,64 @@
         </div>
 
         <!-- MÓDULO 3 -->
-        <div class="module-card bg-slate-800/90 border border-slate-700 rounded-xl overflow-hidden transition-all duration-300">
-          <button onclick="toggleModule(3)" class="w-full p-6 text-left flex items-center justify-between hover:bg-slate-700/50 transition">
+        <div class="module-card bg-neutral-800/90 border border-neutral-700 rounded-xl overflow-hidden transition-all duration-300">
+          <button onclick="toggleModule(3)" class="w-full p-6 text-left flex items-center justify-between hover:bg-neutral-700/50 transition">
             <div class="flex items-center space-x-4">
-              <span class="w-10 h-10 rounded-lg bg-orange-600/20 text-orange-400 font-extrabold flex items-center justify-center text-sm border border-orange-500/30">
+              <span class="w-10 h-10 rounded-lg bg-brand-600/20 text-brand-400 font-extrabold flex items-center justify-center text-sm border border-brand-500/30">
                 M3
               </span>
               <div>
                 <div class="flex items-center gap-2">
                   <h3 class="text-lg font-bold text-white">Planificación Predictiva, Ruta Crítica & Last Planner System Asistido</h3>
-                  <span class="text-xs bg-slate-700 text-slate-300 px-2.5 py-0.5 rounded-full font-medium hidden sm:inline">15 Horas</span>
+                  <span class="text-xs bg-neutral-700 text-neutral-300 px-2.5 py-0.5 rounded-full font-medium hidden sm:inline">15 Horas</span>
                 </div>
-                <p class="text-xs sm:text-sm text-slate-400 mt-0.5">Detección de inconsistencias lógicas en Primavera/MS Project y análisis de causas de no cumplimiento.</p>
+                <p class="text-xs sm:text-sm text-neutral-400 mt-0.5">Detección de inconsistencias lógicas en Primavera/MS Project y análisis de causas de no cumplimiento.</p>
               </div>
             </div>
             <div class="flex items-center space-x-3">
-              <span class="text-xs font-semibold text-orange-400 bg-orange-950/60 border border-orange-800/50 px-2.5 py-1 rounded hidden md:inline">
+              <span class="text-xs font-semibold text-brand-400 bg-brand-950/60 border border-brand-800/50 px-2.5 py-1 rounded hidden md:inline">
                 Taller Práctico
               </span>
-              <span id="module-icon-3" class="text-slate-400 text-xl font-bold transform transition-transform">▼</span>
+              <span id="module-icon-3" class="text-neutral-400 text-xl font-bold transform transition-transform">▼</span>
             </div>
           </button>
 
-          <div id="module-body-3" class="hidden px-6 pb-6 pt-2 border-t border-slate-700/70 bg-slate-900/60">
+          <div id="module-body-3" class="hidden px-6 pb-6 pt-2 border-t border-neutral-700/70 bg-neutral-900/60">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
               <div class="md:col-span-2 space-y-3">
-                <h4 class="text-xs font-bold uppercase tracking-wider text-orange-400">Temario Detallado:</h4>
-                <ul class="space-y-2 text-sm text-slate-300">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-brand-400">Temario Detallado:</h4>
+                <ul class="space-y-2 text-sm text-neutral-300">
                   <li class="flex items-start gap-2">
-                    <span class="text-orange-500 font-bold">•</span>
+                    <span class="text-brand-500 font-bold">•</span>
                     <span><strong>3.1 Auditoría Automatizada de Cronogramas:</strong> Detección de vínculos abiertos, holguras irreales y restricciones duras que falsean la ruta crítica.</span>
                   </li>
                   <li class="flex items-start gap-2">
-                    <span class="text-orange-500 font-bold">•</span>
+                    <span class="text-brand-500 font-bold">•</span>
                     <span><strong>3.2 Last Planner System (LPS) Asistido por IA:</strong> Análisis semántico de causas raíz de no cumplimiento (CNC) y plan de contingencia semanal para elevar el PPC por encima del 85%.</span>
                   </li>
                   <li class="flex items-start gap-2">
-                    <span class="text-orange-500 font-bold">•</span>
+                    <span class="text-brand-500 font-bold">•</span>
                     <span><strong>3.3 Simulación de Escenarios What-If:</strong> Modelado del impacto de atrasos de suministro crítico (acero, grúa torre, concreto) y balanceo de cuadrillas.</span>
                   </li>
                   <li class="flex items-start gap-2">
-                    <span class="text-orange-500 font-bold">•</span>
+                    <span class="text-brand-500 font-bold">•</span>
                     <span><strong>3.4 Integración Primavera P6 / MS Project con Modelos LLM:</strong> Exportación de tablas XER/MPP y generación de reportes ejecutivos para el directorio.</span>
                   </li>
                 </ul>
               </div>
-              <div class="space-y-4 bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+              <div class="space-y-4 bg-neutral-800/80 p-4 rounded-xl border border-neutral-700">
                 <div>
                   <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1.5">Taller de Aplicación:</h4>
-                  <p class="text-xs text-slate-300 leading-relaxed">
+                  <p class="text-xs text-neutral-300 leading-relaxed">
                     Auditoría de un cronograma de 650 actividades en Primavera P6: detección de 12 cuellos de botella ocultos y replanificación acelerada de sectores de vaciado.
                   </p>
                 </div>
                 <div>
-                  <h4 class="text-xs font-bold uppercase tracking-wider text-blue-400 mb-1.5">Herramientas:</h4>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-brand-400 mb-1.5">Herramientas:</h4>
                   <div class="flex flex-wrap gap-1.5 text-xs">
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Primavera P6</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">MS Project</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Python para Cronogramas</span>
+                    <span class="bg-neutral-700 text-neutral-200 px-2 py-0.5 rounded">Primavera P6</span>
+                    <span class="bg-neutral-700 text-neutral-200 px-2 py-0.5 rounded">MS Project</span>
+                    <span class="bg-neutral-700 text-neutral-200 px-2 py-0.5 rounded">Python para Cronogramas</span>
                   </div>
                 </div>
               </div>
@@ -655,64 +663,64 @@
         </div>
 
         <!-- MÓDULO 4 -->
-        <div class="module-card bg-slate-800/90 border border-slate-700 rounded-xl overflow-hidden transition-all duration-300">
-          <button onclick="toggleModule(4)" class="w-full p-6 text-left flex items-center justify-between hover:bg-slate-700/50 transition">
+        <div class="module-card bg-neutral-800/90 border border-neutral-700 rounded-xl overflow-hidden transition-all duration-300">
+          <button onclick="toggleModule(4)" class="w-full p-6 text-left flex items-center justify-between hover:bg-neutral-700/50 transition">
             <div class="flex items-center space-x-4">
-              <span class="w-10 h-10 rounded-lg bg-orange-600/20 text-orange-400 font-extrabold flex items-center justify-center text-sm border border-orange-500/30">
+              <span class="w-10 h-10 rounded-lg bg-brand-600/20 text-brand-400 font-extrabold flex items-center justify-center text-sm border border-brand-500/30">
                 M4
               </span>
               <div>
                 <div class="flex items-center gap-2">
                   <h3 class="text-lg font-bold text-white">Control de Costos, Valor Ganado (EVM) y Precios Unitarios (APU)</h3>
-                  <span class="text-xs bg-slate-700 text-slate-300 px-2.5 py-0.5 rounded-full font-medium hidden sm:inline">20 Horas</span>
+                  <span class="text-xs bg-neutral-700 text-neutral-300 px-2.5 py-0.5 rounded-full font-medium hidden sm:inline">20 Horas</span>
                 </div>
-                <p class="text-xs sm:text-sm text-slate-400 mt-0.5">Predicción de sobrecostos, variaciones de insumos y automatización analítica de índices CPI/SPI.</p>
+                <p class="text-xs sm:text-sm text-neutral-400 mt-0.5">Predicción de sobrecostos, variaciones de insumos y automatización analítica de índices CPI/SPI.</p>
               </div>
             </div>
             <div class="flex items-center space-x-3">
-              <span class="text-xs font-semibold text-orange-400 bg-orange-950/60 border border-orange-800/50 px-2.5 py-1 rounded hidden md:inline">
+              <span class="text-xs font-semibold text-brand-400 bg-brand-950/60 border border-brand-800/50 px-2.5 py-1 rounded hidden md:inline">
                 Taller Práctico
               </span>
-              <span id="module-icon-4" class="text-slate-400 text-xl font-bold transform transition-transform">▼</span>
+              <span id="module-icon-4" class="text-neutral-400 text-xl font-bold transform transition-transform">▼</span>
             </div>
           </button>
 
-          <div id="module-body-4" class="hidden px-6 pb-6 pt-2 border-t border-slate-700/70 bg-slate-900/60">
+          <div id="module-body-4" class="hidden px-6 pb-6 pt-2 border-t border-neutral-700/70 bg-neutral-900/60">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
               <div class="md:col-span-2 space-y-3">
-                <h4 class="text-xs font-bold uppercase tracking-wider text-orange-400">Temario Detallado:</h4>
-                <ul class="space-y-2 text-sm text-slate-300">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-brand-400">Temario Detallado:</h4>
+                <ul class="space-y-2 text-sm text-neutral-300">
                   <li class="flex items-start gap-2">
-                    <span class="text-orange-500 font-bold">•</span>
+                    <span class="text-brand-500 font-bold">•</span>
                     <span><strong>4.1 Optimización y Revisión de APU:</strong> Validación de cuadrillas de rendimiento, consumos teóricos y factores de merma y desperdicio en concreto y acero.</span>
                   </li>
                   <li class="flex items-start gap-2">
-                    <span class="text-orange-500 font-bold">•</span>
+                    <span class="text-brand-500 font-bold">•</span>
                     <span><strong>4.2 Earned Value Management (EVM) Predictivo:</strong> Cálculo automático de PV, EV, AC, CPI, SPI, EAC y proyección de costo final a la conclusión con alertas semafóricas.</span>
                   </li>
                   <li class="flex items-start gap-2">
-                    <span class="text-orange-500 font-bold">•</span>
+                    <span class="text-brand-500 font-bold">•</span>
                     <span><strong>4.3 Extracción de Metrados con IA Multimodal:</strong> Procesamiento de memorias descriptivas y tablas PDF para consolidación de presupuestos preliminares.</span>
                   </li>
                   <li class="flex items-start gap-2">
-                    <span class="text-orange-500 font-bold">•</span>
+                    <span class="text-brand-500 font-bold">•</span>
                     <span><strong>4.4 Análisis de Inflación y Fórmulas Polinómicas:</strong> Anticipación del encarecimiento de insumos clave para renegociación con proveedores.</span>
                   </li>
                 </ul>
               </div>
-              <div class="space-y-4 bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+              <div class="space-y-4 bg-neutral-800/80 p-4 rounded-xl border border-neutral-700">
                 <div>
                   <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1.5">Taller de Aplicación:</h4>
-                  <p class="text-xs text-slate-300 leading-relaxed">
+                  <p class="text-xs text-neutral-300 leading-relaxed">
                     Construcción de un tablero automatizado en Python/Excel que recalcula el EAC de un proyecto de $8.5 millones y formula el informe ejecutivo para el comité de gerencia.
                   </p>
                 </div>
                 <div>
-                  <h4 class="text-xs font-bold uppercase tracking-wider text-blue-400 mb-1.5">Herramientas:</h4>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-brand-400 mb-1.5">Herramientas:</h4>
                   <div class="flex flex-wrap gap-1.5 text-xs">
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Plantillas EVM PMI</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Excel Avanzado ConTech</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Claude Artifacts</span>
+                    <span class="bg-neutral-700 text-neutral-200 px-2 py-0.5 rounded">Plantillas EVM PMI</span>
+                    <span class="bg-neutral-700 text-neutral-200 px-2 py-0.5 rounded">Excel Avanzado ConTech</span>
+                    <span class="bg-neutral-700 text-neutral-200 px-2 py-0.5 rounded">Claude Artifacts</span>
                   </div>
                 </div>
               </div>
@@ -721,64 +729,64 @@
         </div>
 
         <!-- MÓDULO 5 -->
-        <div class="module-card bg-slate-800/90 border border-slate-700 rounded-xl overflow-hidden transition-all duration-300">
-          <button onclick="toggleModule(5)" class="w-full p-6 text-left flex items-center justify-between hover:bg-slate-700/50 transition">
+        <div class="module-card bg-neutral-800/90 border border-neutral-700 rounded-xl overflow-hidden transition-all duration-300">
+          <button onclick="toggleModule(5)" class="w-full p-6 text-left flex items-center justify-between hover:bg-neutral-700/50 transition">
             <div class="flex items-center space-x-4">
-              <span class="w-10 h-10 rounded-lg bg-orange-600/20 text-orange-400 font-extrabold flex items-center justify-center text-sm border border-orange-500/30">
+              <span class="w-10 h-10 rounded-lg bg-brand-600/20 text-brand-400 font-extrabold flex items-center justify-center text-sm border border-brand-500/30">
                 M5
               </span>
               <div>
                 <div class="flex items-center gap-2">
                   <h3 class="text-lg font-bold text-white">Visión Artificial, Seguridad en Obra (HSE/OSHA) y Seguimiento con Drones/360°</h3>
-                  <span class="text-xs bg-slate-700 text-slate-300 px-2.5 py-0.5 rounded-full font-medium hidden sm:inline">15 Horas</span>
+                  <span class="text-xs bg-neutral-700 text-neutral-300 px-2.5 py-0.5 rounded-full font-medium hidden sm:inline">15 Horas</span>
                 </div>
-                <p class="text-xs sm:text-sm text-slate-400 mt-0.5">Detección de riesgos en tiempo real, control de EPPs y reportes fotográficos automatizados.</p>
+                <p class="text-xs sm:text-sm text-neutral-400 mt-0.5">Detección de riesgos en tiempo real, control de EPPs y reportes fotográficos automatizados.</p>
               </div>
             </div>
             <div class="flex items-center space-x-3">
-              <span class="text-xs font-semibold text-orange-400 bg-orange-950/60 border border-orange-800/50 px-2.5 py-1 rounded hidden md:inline">
+              <span class="text-xs font-semibold text-brand-400 bg-brand-950/60 border border-brand-800/50 px-2.5 py-1 rounded hidden md:inline">
                 Taller Práctico
               </span>
-              <span id="module-icon-5" class="text-slate-400 text-xl font-bold transform transition-transform">▼</span>
+              <span id="module-icon-5" class="text-neutral-400 text-xl font-bold transform transition-transform">▼</span>
             </div>
           </button>
 
-          <div id="module-body-5" class="hidden px-6 pb-6 pt-2 border-t border-slate-700/70 bg-slate-900/60">
+          <div id="module-body-5" class="hidden px-6 pb-6 pt-2 border-t border-neutral-700/70 bg-neutral-900/60">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
               <div class="md:col-span-2 space-y-3">
-                <h4 class="text-xs font-bold uppercase tracking-wider text-orange-400">Temario Detallado:</h4>
-                <ul class="space-y-2 text-sm text-slate-300">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-brand-400">Temario Detallado:</h4>
+                <ul class="space-y-2 text-sm text-neutral-300">
                   <li class="flex items-start gap-2">
-                    <span class="text-orange-500 font-bold">•</span>
+                    <span class="text-brand-500 font-bold">•</span>
                     <span><strong>5.1 Visión Artificial Aplicada a Seguridad (OSHA):</strong> Detección automática en video y fotos de uso de cascos, arneses en trabajos en altura y barandillas perimetrales.</span>
                   </li>
                   <li class="flex items-start gap-2">
-                    <span class="text-orange-500 font-bold">•</span>
+                    <span class="text-brand-500 font-bold">•</span>
                     <span><strong>5.2 Mapeo Fotográfico 360° en Obra:</strong> Flujos de inspección con cámaras 360 y drones para contrastar el avance físico contra el cronograma contractual.</span>
                   </li>
                   <li class="flex items-start gap-2">
-                    <span class="text-orange-500 font-bold">•</span>
+                    <span class="text-brand-500 font-bold">•</span>
                     <span><strong>5.3 Generación Automatizada de Punch Lists:</strong> Clasificación de no conformidades con severidad, foto de evidencia y notificación automática al subcontratista.</span>
                   </li>
                   <li class="flex items-start gap-2">
-                    <span class="text-orange-500 font-bold">•</span>
+                    <span class="text-brand-500 font-bold">•</span>
                     <span><strong>5.4 Matrices IPERC Dinámicas:</strong> Creación de charlas de 5 minutos y permisos de trabajo de alto riesgo (PTAR) generados según la actividad del día.</span>
                   </li>
                 </ul>
               </div>
-              <div class="space-y-4 bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+              <div class="space-y-4 bg-neutral-800/80 p-4 rounded-xl border border-neutral-700">
                 <div>
                   <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1.5">Taller de Aplicación:</h4>
-                  <p class="text-xs text-slate-300 leading-relaxed">
+                  <p class="text-xs text-neutral-300 leading-relaxed">
                     Auditoría de un set de 20 fotografías de campo: detección automática de 8 infracciones de seguridad y generación del reporte formal de paralización preventiva.
                   </p>
                 </div>
                 <div>
-                  <h4 class="text-xs font-bold uppercase tracking-wider text-blue-400 mb-1.5">Herramientas:</h4>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-brand-400 mb-1.5">Herramientas:</h4>
                   <div class="flex flex-wrap gap-1.5 text-xs">
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Modelos YOLOv8</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">OpenSpace / HoloBuilder</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Matriz IPERC IA</span>
+                    <span class="bg-neutral-700 text-neutral-200 px-2 py-0.5 rounded">Modelos YOLOv8</span>
+                    <span class="bg-neutral-700 text-neutral-200 px-2 py-0.5 rounded">OpenSpace / HoloBuilder</span>
+                    <span class="bg-neutral-700 text-neutral-200 px-2 py-0.5 rounded">Matriz IPERC IA</span>
                   </div>
                 </div>
               </div>
@@ -787,64 +795,64 @@
         </div>
 
         <!-- MÓDULO 6 -->
-        <div class="module-card bg-slate-800/90 border border-slate-700 rounded-xl overflow-hidden transition-all duration-300">
-          <button onclick="toggleModule(6)" class="w-full p-6 text-left flex items-center justify-between hover:bg-slate-700/50 transition">
+        <div class="module-card bg-neutral-800/90 border border-neutral-700 rounded-xl overflow-hidden transition-all duration-300">
+          <button onclick="toggleModule(6)" class="w-full p-6 text-left flex items-center justify-between hover:bg-neutral-700/50 transition">
             <div class="flex items-center space-x-4">
-              <span class="w-10 h-10 rounded-lg bg-orange-600/20 text-orange-400 font-extrabold flex items-center justify-center text-sm border border-orange-500/30">
+              <span class="w-10 h-10 rounded-lg bg-brand-600/20 text-brand-400 font-extrabold flex items-center justify-center text-sm border border-brand-500/30">
                 M6
               </span>
               <div>
                 <div class="flex items-center gap-2">
                   <h3 class="text-lg font-bold text-white">Smart BIM, Modelos IFC/Revit y Gemelos Digitales para Toma de Decisiones</h3>
-                  <span class="text-xs bg-slate-700 text-slate-300 px-2.5 py-0.5 rounded-full font-medium hidden sm:inline">15 Horas</span>
+                  <span class="text-xs bg-neutral-700 text-neutral-300 px-2.5 py-0.5 rounded-full font-medium hidden sm:inline">15 Horas</span>
                 </div>
-                <p class="text-xs sm:text-sm text-slate-400 mt-0.5">Consultas en lenguaje natural sobre modelos BIM, Dynamo/Python asistido y analítica de ciclo de vida.</p>
+                <p class="text-xs sm:text-sm text-neutral-400 mt-0.5">Consultas en lenguaje natural sobre modelos BIM, Dynamo/Python asistido y analítica de ciclo de vida.</p>
               </div>
             </div>
             <div class="flex items-center space-x-3">
-              <span class="text-xs font-semibold text-orange-400 bg-orange-950/60 border border-orange-800/50 px-2.5 py-1 rounded hidden md:inline">
+              <span class="text-xs font-semibold text-brand-400 bg-brand-950/60 border border-brand-800/50 px-2.5 py-1 rounded hidden md:inline">
                 Taller Práctico
               </span>
-              <span id="module-icon-6" class="text-slate-400 text-xl font-bold transform transition-transform">▼</span>
+              <span id="module-icon-6" class="text-neutral-400 text-xl font-bold transform transition-transform">▼</span>
             </div>
           </button>
 
-          <div id="module-body-6" class="hidden px-6 pb-6 pt-2 border-t border-slate-700/70 bg-slate-900/60">
+          <div id="module-body-6" class="hidden px-6 pb-6 pt-2 border-t border-neutral-700/70 bg-neutral-900/60">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
               <div class="md:col-span-2 space-y-3">
-                <h4 class="text-xs font-bold uppercase tracking-wider text-orange-400">Temario Detallado:</h4>
-                <ul class="space-y-2 text-sm text-slate-300">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-brand-400">Temario Detallado:</h4>
+                <ul class="space-y-2 text-sm text-neutral-300">
                   <li class="flex items-start gap-2">
-                    <span class="text-orange-500 font-bold">•</span>
+                    <span class="text-brand-500 font-bold">•</span>
                     <span><strong>6.1 Consultas Semánticas en Modelos IFC:</strong> Extracción de parámetros, volúmenes de concreto y cuantías de acero mediante prompts en lenguaje natural.</span>
                   </li>
                   <li class="flex items-start gap-2">
-                    <span class="text-orange-500 font-bold">•</span>
+                    <span class="text-brand-500 font-bold">•</span>
                     <span><strong>6.2 Detección Inteligente de Interferencias (Clash Detection):</strong> Filtrado y agrupación automática de colisiones geométricas según criticidad real de montaje en obra.</span>
                   </li>
                   <li class="flex items-start gap-2">
-                    <span class="text-orange-500 font-bold">•</span>
+                    <span class="text-brand-500 font-bold">•</span>
                     <span><strong>6.3 Automatización con Dynamo & Python:</strong> Generación y depuración de scripts asistidos por IA para renombrado masivo, etiquetado y parámetros compartidos.</span>
                   </li>
                   <li class="flex items-start gap-2">
-                    <span class="text-orange-500 font-bold">•</span>
+                    <span class="text-brand-500 font-bold">•</span>
                     <span><strong>6.4 Gemelos Digitales e IoT (Fase O&M):</strong> Puente entre el modelo BIM de obra terminada y sensores de mantenimiento predictivo bajo estándar ISO 19650.</span>
                   </li>
                 </ul>
               </div>
-              <div class="space-y-4 bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+              <div class="space-y-4 bg-neutral-800/80 p-4 rounded-xl border border-neutral-700">
                 <div>
                   <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1.5">Taller de Aplicación:</h4>
-                  <p class="text-xs text-slate-300 leading-relaxed">
+                  <p class="text-xs text-neutral-300 leading-relaxed">
                     Extracción automatizada de interferencias críticas en un modelo IFC multidisciplinario de 8 niveles y generación del informe de constructibilidad para el proyectista.
                   </p>
                 </div>
                 <div>
-                  <h4 class="text-xs font-bold uppercase tracking-wider text-blue-400 mb-1.5">Herramientas:</h4>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-brand-400 mb-1.5">Herramientas:</h4>
                   <div class="flex flex-wrap gap-1.5 text-xs">
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Revit / IFC</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">IfcOpenShell / Python</span>
-                    <span class="bg-slate-700 text-slate-200 px-2 py-0.5 rounded">Dynamo BIM</span>
+                    <span class="bg-neutral-700 text-neutral-200 px-2 py-0.5 rounded">Revit / IFC</span>
+                    <span class="bg-neutral-700 text-neutral-200 px-2 py-0.5 rounded">IfcOpenShell / Python</span>
+                    <span class="bg-neutral-700 text-neutral-200 px-2 py-0.5 rounded">Dynamo BIM</span>
                   </div>
                 </div>
               </div>
@@ -855,17 +863,17 @@
       </div>
 
       <!-- Banner de Certificación Final -->
-      <div class="mt-12 bg-gradient-to-r from-slate-900 via-contech-card to-slate-900 border border-slate-700 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
+      <div class="mt-12 bg-gradient-to-r from-neutral-900 via-contech-card to-neutral-900 border border-neutral-700 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
         <div class="flex items-center space-x-4">
-          <div class="w-14 h-14 rounded-2xl bg-orange-600/20 text-orange-400 border border-orange-500/40 flex items-center justify-center text-3xl flex-shrink-0">
+          <div class="w-14 h-14 rounded-2xl bg-brand-600/20 text-brand-400 border border-brand-500/40 flex items-center justify-center text-3xl flex-shrink-0">
             🎓
           </div>
           <div>
             <h4 class="text-lg font-bold text-white font-display">Certificación Profesional en ConTech & IA Aplicada</h4>
-            <p class="text-sm text-slate-300">Acreditación con código de verificación QR, horas lectivas y aval de cumplimiento de estándares internacionales.</p>
+            <p class="text-sm text-neutral-300">Acreditación con código de verificación QR, horas lectivas y aval de cumplimiento de estándares internacionales.</p>
           </div>
         </div>
-        <button onclick="openModal('Certificación')" class="whitespace-nowrap bg-orange-600 hover:bg-orange-500 text-white font-bold py-3 px-6 rounded-xl shadow transition text-sm">
+        <button onclick="openModal('Certificación')" class="whitespace-nowrap bg-brand-600 hover:bg-brand-500 text-neutral-950 font-bold py-3 px-6 rounded-xl shadow transition text-sm">
           Consultar Proceso de Certificación
         </button>
       </div>
@@ -876,35 +884,35 @@
   <!-- ============================================================ -->
   <!-- SUITE DE SIMULACIÓN CONTECH EN VIVO (DEMOSTRADOR MULTIUSO) -->
   <!-- ============================================================ -->
-  <section id="simulador-suite" class="py-20 bg-slate-900 border-b border-slate-800 relative">
+  <section id="simulador-suite" class="py-20 bg-neutral-900 border-b border-neutral-800 relative">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-12">
-        <span class="text-xs uppercase tracking-wider font-bold text-orange-400 bg-orange-950/70 border border-orange-800/60 px-3.5 py-1 rounded-full">
+        <span class="text-xs uppercase tracking-wider font-bold text-brand-400 bg-brand-950/70 border border-brand-800/60 px-3.5 py-1 rounded-full">
           Entorno Interactivo en Vivo
         </span>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-display mt-3 mb-4">
           Suite de Simulación ConTech en Tiempo Real
         </h2>
-        <p class="text-slate-300 text-base sm:text-lg">
+        <p class="text-neutral-300 text-base sm:text-lg">
           Experimenta cómo funcionan los modelos y prompts de alta ingeniería que aprenderás en el curso. Selecciona una herramienta y ejecuta el caso:
         </p>
       </div>
 
       <!-- CONTENEDOR DE LA SUITE -->
-      <div class="bg-contech-navy rounded-2xl border border-slate-700 shadow-2xl overflow-hidden">
+      <div class="bg-contech-navy rounded-2xl border border-neutral-700 shadow-2xl overflow-hidden">
         
         <!-- Pestañas de la Suite -->
-        <div class="bg-slate-950 border-b border-slate-800 flex flex-wrap">
-          <button onclick="switchSimTab('rfi')" id="sim-tab-rfi" class="sim-tab flex-1 min-w-[200px] py-4 px-6 text-sm font-bold text-orange-400 border-b-2 border-orange-500 bg-slate-900/70 flex items-center justify-center gap-2 transition">
+        <div class="bg-neutral-950 border-b border-neutral-800 flex flex-wrap">
+          <button onclick="switchSimTab('rfi')" id="sim-tab-rfi" class="sim-tab flex-1 min-w-[200px] py-4 px-6 text-sm font-bold text-brand-400 border-b-2 border-brand-500 bg-neutral-900/70 flex items-center justify-center gap-2 transition">
             <span>📑</span>
             <span>1. Asistente de RFIs Blindados</span>
           </button>
-          <button onclick="switchSimTab('bitacora')" id="sim-tab-bitacora" class="sim-tab flex-1 min-w-[200px] py-4 px-6 text-sm font-bold text-slate-400 hover:text-white border-b-2 border-transparent hover:bg-slate-900/40 flex items-center justify-center gap-2 transition">
+          <button onclick="switchSimTab('bitacora')" id="sim-tab-bitacora" class="sim-tab flex-1 min-w-[200px] py-4 px-6 text-sm font-bold text-neutral-400 hover:text-white border-b-2 border-transparent hover:bg-neutral-900/40 flex items-center justify-center gap-2 transition">
             <span>📝</span>
             <span>2. Asiento de Bitácora Legal</span>
           </button>
-          <button onclick="switchSimTab('evm')" id="sim-tab-evm" class="sim-tab flex-1 min-w-[200px] py-4 px-6 text-sm font-bold text-slate-400 hover:text-white border-b-2 border-transparent hover:bg-slate-900/40 flex items-center justify-center gap-2 transition">
+          <button onclick="switchSimTab('evm')" id="sim-tab-evm" class="sim-tab flex-1 min-w-[200px] py-4 px-6 text-sm font-bold text-neutral-400 hover:text-white border-b-2 border-transparent hover:bg-neutral-900/40 flex items-center justify-center gap-2 transition">
             <span>📊</span>
             <span>3. Predictor de Valor Ganado (EVM)</span>
           </button>
@@ -914,20 +922,20 @@
         <div id="sim-panel-rfi" class="p-6 sm:p-8 space-y-6">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+              <label class="block text-xs font-semibold text-neutral-300 uppercase tracking-wider mb-2">
                 Selecciona Caso Crítico de Obra:
               </label>
-              <select id="rfi-case" class="w-full bg-slate-800 border border-slate-700 text-white rounded-xl p-3.5 text-sm focus:border-orange-500 focus:outline-none">
+              <select id="rfi-case" class="w-full bg-neutral-800 border border-neutral-700 text-white rounded-xl p-3.5 text-sm focus:border-brand-500 focus:outline-none">
                 <option value="interferencia">Interferencia: Tubería sanitaria Ø4" atraviesa Columna C-4 (Piso 3) [Conflicto ACI 318]</option>
                 <option value="aditivo">Especificación: Aditivo acelerante descontinuado en mercado local [Riesgo de Fraguado]</option>
                 <option value="zapata">Topografía: Nivel de desplante de zapata Z-08 hallado 45 cm más profundo que en plano E-02</option>
               </select>
             </div>
             <div>
-              <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+              <label class="block text-xs font-semibold text-neutral-300 uppercase tracking-wider mb-2">
                 Urgencia Contractual y Ruta Crítica:
               </label>
-              <select id="rfi-urgency" class="w-full bg-slate-800 border border-slate-700 text-white rounded-xl p-3.5 text-sm focus:border-orange-500 focus:outline-none">
+              <select id="rfi-urgency" class="w-full bg-neutral-800 border border-neutral-700 text-white rounded-xl p-3.5 text-sm focus:border-brand-500 focus:outline-none">
                 <option value="alta">Muy Alta: Afecta vaciado programado en las próximas 48 hrs (Ruta Crítica)</option>
                 <option value="media">Media: Ventana de holgura de 5 días hábiles</option>
                 <option value="baja">Baja: Consulta para partida de acabados (fase posterior)</option>
@@ -936,19 +944,19 @@
           </div>
 
           <div class="flex items-center justify-between pt-2">
-            <button onclick="executeRfiSimulation()" class="bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition flex items-center space-x-2 text-sm">
+            <button onclick="executeRfiSimulation()" class="bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-600 text-neutral-950 font-bold py-3 px-6 rounded-xl shadow-lg transition flex items-center space-x-2 text-sm">
               <span id="rfi-btn-spinner" class="hidden animate-spin">⏳</span>
               <span>⚡ Generar RFI Técnico-Contractual Blindado</span>
             </button>
 
-            <button onclick="copyToClipboard('rfi-output')" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white px-3.5 py-2 rounded-lg border border-slate-700 transition flex items-center gap-1.5">
+            <button onclick="copyToClipboard('rfi-output')" class="text-xs bg-neutral-800 hover:bg-neutral-700 text-neutral-300 hover:text-white px-3.5 py-2 rounded-lg border border-neutral-700 transition flex items-center gap-1.5">
               <span>📋</span>
               <span id="rfi-copy-text">Copiar al Portapapeles</span>
             </button>
           </div>
 
           <!-- SALIDA DEL SIMULADOR RFI -->
-          <div class="relative bg-slate-950 rounded-xl p-5 border border-slate-800 font-mono text-xs sm:text-sm text-slate-300 max-h-96 overflow-y-auto leading-relaxed custom-scrollbar shadow-inner">
+          <div class="relative bg-neutral-950 rounded-xl p-5 border border-neutral-800 font-mono text-xs sm:text-sm text-neutral-300 max-h-96 overflow-y-auto leading-relaxed custom-scrollbar shadow-inner">
             <pre id="rfi-output" class="whitespace-pre-wrap font-mono">// Selecciona un caso de obra y presiona el botón 'Generar RFI' para visualizar la formulación inatacable generada por el agente ConTech...</pre>
           </div>
         </div>
@@ -957,94 +965,94 @@
         <div id="sim-panel-bitacora" class="hidden p-6 sm:p-8 space-y-6">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+              <label class="block text-xs font-semibold text-neutral-300 uppercase tracking-wider mb-2">
                 Evento Contractual a Documentar:
               </label>
-              <select id="bitacora-event" class="w-full bg-slate-800 border border-slate-700 text-white rounded-xl p-3.5 text-sm focus:border-orange-500 focus:outline-none">
+              <select id="bitacora-event" class="w-full bg-neutral-800 border border-neutral-700 text-white rounded-xl p-3.5 text-sm focus:border-brand-500 focus:outline-none">
                 <option value="lluvia">Lluvia torrencial no prevista: Suspensión de vaciado de losa (Fuerza Mayor / FIDIC 8.4)</option>
                 <option value="subcontrata">Atraso injustificado de subcontratista de instalaciones: Apercibimiento legal</option>
                 <option value="hallazgo">Hallazgo de roca no clasificada o tubería matriz matriz no catastrada en zanja</option>
               </select>
             </div>
             <div>
-              <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+              <label class="block text-xs font-semibold text-neutral-300 uppercase tracking-wider mb-2">
                 Afectación Registrada en Cuadrilla:
               </label>
-              <input type="text" id="bitacora-impact" value="48 obreros paralizados, 4 camiones mixer desviados, 380 HH perdidas" class="w-full bg-slate-800 border border-slate-700 text-white rounded-xl p-3.5 text-sm focus:border-orange-500 focus:outline-none">
+              <input type="text" id="bitacora-impact" value="48 obreros paralizados, 4 camiones mixer desviados, 380 HH perdidas" class="w-full bg-neutral-800 border border-neutral-700 text-white rounded-xl p-3.5 text-sm focus:border-brand-500 focus:outline-none">
             </div>
           </div>
 
           <div class="flex items-center justify-between pt-2">
-            <button onclick="executeBitacoraSimulation()" class="bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition flex items-center space-x-2 text-sm">
+            <button onclick="executeBitacoraSimulation()" class="bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-600 text-neutral-950 font-bold py-3 px-6 rounded-xl shadow-lg transition flex items-center space-x-2 text-sm">
               <span id="bitacora-btn-spinner" class="hidden animate-spin">⏳</span>
               <span>📝 Redactar Asiento Inatacable de Cuaderno de Obra</span>
             </button>
 
-            <button onclick="copyToClipboard('bitacora-output')" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white px-3.5 py-2 rounded-lg border border-slate-700 transition flex items-center gap-1.5">
+            <button onclick="copyToClipboard('bitacora-output')" class="text-xs bg-neutral-800 hover:bg-neutral-700 text-neutral-300 hover:text-white px-3.5 py-2 rounded-lg border border-neutral-700 transition flex items-center gap-1.5">
               <span>📋</span>
               <span id="bitacora-copy-text">Copiar Asiento</span>
             </button>
           </div>
 
-          <div class="relative bg-slate-950 rounded-xl p-5 border border-slate-800 font-mono text-xs sm:text-sm text-slate-300 max-h-96 overflow-y-auto leading-relaxed custom-scrollbar shadow-inner">
+          <div class="relative bg-neutral-950 rounded-xl p-5 border border-neutral-800 font-mono text-xs sm:text-sm text-neutral-300 max-h-96 overflow-y-auto leading-relaxed custom-scrollbar shadow-inner">
             <pre id="bitacora-output" class="whitespace-pre-wrap font-mono">// Selecciona un evento para generar el asiento formal con sustento técnico, normativa aplicable y salvaguarda contra penalidades contractuales...</pre>
           </div>
         </div>
 
         <!-- PANEL 3: PREDICTOR DE VALOR GANADO (EVM) -->
         <div id="sim-panel-evm" class="hidden p-6 sm:p-8 space-y-6">
-          <p class="text-sm text-slate-300">
-            Ingresa las variables financieras actuales de tu proyecto para obtener el diagnóstico predictivo instantáneo con cálculo de índices <strong class="text-orange-400">CPI</strong>, <strong class="text-blue-400">SPI</strong> y estimación a la conclusión (<strong class="text-emerald-400">EAC</strong>):
+          <p class="text-sm text-neutral-300">
+            Ingresa las variables financieras actuales de tu proyecto para obtener el diagnóstico predictivo instantáneo con cálculo de índices <strong class="text-brand-400">CPI</strong>, <strong class="text-brand-400">SPI</strong> y estimación a la conclusión (<strong class="text-emerald-400">EAC</strong>):
           </p>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
-              <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5">Presupuesto Base (BAC $):</label>
-              <input type="number" id="evm-bac" value="5000000" class="w-full bg-slate-800 border border-slate-700 text-white rounded-xl p-3 text-sm focus:border-orange-500 focus:outline-none">
+              <label class="block text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-1.5">Presupuesto Base (BAC $):</label>
+              <input type="number" id="evm-bac" value="5000000" class="w-full bg-neutral-800 border border-neutral-700 text-white rounded-xl p-3 text-sm focus:border-brand-500 focus:outline-none">
             </div>
             <div>
-              <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5">Valor Planificado (PV $):</label>
-              <input type="number" id="evm-pv" value="2500000" class="w-full bg-slate-800 border border-slate-700 text-white rounded-xl p-3 text-sm focus:border-orange-500 focus:outline-none">
+              <label class="block text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-1.5">Valor Planificado (PV $):</label>
+              <input type="number" id="evm-pv" value="2500000" class="w-full bg-neutral-800 border border-neutral-700 text-white rounded-xl p-3 text-sm focus:border-brand-500 focus:outline-none">
             </div>
             <div>
-              <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5">Valor Ganado Real (EV $):</label>
-              <input type="number" id="evm-ev" value="2250000" class="w-full bg-slate-800 border border-slate-700 text-white rounded-xl p-3 text-sm focus:border-orange-500 focus:outline-none">
+              <label class="block text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-1.5">Valor Ganado Real (EV $):</label>
+              <input type="number" id="evm-ev" value="2250000" class="w-full bg-neutral-800 border border-neutral-700 text-white rounded-xl p-3 text-sm focus:border-brand-500 focus:outline-none">
             </div>
             <div>
-              <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5">Costo Real Incurrido (AC $):</label>
-              <input type="number" id="evm-ac" value="2600000" class="w-full bg-slate-800 border border-slate-700 text-white rounded-xl p-3 text-sm focus:border-orange-500 focus:outline-none">
+              <label class="block text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-1.5">Costo Real Incurrido (AC $):</label>
+              <input type="number" id="evm-ac" value="2600000" class="w-full bg-neutral-800 border border-neutral-700 text-white rounded-xl p-3 text-sm focus:border-brand-500 focus:outline-none">
             </div>
           </div>
 
-          <button onclick="calculateEVMDiagnostic()" class="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-600 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg transition flex items-center justify-center space-x-2 text-sm">
+          <button onclick="calculateEVMDiagnostic()" class="w-full bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-600 text-neutral-950 font-bold py-3.5 px-6 rounded-xl shadow-lg transition flex items-center justify-center space-x-2 text-sm">
             <span>📊 Ejecutar Diagnóstico Predictivo EVM con IA</span>
           </button>
 
           <!-- Resultados del Análisis EVM -->
           <div id="evm-results-box" class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
-              <span class="text-xs text-slate-400 uppercase font-bold block mb-1">Índice Costo (CPI)</span>
-              <span id="evm-cpi" class="text-2xl font-extrabold text-amber-400 font-display">0.865</span>
-              <span id="evm-cpi-status" class="text-[11px] block mt-1 text-amber-400">Sobrecosto</span>
+            <div class="bg-neutral-950 p-4 rounded-xl border border-neutral-800">
+              <span class="text-xs text-neutral-400 uppercase font-bold block mb-1">Índice Costo (CPI)</span>
+              <span id="evm-cpi" class="text-2xl font-extrabold text-brand-400 font-display">0.865</span>
+              <span id="evm-cpi-status" class="text-[11px] block mt-1 text-brand-400">Sobrecosto</span>
             </div>
-            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
-              <span class="text-xs text-slate-400 uppercase font-bold block mb-1">Índice Plazo (SPI)</span>
+            <div class="bg-neutral-950 p-4 rounded-xl border border-neutral-800">
+              <span class="text-xs text-neutral-400 uppercase font-bold block mb-1">Índice Plazo (SPI)</span>
               <span id="evm-spi" class="text-2xl font-extrabold text-red-400 font-display">0.900</span>
               <span id="evm-spi-status" class="text-[11px] block mt-1 text-red-400">Con Retraso</span>
             </div>
-            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
-              <span class="text-xs text-slate-400 uppercase font-bold block mb-1">Costo Proyectado (EAC)</span>
-              <span id="evm-eac" class="text-2xl font-extrabold text-orange-400 font-display">$5,777,778</span>
-              <span class="text-[11px] block mt-1 text-slate-400">USD al cierre</span>
+            <div class="bg-neutral-950 p-4 rounded-xl border border-neutral-800">
+              <span class="text-xs text-neutral-400 uppercase font-bold block mb-1">Costo Proyectado (EAC)</span>
+              <span id="evm-eac" class="text-2xl font-extrabold text-brand-400 font-display">$5,777,778</span>
+              <span class="text-[11px] block mt-1 text-neutral-400">USD al cierre</span>
             </div>
-            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
-              <span class="text-xs text-slate-400 uppercase font-bold block mb-1">Variación Final (VAC)</span>
+            <div class="bg-neutral-950 p-4 rounded-xl border border-neutral-800">
+              <span class="text-xs text-neutral-400 uppercase font-bold block mb-1">Variación Final (VAC)</span>
               <span id="evm-vac" class="text-2xl font-extrabold text-red-400 font-display">-$777,778</span>
               <span class="text-[11px] block mt-1 text-red-400">Déficit estimado</span>
             </div>
           </div>
 
-          <div id="evm-ai-narrative" class="bg-slate-950 p-5 rounded-xl border border-slate-800 text-xs sm:text-sm text-slate-300 leading-relaxed font-mono">
+          <div id="evm-ai-narrative" class="bg-neutral-950 p-5 rounded-xl border border-neutral-800 text-xs sm:text-sm text-neutral-300 leading-relaxed font-mono">
             // Diagnóstico interpretativo generado automáticamente por la lógica de analítica ConTech...
           </div>
         </div>
@@ -1057,7 +1065,7 @@
   <!-- ============================================================ -->
   <!-- CALCULADORA AVANZADA DE RETORNO DE INVERSIÓN (ROI DE OBRA) -->
   <!-- ============================================================ -->
-  <section id="calculadora-roi" class="py-20 bg-contech-navy border-b border-slate-800 relative">
+  <section id="calculadora-roi" class="py-20 bg-contech-navy border-b border-neutral-800 relative">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-14">
@@ -1067,12 +1075,12 @@
         <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-display mt-3 mb-4">
           Calculadora de Retorno de Inversión (ROI) en tu Obra
         </h2>
-        <p class="text-slate-300 text-base sm:text-lg">
+        <p class="text-neutral-300 text-base sm:text-lg">
           La ineficiencia administrativa y la burocracia de oficina técnica consumen hasta el 40% del tiempo de los ingenieros. Ajusta las variables de tu equipo y calcula el ahorro directo mensual:
         </p>
       </div>
 
-      <div class="bg-slate-800/90 rounded-2xl p-6 sm:p-10 border border-slate-700 shadow-2xl backdrop-blur-md">
+      <div class="bg-neutral-800/90 rounded-2xl p-6 sm:p-10 border border-neutral-700 shadow-2xl backdrop-blur-md">
         
         <!-- SLIDERS INTERACTIVOS -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
@@ -1080,89 +1088,89 @@
           <!-- Slider 1: Ingenieros -->
           <div class="space-y-3">
             <div class="flex justify-between items-center">
-              <label class="text-xs font-bold text-slate-300 uppercase tracking-wider">Ingenieros / Asistentes:</label>
-              <span id="val-engineers" class="text-lg font-extrabold text-orange-400 font-display">4</span>
+              <label class="text-xs font-bold text-neutral-300 uppercase tracking-wider">Ingenieros / Asistentes:</label>
+              <span id="val-engineers" class="text-lg font-extrabold text-brand-400 font-display">4</span>
             </div>
-            <input type="range" id="slider-engineers" min="1" max="30" value="4" oninput="updateROICalculation()" class="w-full h-2 bg-slate-900 rounded-lg appearance-none cursor-pointer accent-orange-500">
-            <span class="text-[11px] text-slate-400 block">Personal en oficina técnica y coordinación</span>
+            <input type="range" id="slider-engineers" min="1" max="30" value="4" oninput="updateROICalculation()" class="w-full h-2 bg-neutral-900 rounded-lg appearance-none cursor-pointer accent-brand-500">
+            <span class="text-[11px] text-neutral-400 block">Personal en oficina técnica y coordinación</span>
           </div>
 
           <!-- Slider 2: Horas Semanales -->
           <div class="space-y-3">
             <div class="flex justify-between items-center">
-              <label class="text-xs font-bold text-slate-300 uppercase tracking-wider">Horas Admin. / Semana:</label>
-              <span id="val-hours" class="text-lg font-extrabold text-orange-400 font-display">14 hrs</span>
+              <label class="text-xs font-bold text-neutral-300 uppercase tracking-wider">Horas Admin. / Semana:</label>
+              <span id="val-hours" class="text-lg font-extrabold text-brand-400 font-display">14 hrs</span>
             </div>
-            <input type="range" id="slider-hours" min="5" max="35" value="14" oninput="updateROICalculation()" class="w-full h-2 bg-slate-900 rounded-lg appearance-none cursor-pointer accent-orange-500">
-            <span class="text-[11px] text-slate-400 block">Horas por persona en reportes, RFIs y minutas</span>
+            <input type="range" id="slider-hours" min="5" max="35" value="14" oninput="updateROICalculation()" class="w-full h-2 bg-neutral-900 rounded-lg appearance-none cursor-pointer accent-brand-500">
+            <span class="text-[11px] text-neutral-400 block">Horas por persona en reportes, RFIs y minutas</span>
           </div>
 
           <!-- Slider 3: Costo Hora -->
           <div class="space-y-3">
             <div class="flex justify-between items-center">
-              <label class="text-xs font-bold text-slate-300 uppercase tracking-wider">Costo Promedio Hora:</label>
-              <span id="val-rate" class="text-lg font-extrabold text-orange-400 font-display">$25 USD</span>
+              <label class="text-xs font-bold text-neutral-300 uppercase tracking-wider">Costo Promedio Hora:</label>
+              <span id="val-rate" class="text-lg font-extrabold text-brand-400 font-display">$25 USD</span>
             </div>
-            <input type="range" id="slider-rate" min="15" max="80" value="25" step="5" oninput="updateROICalculation()" class="w-full h-2 bg-slate-900 rounded-lg appearance-none cursor-pointer accent-orange-500">
-            <span class="text-[11px] text-slate-400 block">Costo empresa por hora hombre técnica</span>
+            <input type="range" id="slider-rate" min="15" max="80" value="25" step="5" oninput="updateROICalculation()" class="w-full h-2 bg-neutral-900 rounded-lg appearance-none cursor-pointer accent-brand-500">
+            <span class="text-[11px] text-neutral-400 block">Costo empresa por hora hombre técnica</span>
           </div>
 
         </div>
 
         <!-- TARJETAS DE RESULTADOS ECONÓMICOS -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 bg-slate-950 p-6 rounded-xl border border-slate-800 text-center mb-8">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 bg-neutral-950 p-6 rounded-xl border border-neutral-800 text-center mb-8">
           
           <div>
-            <span class="text-xs text-slate-400 uppercase font-bold tracking-wider block mb-1">Horas Ahorradas al Mes</span>
-            <div id="roi-hours-saved" class="text-3xl sm:text-4xl font-extrabold text-orange-400 font-display">157 hrs</div>
-            <span class="text-[11px] text-slate-500 block mt-1">65% de reducción garantizada</span>
+            <span class="text-xs text-neutral-400 uppercase font-bold tracking-wider block mb-1">Horas Ahorradas al Mes</span>
+            <div id="roi-hours-saved" class="text-3xl sm:text-4xl font-extrabold text-brand-400 font-display">157 hrs</div>
+            <span class="text-[11px] text-neutral-500 block mt-1">65% de reducción garantizada</span>
           </div>
 
           <div>
-            <span class="text-xs text-slate-400 uppercase font-bold tracking-wider block mb-1">Ahorro Financiero Mensual</span>
+            <span class="text-xs text-neutral-400 uppercase font-bold tracking-wider block mb-1">Ahorro Financiero Mensual</span>
             <div id="roi-money-saved" class="text-3xl sm:text-4xl font-extrabold text-emerald-400 font-display">$3,925 USD</div>
             <span id="roi-annual-saved" class="text-[11px] text-emerald-500 block mt-1">~$47,100 USD al año</span>
           </div>
 
           <div>
-            <span class="text-xs text-slate-400 uppercase font-bold tracking-wider block mb-1">Recuperación de Inversión</span>
-            <div id="roi-payback-weeks" class="text-3xl sm:text-4xl font-extrabold text-blue-400 font-display">2.8 semanas</div>
-            <span class="text-[11px] text-slate-500 block mt-1">Retorno de matrícula (Payback)</span>
+            <span class="text-xs text-neutral-400 uppercase font-bold tracking-wider block mb-1">Recuperación de Inversión</span>
+            <div id="roi-payback-weeks" class="text-3xl sm:text-4xl font-extrabold text-brand-400 font-display">2.8 semanas</div>
+            <span class="text-[11px] text-neutral-500 block mt-1">Retorno de matrícula (Payback)</span>
           </div>
 
         </div>
 
         <!-- GRÁFICO VISUAL COMPARATIVO ANTES VS CON IA -->
         <div class="space-y-4">
-          <div class="flex justify-between text-xs font-semibold text-slate-300">
+          <div class="flex justify-between text-xs font-semibold text-neutral-300">
             <span>Distribución de Tiempo en Oficina Técnica:</span>
-            <span class="text-orange-400">Eficiencia ConTech: +240% de velocidad operativa</span>
+            <span class="text-brand-400">Eficiencia ConTech: +240% de velocidad operativa</span>
           </div>
 
           <div>
-            <div class="flex justify-between text-xs text-slate-400 mb-1">
+            <div class="flex justify-between text-xs text-neutral-400 mb-1">
               <span>Método Tradicional (Burocracia Manual):</span>
-              <span id="bar-label-traditional" class="font-bold text-slate-300">241 hrs / mes</span>
+              <span id="bar-label-traditional" class="font-bold text-neutral-300">241 hrs / mes</span>
             </div>
-            <div class="w-full bg-slate-900 rounded-full h-4 overflow-hidden p-0.5 border border-slate-700">
-              <div class="bg-gradient-to-r from-red-600 to-amber-600 h-full rounded-full w-full"></div>
+            <div class="w-full bg-neutral-900 rounded-full h-4 overflow-hidden p-0.5 border border-neutral-700">
+              <div class="bg-gradient-to-r from-red-600 to-brand-600 h-full rounded-full w-full"></div>
             </div>
           </div>
 
           <div>
-            <div class="flex justify-between text-xs text-slate-400 mb-1">
+            <div class="flex justify-between text-xs text-neutral-400 mb-1">
               <span>Con Inteligencia Artificial ConTech:</span>
               <span id="bar-label-ai" class="font-bold text-emerald-400">84 hrs / mes (-65%)</span>
             </div>
-            <div class="w-full bg-slate-900 rounded-full h-4 overflow-hidden p-0.5 border border-slate-700">
+            <div class="w-full bg-neutral-900 rounded-full h-4 overflow-hidden p-0.5 border border-neutral-700">
               <div id="bar-ai-progress" class="bg-gradient-to-r from-emerald-500 to-teal-400 h-full rounded-full transition-all duration-500" style="width: 35%;"></div>
             </div>
           </div>
         </div>
 
         <!-- CTA Directo de la Calculadora -->
-        <div class="mt-8 pt-6 border-t border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <span class="text-xs sm:text-sm text-slate-300">
+        <div class="mt-8 pt-6 border-t border-neutral-700 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <span class="text-xs sm:text-sm text-neutral-300">
             ¿Deseas capacitar a tu equipo completo con tarifas corporativas in-company?
           </span>
           <button onclick="openModal('Plan Corporativo')" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 px-6 rounded-xl transition text-sm">
@@ -1178,51 +1186,56 @@
   <!-- ============================================================ -->
   <!-- ESTÁNDARES INTERNACIONALES Y AVALES TÉCNICOS -->
   <!-- ============================================================ -->
-  <section id="acreditacion" class="py-20 bg-slate-900 border-b border-slate-800">
+  <section id="acreditacion" class="py-20 bg-neutral-900 border-b border-neutral-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-14">
-        <span class="text-xs uppercase tracking-wider font-bold text-orange-400 bg-orange-950/70 border border-orange-800/60 px-3.5 py-1 rounded-full">
+        <span class="text-xs uppercase tracking-wider font-bold text-brand-400 bg-brand-950/70 border border-brand-800/60 px-3.5 py-1 rounded-full">
           Rigor de la Industria
         </span>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-display mt-3 mb-4">
           Alineado con los Máximos Estándares de la Construcción
         </h2>
-        <p class="text-slate-300 text-base">
+        <p class="text-neutral-300 text-base">
           No enseñamos trucos genéricos. Toda la metodología está estructurada para respetar las normativas que gobiernan la ingeniería civil moderna:
         </p>
       </div>
 
+      <!-- Fotografía de Pexels 29197533. -->
+      <img src="assets/ingenieros-coordinacion-en-campo.webp" width="1200" height="800" loading="lazy" decoding="async"
+        class="w-full h-56 sm:h-72 mb-8 object-cover object-center rounded-2xl border border-neutral-700"
+        alt="Ingenieros revisan los trabajos en una excavación con maquinaria de construcción">
+
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         
-        <div class="bg-contech-navy p-6 rounded-xl border border-slate-800 hover:border-orange-500/50 transition">
-          <div class="text-orange-500 text-2xl font-bold mb-2">PMI PMBOK®</div>
+        <div class="bg-contech-navy p-6 rounded-xl border border-neutral-800 hover:border-brand-500/50 transition">
+          <div class="text-brand-500 text-2xl font-bold mb-2">PMI PMBOK®</div>
           <h3 class="text-base font-bold text-white mb-2">7ma Edición & EVM</h3>
-          <p class="text-xs text-slate-400 leading-relaxed">
+          <p class="text-xs text-neutral-400 leading-relaxed">
             Gestión del desempeño basada en valor ganado, control predictivo de riesgos, gobernanza de proyectos complejos e interoperabilidad de interesados.
           </p>
         </div>
 
-        <div class="bg-contech-navy p-6 rounded-xl border border-slate-800 hover:border-orange-500/50 transition">
-          <div class="text-orange-500 text-2xl font-bold mb-2">Lean Construction</div>
+        <div class="bg-contech-navy p-6 rounded-xl border border-neutral-800 hover:border-brand-500/50 transition">
+          <div class="text-brand-500 text-2xl font-bold mb-2">Lean Construction</div>
           <h3 class="text-base font-bold text-white mb-2">Last Planner System</h3>
-          <p class="text-xs text-slate-400 leading-relaxed">
+          <p class="text-xs text-neutral-400 leading-relaxed">
             Estabilización del flujo de trabajo en obra, análisis semántico de causas de no cumplimiento (CNC) y erradicación de desperdicios en campo.
           </p>
         </div>
 
-        <div class="bg-contech-navy p-6 rounded-xl border border-slate-800 hover:border-orange-500/50 transition">
-          <div class="text-orange-500 text-2xl font-bold mb-2">ISO 19650</div>
+        <div class="bg-contech-navy p-6 rounded-xl border border-neutral-800 hover:border-brand-500/50 transition">
+          <div class="text-brand-500 text-2xl font-bold mb-2">ISO 19650</div>
           <h3 class="text-base font-bold text-white mb-2">Smart BIM & Data</h3>
-          <p class="text-xs text-slate-400 leading-relaxed">
+          <p class="text-xs text-neutral-400 leading-relaxed">
             Gestión de la información durante el ciclo de vida del activo con modelos IFC abiertos, CDE (Entorno Común de Datos) y gemelos digitales con IA.
           </p>
         </div>
 
-        <div class="bg-contech-navy p-6 rounded-xl border border-slate-800 hover:border-orange-500/50 transition">
-          <div class="text-orange-500 text-2xl font-bold mb-2">FIDIC / NEC / OSHA</div>
+        <div class="bg-contech-navy p-6 rounded-xl border border-neutral-800 hover:border-brand-500/50 transition">
+          <div class="text-brand-500 text-2xl font-bold mb-2">FIDIC / NEC / OSHA</div>
           <h3 class="text-base font-bold text-white mb-2">Contratos y Seguridad</h3>
-          <p class="text-xs text-slate-400 leading-relaxed">
+          <p class="text-xs text-neutral-400 leading-relaxed">
             Prevención de controversias contractuales, blindaje de reclamaciones y protocolos de visión artificial para seguridad industrial en faena.
           </p>
         </div>
@@ -1235,11 +1248,11 @@
   <!-- ============================================================ -->
   <!-- MODAL INTERACTIVO DE MATRÍCULA Y DESCARGA DE DOSSIER -->
   <!-- ============================================================ -->
-  <div id="enrollment-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="relative bg-slate-900 border border-slate-700 rounded-2xl max-w-xl w-full p-6 sm:p-8 shadow-2xl text-left">
+  <div id="enrollment-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-neutral-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="relative bg-neutral-900 border border-neutral-700 rounded-2xl max-w-xl w-full p-6 sm:p-8 shadow-2xl text-left">
       
       <!-- Botón de Cerrar -->
-      <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2 rounded-lg bg-slate-800 hover:bg-slate-700 transition" aria-label="Cerrar ventana">
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-neutral-400 hover:text-white p-2 rounded-lg bg-neutral-800 hover:bg-neutral-700 transition" aria-label="Cerrar ventana">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
         </svg>
@@ -1247,13 +1260,13 @@
 
       <!-- Encabezado del Modal -->
       <div class="mb-6">
-        <span id="modal-tag" class="text-xs uppercase tracking-wider font-bold text-orange-400 bg-orange-950/70 border border-orange-800/60 px-3 py-1 rounded-full">
+        <span id="modal-tag" class="text-xs uppercase tracking-wider font-bold text-brand-400 bg-brand-950/70 border border-brand-800/60 px-3 py-1 rounded-full">
           Inscripción ConTech 2026
         </span>
         <h3 id="modal-title" class="text-2xl font-bold text-white font-display mt-2">
           Matrícula Oficial y Acceso al Programa
         </h3>
-        <p class="text-xs sm:text-sm text-slate-400 mt-1">
+        <p class="text-xs sm:text-sm text-neutral-400 mt-1">
           Completa tus datos profesionales para recibir el calendario académico, plan de becas y acceso a la plataforma:
         </p>
       </div>
@@ -1261,33 +1274,33 @@
       <!-- Formulario -->
       <form id="enrollment-form" onsubmit="submitEnrollmentForm(event)" class="space-y-4">
         <div>
-          <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Nombre Completo:</label>
-          <input type="text" id="form-name" required placeholder="Ing. Carlos Mendoza" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-orange-500">
+          <label class="block text-xs font-semibold text-neutral-300 uppercase tracking-wider mb-1">Nombre Completo:</label>
+          <input type="text" id="form-name" required placeholder="Ing. Carlos Mendoza" class="w-full bg-neutral-950 border border-neutral-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-brand-500">
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Correo Electrónico:</label>
-            <input type="email" id="form-email" required placeholder="carlos@constructora.com" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-orange-500">
+            <label class="block text-xs font-semibold text-neutral-300 uppercase tracking-wider mb-1">Correo Electrónico:</label>
+            <input type="email" id="form-email" required placeholder="carlos@constructora.com" class="w-full bg-neutral-950 border border-neutral-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-brand-500">
           </div>
           <div>
-            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Teléfono / WhatsApp:</label>
-            <input type="tel" id="form-phone" required placeholder="+51 987 654 321" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-orange-500">
+            <label class="block text-xs font-semibold text-neutral-300 uppercase tracking-wider mb-1">Teléfono / WhatsApp:</label>
+            <input type="tel" id="form-phone" required placeholder="+51 987 654 321" class="w-full bg-neutral-950 border border-neutral-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-brand-500">
           </div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Rango de Edad / Perfil:</label>
-            <select id="form-profile" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-orange-500">
+            <label class="block text-xs font-semibold text-neutral-300 uppercase tracking-wider mb-1">Rango de Edad / Perfil:</label>
+            <select id="form-profile" class="w-full bg-neutral-950 border border-neutral-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-brand-500">
               <option value="junior">20 - 30 Años (Junior / Modelador BIM / Asistente)</option>
               <option value="resident" selected>31 - 40 Años (Residente / Jefe de Obra / Planificador)</option>
               <option value="director">41 - 50 Años (Director / Gerente / Contratista)</option>
             </select>
           </div>
           <div>
-            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Modalidad Preferida:</label>
-            <select id="form-modality" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-orange-500">
+            <label class="block text-xs font-semibold text-neutral-300 uppercase tracking-wider mb-1">Modalidad Preferida:</label>
+            <select id="form-modality" class="w-full bg-neutral-950 border border-neutral-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-brand-500">
               <option value="live">Online En Vivo con Mentorías</option>
               <option value="selfpaced">Asincrónico Autoguiado 24/7</option>
               <option value="corporate">Capacitación Corporativa In-Company</option>
@@ -1296,7 +1309,7 @@
         </div>
 
         <div class="pt-2">
-          <button type="submit" id="btn-submit-form" class="w-full bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg transition text-base">
+          <button type="submit" id="btn-submit-form" class="w-full bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-600 text-neutral-950 font-bold py-3.5 px-6 rounded-xl shadow-lg transition text-base">
             Confirmar Solicitud y Recibir Dossier
           </button>
         </div>
@@ -1308,10 +1321,10 @@
           ✓
         </div>
         <h4 class="text-xl font-bold text-white font-display">¡Solicitud Procesada Exitosamente!</h4>
-        <p class="text-sm text-slate-300 max-w-md mx-auto">
+        <p class="text-sm text-neutral-300 max-w-md mx-auto">
           Hemos enviado a tu correo el <strong class="text-white">Dossier Académico Completo</strong>, la muestra de plantillas de prompts y el enlace directo para agendar tu entrevista de admisión.
         </p>
-        <button onclick="closeModal()" class="bg-slate-800 hover:bg-slate-700 text-white px-6 py-2.5 rounded-xl border border-slate-700 text-sm font-semibold transition">
+        <button onclick="closeModal()" class="bg-neutral-800 hover:bg-neutral-700 text-white px-6 py-2.5 rounded-xl border border-neutral-700 text-sm font-semibold transition">
           Cerrar
         </button>
       </div>
@@ -1322,7 +1335,7 @@
   <!-- ============================================================ -->
   <!-- FOOTER INSTITUCIONAL -->
   <!-- ============================================================ -->
-  <footer class="bg-slate-950 text-slate-400 py-16 border-t border-slate-800">
+  <footer class="bg-neutral-950 text-neutral-400 py-16 border-t border-neutral-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
@@ -1330,18 +1343,34 @@
         <!-- Columna 1: Marca y Propósito -->
         <div class="md:col-span-2 space-y-4">
           <div class="flex items-center space-x-3">
-            <div class="w-10 h-10 rounded-xl bg-orange-600 flex items-center justify-center font-bold text-xl text-white">
+            <div class="w-10 h-10 rounded-xl bg-brand-600 flex items-center justify-center font-bold text-xl text-neutral-950">
               🏗️
             </div>
             <div>
-              <span class="text-xl font-extrabold text-white font-display">CONTECH <span class="text-orange-500">AI ACADEMY</span></span>
-              <span class="text-xs text-slate-400 block font-medium">Liderazgo Digital en Construcción e Infraestructura</span>
+              <span class="text-xl font-extrabold text-white font-display">CONTECH <span class="text-brand-500">AI ACADEMY</span></span>
+              <span class="text-xs text-neutral-400 block font-medium">Liderazgo Digital en Construcción e Infraestructura</span>
             </div>
           </div>
-          <p class="text-sm text-slate-400 max-w-lg leading-relaxed">
+          <p class="text-sm text-neutral-400 max-w-lg leading-relaxed">
             Plataforma formativa de vanguardia diseñada para cerrar la brecha tecnológica entre el trabajo intelectual de oficina técnica y la ejecución tangible en obra, aplicando modelos de IA con rigor normativo de ingeniería.
           </p>
-          <div class="flex items-center space-x-3 text-xs text-slate-500">
+          <nav aria-label="Redes sociales" class="flex items-center gap-3">
+            <a href="https://www.facebook.com/651773774948255/"
+              aria-label="Training Construction en Facebook"
+              class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-neutral-700 text-brand-500 transition hover:border-brand-500 hover:bg-brand-500 hover:text-neutral-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500">
+              <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M14 21v-8h2.8l.4-3H14V8.1c0-.9.3-1.5 1.6-1.5h1.7V3.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.2v2H8v3h2.6v8z"/>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/omar-hidalgo-65036a77/"
+              aria-label="Omar Hidalgo en LinkedIn"
+              class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-neutral-700 text-brand-500 transition hover:border-brand-500 hover:bg-brand-500 hover:text-neutral-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500">
+              <svg aria-hidden="true" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M6.5 9.5H3V21h3.5zM4.75 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM21 14.4c0-3.3-1.5-5.2-4.3-5.2-1.5 0-2.6.8-3.1 1.6V9.5h-3.4V21h3.5v-6.1c0-1.6.7-2.5 2-2.5 1.2 0 1.8.9 1.8 2.5V21H21z"/>
+              </svg>
+            </a>
+          </nav>
+          <div class="flex items-center space-x-3 text-xs text-neutral-500">
             <span>ISO 19650</span> • <span>PMI PMBOK</span> • <span>Lean Construction</span> • <span>OSHA Standard</span>
           </div>
         </div>
@@ -1350,11 +1379,11 @@
         <div>
           <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Navegación</h4>
           <ul class="space-y-2.5 text-sm">
-            <li><a href="#audiencia" class="hover:text-orange-400 transition">Rutas 20 - 50 Años</a></li>
-            <li><a href="#modulos" class="hover:text-orange-400 transition">Malla Curricular (6 Módulos)</a></li>
-            <li><a href="#simulador-suite" class="hover:text-orange-400 transition">Suite de Simulación ConTech</a></li>
-            <li><a href="#calculadora-roi" class="hover:text-orange-400 transition">Calculadora de ROI</a></li>
-            <li><a href="#acreditacion" class="hover:text-orange-400 transition">Avales y Estándares</a></li>
+            <li><a href="#audiencia" class="hover:text-brand-400 transition">Rutas 20 - 50 Años</a></li>
+            <li><a href="#modulos" class="hover:text-brand-400 transition">Malla Curricular (6 Módulos)</a></li>
+            <li><a href="#simulador-suite" class="hover:text-brand-400 transition">Suite de Simulación ConTech</a></li>
+            <li><a href="#calculadora-roi" class="hover:text-brand-400 transition">Calculadora de ROI</a></li>
+            <li><a href="#acreditacion" class="hover:text-brand-400 transition">Avales y Estándares</a></li>
           </ul>
         </div>
 
@@ -1363,7 +1392,7 @@
           <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Admisión y Contacto</h4>
           <ul class="space-y-2.5 text-sm">
             <li class="flex items-center gap-2">
-              <span class="text-orange-500">✉</span>
+              <span class="text-brand-500">✉</span>
               <span>contacto@contech-ai.academy</span>
             </li>
             <li class="flex items-center gap-2">
@@ -1371,7 +1400,7 @@
               <span>WhatsApp Técnico: +1 (555) 342-CONTECH</span>
             </li>
             <li class="flex items-center gap-2">
-              <span class="text-blue-500">📍</span>
+              <span class="text-brand-500">📍</span>
               <span>Hub Regional: Lima • Bogotá • CDMX • Santiago</span>
             </li>
           </ul>
@@ -1380,14 +1409,14 @@
       </div>
 
       <!-- Barra Inferior de Derechos -->
-      <div class="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+      <div class="pt-8 border-t border-neutral-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
         <div>
           &copy; 2026 CONTECH AI ACADEMY. Todos los derechos reservados. Desarrollado con el ecosistema de agentes ConTech.
         </div>
         <div class="flex items-center space-x-4">
-          <a href="#" class="hover:text-slate-400 transition">Privacidad de Datos de Obra</a>
-          <a href="#" class="hover:text-slate-400 transition">Términos de Servicio</a>
-          <a href="#" class="hover:text-slate-400 transition">Código de Ética Profesional</a>
+          <a href="#" class="hover:text-neutral-400 transition">Privacidad de Datos de Obra</a>
+          <a href="#" class="hover:text-neutral-400 transition">Términos de Servicio</a>
+          <a href="#" class="hover:text-neutral-400 transition">Código de Ética Profesional</a>
         </div>
       </div>
 
@@ -1404,7 +1433,7 @@
         title: "Perfil: 20 a 30 Años — Asistentes Técnicos, Modeladores BIM y Bachilleres",
         subtitle: "Objetivo Principal: Acelerar tu curva de aprendizaje, multiplicar tu empleabilidad y automatizar tareas repetitivas de oficina técnica.",
         badge: "Aceleración Profesional & Empleabilidad",
-        badgeColor: "bg-blue-600/20 text-blue-400 border-blue-500/30",
+        badgeColor: "bg-brand-600/20 text-brand-400 border-brand-500/30",
         quote: "«En mi primera obra como asistente, automatizar los metrados y los borradores de RFIs con los prompts del curso me ahorró 15 horas semanales. Mi jefe de obra quedó impresionado.»",
         author: "Ing. Junior Matías Rojas • Asistente de Oficina Técnica",
         objectives: [
@@ -1420,7 +1449,7 @@
         title: "Perfil: 31 a 40 Años — Residentes de Obra, Jefes de Oficina Técnica y Planificadores",
         subtitle: "Objetivo Principal: Eliminar las horas extras nocturnas, controlar la ruta crítica y mantener los costos y adicionales bajo control.",
         badge: "Eficiencia Operativa & Control de Obra",
-        badgeColor: "bg-orange-600/20 text-orange-400 border-orange-500/30",
+        badgeColor: "bg-brand-600/20 text-brand-400 border-brand-500/30",
         quote: "«El módulo de Last Planner y análisis predictivo de Valor Ganado nos permitió anticipar un desfase en el vaciado de losas y recuperar 12 días en la ruta crítica antes de caer en penalidades.»",
         author: "Ing. Andrea Salazar • Residente de Obra Edificación Multifamiliar",
         objectives: [
@@ -1456,14 +1485,14 @@
       root.classList.remove('font-size-sm', 'font-size-md', 'font-size-lg', 'font-size-xl');
       
       document.querySelectorAll('#btn-font-sm, #btn-font-md, #btn-font-lg, #btn-font-xl').forEach(btn => {
-        btn.classList.remove('bg-orange-600', 'text-white');
-        btn.classList.add('text-slate-400');
+        btn.classList.remove('bg-brand-600', 'text-neutral-950');
+        btn.classList.add('text-neutral-400');
       });
 
       const activeBtn = document.getElementById('btn-font-' + size);
       if (activeBtn) {
-        activeBtn.classList.add('bg-orange-600', 'text-white');
-        activeBtn.classList.remove('text-slate-400');
+        activeBtn.classList.add('bg-brand-600', 'text-neutral-950');
+        activeBtn.classList.remove('text-neutral-400');
       }
 
       root.classList.add('font-size-' + size);
@@ -1494,9 +1523,9 @@
       tabs.forEach(tab => {
         const btn = document.getElementById('tab-' + tab);
         if (tab === profileKey) {
-          btn.className = 'profile-tab flex-1 py-4 px-5 rounded-xl border-2 border-orange-500 bg-orange-600/10 text-white font-bold text-sm sm:text-base flex items-center justify-center gap-3 transition-all shadow-md';
+          btn.className = 'profile-tab flex-1 py-4 px-5 rounded-xl border-2 border-brand-500 bg-brand-600/10 text-white font-bold text-sm sm:text-base flex items-center justify-center gap-3 transition-all shadow-md';
         } else {
-          btn.className = 'profile-tab flex-1 py-4 px-5 rounded-xl border border-slate-700 bg-slate-800/80 text-slate-300 hover:text-white font-bold text-sm sm:text-base flex items-center justify-center gap-3 transition-all';
+          btn.className = 'profile-tab flex-1 py-4 px-5 rounded-xl border border-neutral-700 bg-neutral-800/80 text-neutral-300 hover:text-white font-bold text-sm sm:text-base flex items-center justify-center gap-3 transition-all';
         }
       });
 
@@ -1513,15 +1542,15 @@
             
             <div>
               <h3 class="text-xl sm:text-2xl font-bold text-white font-display mb-2">${data.title}</h3>
-              <p class="text-sm sm:text-base text-slate-300 font-normal leading-relaxed">${data.subtitle}</p>
+              <p class="text-sm sm:text-base text-neutral-300 font-normal leading-relaxed">${data.subtitle}</p>
             </div>
 
             <div>
-              <h4 class="text-xs font-bold uppercase tracking-wider text-orange-400 mb-3">Objetivos Clave de Aprendizaje:</h4>
-              <ul class="space-y-2.5 text-sm text-slate-200">
+              <h4 class="text-xs font-bold uppercase tracking-wider text-brand-400 mb-3">Objetivos Clave de Aprendizaje:</h4>
+              <ul class="space-y-2.5 text-sm text-neutral-200">
                 ${data.objectives.map(obj => `
                   <li class="flex items-start gap-2.5">
-                    <span class="text-orange-500 font-bold text-base leading-none">✓</span>
+                    <span class="text-brand-500 font-bold text-base leading-none">✓</span>
                     <span>${obj}</span>
                   </li>
                 `).join('')}
@@ -1529,34 +1558,34 @@
             </div>
 
             <div class="pt-2">
-              <h4 class="text-xs font-bold uppercase tracking-wider text-blue-400 mb-2">Herramientas & Entornos ConTech:</h4>
+              <h4 class="text-xs font-bold uppercase tracking-wider text-brand-400 mb-2">Herramientas & Entornos ConTech:</h4>
               <div class="flex flex-wrap gap-2 text-xs">
                 ${data.tools.map(tool => `
-                  <span class="bg-slate-900 border border-slate-700 text-slate-300 px-3 py-1 rounded-lg font-medium">${tool}</span>
+                  <span class="bg-neutral-900 border border-neutral-700 text-neutral-300 px-3 py-1 rounded-lg font-medium">${tool}</span>
                 `).join('')}
               </div>
             </div>
           </div>
 
-          <div class="lg:col-span-4 bg-slate-900/90 rounded-xl p-6 border border-slate-700/80 space-y-5">
+          <div class="lg:col-span-4 bg-neutral-900/90 rounded-xl p-6 border border-neutral-700/80 space-y-5">
             <div>
               <span class="text-xs uppercase font-bold tracking-wider text-emerald-400 block mb-1">Entregable de Portafolio:</span>
-              <p class="text-xs text-slate-300 leading-relaxed font-medium">
+              <p class="text-xs text-neutral-300 leading-relaxed font-medium">
                 ${data.deliverable}
               </p>
             </div>
 
-            <div class="pt-4 border-t border-slate-800">
-              <span class="text-xs text-slate-400 uppercase tracking-wider font-semibold block mb-2">Testimonio de Graduado:</span>
-              <p class="text-xs text-slate-300 italic leading-relaxed mb-3">
+            <div class="pt-4 border-t border-neutral-800">
+              <span class="text-xs text-neutral-400 uppercase tracking-wider font-semibold block mb-2">Testimonio de Graduado:</span>
+              <p class="text-xs text-neutral-300 italic leading-relaxed mb-3">
                 ${data.quote}
               </p>
-              <div class="text-[11px] text-orange-400 font-semibold">
+              <div class="text-[11px] text-brand-400 font-semibold">
                 ${data.author}
               </div>
             </div>
 
-            <button onclick="openModal('Itinerario: ${data.badge}')" class="w-full bg-orange-600 hover:bg-orange-500 text-white font-bold py-2.5 rounded-lg text-xs uppercase tracking-wider transition shadow">
+            <button onclick="openModal('Itinerario: ${data.badge}')" class="w-full bg-brand-600 hover:bg-brand-500 text-neutral-950 font-bold py-2.5 rounded-lg text-xs uppercase tracking-wider transition shadow">
               Solicitar Plan de Estudios
             </button>
           </div>
@@ -1572,11 +1601,11 @@
       if (body.classList.contains('hidden')) {
         body.classList.remove('hidden');
         icon.innerText = '▲';
-        icon.classList.add('text-orange-400');
+        icon.classList.add('text-brand-400');
       } else {
         body.classList.add('hidden');
         icon.innerText = '▼';
-        icon.classList.remove('text-orange-400');
+        icon.classList.remove('text-brand-400');
       }
     }
 
@@ -1587,11 +1616,11 @@
         if (expand) {
           body.classList.remove('hidden');
           icon.innerText = '▲';
-          icon.classList.add('text-orange-400');
+          icon.classList.add('text-brand-400');
         } else {
           body.classList.add('hidden');
           icon.innerText = '▼';
-          icon.classList.remove('text-orange-400');
+          icon.classList.remove('text-brand-400');
         }
       }
     }
@@ -1603,10 +1632,10 @@
         const btn = document.getElementById('sim-tab-' + t);
         const panel = document.getElementById('sim-panel-' + t);
         if (t === tabKey) {
-          btn.className = 'sim-tab flex-1 min-w-[200px] py-4 px-6 text-sm font-bold text-orange-400 border-b-2 border-orange-500 bg-slate-900/70 flex items-center justify-center gap-2 transition';
+          btn.className = 'sim-tab flex-1 min-w-[200px] py-4 px-6 text-sm font-bold text-brand-400 border-b-2 border-brand-500 bg-neutral-900/70 flex items-center justify-center gap-2 transition';
           panel.classList.remove('hidden');
         } else {
-          btn.className = 'sim-tab flex-1 min-w-[200px] py-4 px-6 text-sm font-bold text-slate-400 hover:text-white border-b-2 border-transparent hover:bg-slate-900/40 flex items-center justify-center gap-2 transition';
+          btn.className = 'sim-tab flex-1 min-w-[200px] py-4 px-6 text-sm font-bold text-neutral-400 hover:text-white border-b-2 border-transparent hover:bg-neutral-900/40 flex items-center justify-center gap-2 transition';
           panel.classList.add('hidden');
         }
       });
