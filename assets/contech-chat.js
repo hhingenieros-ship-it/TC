@@ -13,7 +13,7 @@
       const root = this.attachShadow({ mode: 'open' });
       root.innerHTML = `
         <style>
-          :host { position: fixed; z-index: 45; right: max(14px, env(safe-area-inset-right)); bottom: max(14px, env(safe-area-inset-bottom)); color: #f5f5f5; font: 400 .9rem/1.5 Inter, system-ui, sans-serif; }
+          :host { position: fixed; z-index: 45; left: max(14px, env(safe-area-inset-left)); bottom: max(14px, env(safe-area-inset-bottom)); color: #f5f5f5; font: 400 .9rem/1.5 Inter, system-ui, sans-serif; }
           * { box-sizing: border-box; }
           [hidden] { display: none !important; }
           button, input { font: inherit; }
@@ -21,7 +21,7 @@
           button:disabled { cursor: wait; opacity: .65; }
           :is(button, input, a):focus-visible { outline: 2px solid #ffcd00; outline-offset: 3px; }
           .accent { background: #ffcd00; color: #111; border: 0; font-weight: 750; }
-          .launcher { display: flex; align-items: center; gap: 9px; margin-left: auto; border-radius: 999px; padding: 12px 17px; box-shadow: 0 5px 28px #0009; }
+          .launcher { display: flex; align-items: center; gap: 9px; border-radius: 999px; padding: 12px 17px; box-shadow: 0 5px 28px #0009; }
           .launcher svg { width: 21px; height: 21px; }
           .panel { width: min(395px, calc(100vw - 28px)); height: min(590px, calc(100dvh - 36px)); display: grid; grid-template-rows: auto minmax(0, 1fr) auto; background: #171717; border: 1px solid #555; border-radius: 18px; box-shadow: 0 12px 40px #000a; overflow: hidden; }
           header { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 14px; border-bottom: 1px solid #404040; }
@@ -43,8 +43,8 @@
           .note { margin: 5px 0 0; }
           .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
           @media (max-width: 480px) {
-            :host { right: max(9px, env(safe-area-inset-right)); bottom: max(9px, env(safe-area-inset-bottom)); }
-            .panel { width: min(395px, calc(100vw - 18px)); height: min(590px, calc(100dvh - 20px)); }
+            :host { left: max(9px, env(safe-area-inset-left)); bottom: max(9px, env(safe-area-inset-bottom)); }
+            .panel { width: min(395px, calc(100vw - 18px)); height: min(590px, calc(100dvh - 70px)); }
           }
         </style>
         <button type="button" class="accent launcher" aria-expanded="false" aria-controls="contech-panel">
